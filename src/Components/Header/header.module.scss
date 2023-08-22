@@ -1,0 +1,44 @@
+@import "../../variable.module.scss";
+
+.headerContainer {
+  height: 104px;
+  background-color: $primaryBackgroundColor;
+  color: $primaryTextColor;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $primaryTextColor;
+  .logo {
+    font-family: "Inter";
+    margin-left: 80px;
+    text-align: center;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 32px; /* 100% */
+    letter-spacing: 0.64px;
+  }
+  .pageLinks {
+    font-family: Poppins;
+    list-style: none;
+    display: flex;
+    .pageLinkItem {
+      margin-right: 40px;
+      cursor: pointer;
+      text-align: center;
+      font-family: Poppins;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 16px; /* 100% */
+      letter-spacing: 0.64px;
+      :last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  .loginBtn {
+    margin-right: 34px;
+  }
+}

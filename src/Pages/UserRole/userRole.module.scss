@@ -1,0 +1,57 @@
+@import "../../variable.module.scss";
+
+.userRoleContainer {
+  padding: 60px 80px;
+  .PageHeading {
+    width: 626px;
+    color: $blackColor;
+    font-family: Playfair Display;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 44px; /* 137.5% */
+    letter-spacing: 0.64px;
+  }
+  .roleContainer {
+    display: flex;
+    flex-direction: column;
+    .container {
+      display: flex;
+      margin-top: 40px;
+      justify-content: space-between;
+      .roleItem {
+        margin-right: 80px;
+        padding: 32px;
+        cursor: pointer;
+        width: 560px;
+        height: 240px;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 10px;
+        background: #eee;
+        &:last-child {
+          margin-right: 0;
+        }
+        &:hover {
+          border-radius: 10px;
+          border: 5px solid $primaryBackgroundColor;
+          background: rgba(31, 128, 163, 0.2);
+        }
+        .roleLabel {
+          max-width: 252px;
+          color: $blackColor;
+          text-align: center;
+          font-family: Poppins;
+          font-size: 30px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 38px; /* 126.667% */
+          letter-spacing: 0.6px;
+          margin-right: 40px;
+        }
+      }
+    }
+  }
+}

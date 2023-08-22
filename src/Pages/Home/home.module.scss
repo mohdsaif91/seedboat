@@ -1,0 +1,349 @@
+@import "../../variable.module.scss";
+
+.homeContainer {
+  font-family: Poppins;
+  color: $primaryTextColor;
+  .heroParentContainer {
+    height: 700px;
+    .heroContainer {
+      filter: brightness(0.5);
+      width: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-image: url("../../Images/homeHero.png");
+      height: 824px;
+    }
+    .heroImageSecondary {
+      position: relative;
+      background-image: url("../../Images/homeHero2.png");
+    }
+    .btnTextContainer {
+      position: relative;
+      margin-left: 80px;
+      bottom: 256px;
+      .heroText {
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 50px; /* 100% */
+        letter-spacing: 1px;
+        margin-bottom: 56px;
+      }
+      .heroBtnContainer {
+        .btn1 {
+          border: none;
+          margin-right: 16px;
+        }
+        .btn2 {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+  .containerOne {
+    display: flex;
+    align-items: center;
+    .textContainer {
+      margin-left: 80px;
+      padding-top: 128px;
+      width: 41%;
+      .textHeading {
+        color: $blackColor;
+        font-family: Playfair Display;
+        font-size: 54px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 54px; /* 100% */
+        letter-spacing: 1.08px;
+      }
+      .textSubheading {
+        margin-top: 24px;
+        color: $lightGreyColor;
+        font-family: Poppins;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px; /* 187.5% */
+        letter-spacing: 0.32px;
+      }
+    }
+    .servicesContainer {
+      width: 59%;
+      margin-left: 22%;
+      height: 988px;
+      margin-bottom: 88px;
+      .serviceImageContainer {
+        position: relative;
+        height: 1110px;
+        z-index: -1;
+        .serviceBackgroundImage {
+          z-index: -1;
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+      .parentServiceCardContainer {
+        position: relative;
+        top: -872px;
+        .serviceCardContainer {
+          display: flex;
+          .primaryServiceCards {
+            display: flex;
+            flex-direction: column;
+            margin-right: 40px;
+          }
+          .secondaryServiceCards {
+            margin-top: 128px;
+            display: flex;
+            flex-direction: column;
+          }
+        }
+      }
+    }
+  }
+  .containerTwo {
+    padding: 120px 80px 80px 80px;
+    background-color: $secondaryBackgroundColor;
+    .cardContainer {
+      display: flex;
+      justify-content: space-around;
+    }
+    .bottomBtn {
+      margin-top: 80px;
+    }
+  }
+  .containerThree {
+    padding: 80px 88px;
+    .containerThreeHeadingContainer {
+      .heaing {
+        color: $secondaryTextColor;
+        font-family: Playfair Display;
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 60px; /* 120% */
+        letter-spacing: 1px;
+      }
+      .dash {
+        width: 100px;
+        height: 3px;
+        background-color: $primaryBackgroundColor;
+        margin-top: 16px;
+      }
+      .subHeaingContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: last baseline;
+        .heading {
+          margin-top: 16px;
+          width: 651px;
+          color: $GreyColor;
+          font-family: Poppins;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 30px; /* 187.5% */
+          letter-spacing: 0.32px;
+        }
+      }
+    }
+    .mentorCards {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 60px;
+      color: $blackColor;
+    }
+  }
+  .containerFour {
+    background-color: $secondaryBackgroundColor;
+    padding-bottom: 88px;
+    .headingContainer {
+      padding: 88px 88px 0 88px;
+    }
+    .startUpCardContainer {
+      display: flex;
+      align-items: center;
+      margin: 88px 48px;
+      .startUpCards {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+  .containerFive {
+    padding: 88px;
+    .serviceCardConatiner {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      .serviceOfferCard {
+        margin-top: 64px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .serviceAction {
+        display: flex;
+        align-items: last baseline;
+        flex-direction: column;
+      }
+      .bottomBtnService {
+        margin-left: 48px;
+      }
+    }
+  }
+  .containerSix {
+    padding: 64px 80px;
+    background-color: $secondaryBackgroundColor;
+    .choosePlatformContainer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+  }
+  .containerSeven {
+    padding: 40px 0;
+    display: flex;
+    justify-content: space-between;
+    .blueBox {
+      width: 32%;
+      height: 160px;
+      background-color: $primaryBackgroundColor;
+    }
+    .middleBox {
+      margin-left: 48px;
+      .heading {
+        color: $blackColor3;
+        font-family: Poppins;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 20px; /* 125% */
+        letter-spacing: 1.28px;
+        text-transform: uppercase;
+      }
+      .subHeading {
+        margin-top: 16px;
+        color: $blackColor3;
+        width: 400px;
+        font-family: Poppins;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 26px; /* 162.5% */
+        letter-spacing: 1.28px;
+      }
+      .subHeadingParagraph {
+        margin-top: 16px;
+        color: $lightGreyColor;
+        font-family: Poppins;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 23px; /* 164.286% */
+        letter-spacing: 0.28px;
+        width: 400px;
+      }
+      .keepReadingContainer {
+        display: flex;
+        align-items: center;
+        margin-top: 16px;
+        cursor: pointer;
+        .keepReadingText {
+          margin-right: 8px;
+          color: $blackColor;
+          font-family: Poppins;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 26px; /* 162.5% */
+          letter-spacing: 1.28px;
+        }
+      }
+    }
+    .lastBox {
+      color: $blackColor;
+      width: 400px;
+      margin-top: 40px;
+      .heading {
+        color: $blackColor3;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 20px; /* 111.111% */
+        letter-spacing: 1.08px;
+        text-transform: uppercase;
+      }
+      .lastBoxListContainer {
+        margin-top: 24px;
+        padding-left: 0;
+        list-style: none;
+
+        .lastBoxItem {
+          color: $blackColor3;
+          font-family: Poppins;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 26px; /* 162.5% */
+          letter-spacing: 1.28px;
+          .underline {
+            margin: 16px 0;
+            width: 301px;
+            height: 1px;
+            background: rgba(0, 0, 0, 0.2);
+          }
+        }
+      }
+    }
+  }
+}
+
+.serviceCard {
+  padding: 20px;
+  width: 260px;
+  height: 260px;
+  flex-shrink: 0;
+  color: $blackColor;
+  font-family: Poppins;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px; /* 133.333% */
+  letter-spacing: 0.48px;
+  border-radius: 10px;
+  border: 3px solid $borderColor;
+  margin-bottom: 40px;
+  cursor: pointer;
+  &:hover {
+    background-color: $borderColor;
+  }
+  .cardText {
+    margin-top: 128px;
+  }
+}
+
+.headingContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .heading {
+    color: $blackColor;
+    font-family: Playfair Display;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 40px; /* 100% */
+    letter-spacing: 0.8px;
+  }
+  .infoHeading {
+    width: 304px;
+  }
+}
+.infoHeadingUnderline {
+  width: 100px;
+  height: 3px;
+  background: $borderColor;
+  margin-top: 16px;
+}

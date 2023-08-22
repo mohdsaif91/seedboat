@@ -1,0 +1,78 @@
+@import "../../variable.module.scss";
+
+.footerContainer {
+  background: $footerColor;
+  padding: 80px 120px;
+  color: $primaryTextColor;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  .containerOne {
+    margin-right: 10%;
+    max-width: 20%;
+    .logoConatiner {
+      text-align: left;
+      color: $primaryTextColor;
+      font-family: Inter;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 32px; /* 100% */
+      letter-spacing: 0.64px;
+    }
+    .subHeadingFooter {
+      margin-top: 16px;
+      color: $greyColor5;
+      font-family: Poppins;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px; /* 150% */
+      letter-spacing: 0.32px;
+    }
+    .socialMediaContainer {
+      margin-top: 32px;
+      display: flex;
+      .socilaMediaItem {
+        cursor: pointer;
+        margin-right: 30px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  .containerTwo {
+    margin-right: 56px;
+    &:last-child {
+      margin-right: 0;
+    }
+    .containerText {
+      color: $primaryTextColor;
+      font-family: Poppins;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 18px; /* 100% */
+      letter-spacing: 0.72px;
+      cursor: pointer;
+    }
+    .footerUnderline {
+      margin: 16px 0;
+      width: 150px;
+      height: 1px;
+      background: $primaryTextColor;
+    }
+    .containerSubtext {
+      cursor: pointer;
+      color: $greyColor5;
+      max-width: 154px;
+      font-family: Poppins;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 30px; /* 187.5% */
+      letter-spacing: 0.32px;
+    }
+  }
+}

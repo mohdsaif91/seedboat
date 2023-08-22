@@ -1,0 +1,37 @@
+@import "../../variable.module.scss";
+
+.btnContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .arrowBtn {
+    padding: 8px;
+    cursor: pointer;
+    background-color: $primaryTextColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 24px;
+    .btnIcon {
+      height: 40px;
+    }
+  }
+}
+
+.verticalMargin {
+  margin-bottom: 16px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.withBorder {
+  border: 1px solid $blackColor;
+  border-radius: 50%;
+}
+.noBorder {
+  border: none;
+}
+.column {
+  flex-direction: column;
+}

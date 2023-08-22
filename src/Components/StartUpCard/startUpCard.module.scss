@@ -1,0 +1,55 @@
+@import "../../variable.module.scss";
+
+.startUpContainer {
+  color: $blackColor;
+  border-radius: 10px;
+  border: 1px solid $greyColor3;
+  padding: 24px 16px;
+  width: 280px;
+  height: 230px;
+  margin-right: 48px;
+  &:first-child {
+    margin-left: 48px;
+  }
+  &:last-child {
+    margin-right: 48px;
+  }
+  .nameContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    .name {
+      color: $blackColor;
+      font-family: Poppins;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 20px; /* 100% */
+      letter-spacing: 0.4px;
+    }
+  }
+  .investmentContainer {
+    margin-bottom: 16px;
+    .startUpLabel {
+      margin-top: 16px;
+      color: $greyColor4;
+      font-family: Poppins;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 14px; /* 87.5% */
+      letter-spacing: 0.32px;
+    }
+    .startUpValue {
+      margin-top: 4px;
+      color: $blackColor2;
+      font-family: Poppins;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 14px; /* 87.5% */
+      letter-spacing: 0.32px;
+    }
+  }
+}

@@ -1,0 +1,71 @@
+@import "../../variable.module.scss";
+
+.btn {
+  cursor: pointer;
+  font-family: Poppins;
+  display: inline-flex;
+  padding: 16px 28px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 40px;
+  border: 2px solid $primaryTextColor;
+  color: $primaryTextColor;
+  background-color: $primaryBackgroundColor;
+}
+
+.secondaryBtn {
+  border: 1px solid $primaryBackgroundColor;
+  color: $primaryBackgroundColor;
+  margin-right: 16px;
+  background-color: transparent;
+}
+
+.whiteBtn {
+  margin-top: 0 !important;
+  cursor: pointer;
+  font-size: 18px !important;
+  border: none;
+  background-color: $primaryTextColor;
+}
+
+.blackBtn {
+  cursor: pointer;
+  // margin-top: 0 !important;
+  padding: 24px 56px;
+  border: none;
+  color: $primaryTextColor !important;
+  background-color: $blackColor;
+  // width: 181px;
+  height: 60px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .btnIcon {
+    margin-left: 8px;
+  }
+}
+
+.whiteBtnRound {
+  cursor: pointer;
+  color: $primaryBackgroundColor;
+  font-size: 16px !important;
+  display: inline-flex;
+  padding: 20px 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  border-radius: 50px;
+  background: $primaryTextColor;
+  border: none;
+}
+
+.btnRect {
+  font-size: 16px !important;
+  border-radius: 10px;
+  border: 1px solid $primaryTextColor;
+  padding: 16px 24px;
+  cursor: pointer;
+  // opacity: 0.5;
+}

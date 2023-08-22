@@ -1,0 +1,111 @@
+@import "../../../../variable.module.scss";
+
+.personalInformationContainer {
+  .personalInfoCard {
+    padding: 40px;
+    border-radius: 20px;
+    border: 2px solid $borderColor2;
+    margin-bottom: 48px;
+    .personalInfoCardHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .personalInfoLabelContainer {
+        .underLine {
+          margin-top: 16px;
+          background-color: $primaryBackgroundColor;
+          width: 75%;
+          height: 4px;
+        }
+      }
+    }
+    .infoContainer {
+      display: flex;
+      .investmentTypeContainer {
+        display: flex;
+        margin-top: 16px;
+      }
+
+      //   margin-top: 32px;
+      //
+    }
+    .toggleContainer {
+      margin-top: 24px;
+      width: 50%;
+      .notificationContainerItem {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+      }
+    }
+  }
+  .saveAndExitbtn {
+    font-size: 20px;
+  }
+  .bottomHeading {
+    font-size: 32px !important;
+  }
+  .contactUsForm {
+    margin-top: 80px;
+    .contactUsFormHeading {
+      font-family: Playfair Display;
+      font-size: 32px;
+      font-weight: 500 !important;
+    }
+    .formContainer {
+      margin-top: 20px;
+      .formItemContainer {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        .formInputItem {
+          border: none;
+          width: 45%;
+          height: 60px;
+          margin-top: 32px;
+          border-radius: 10px;
+          background: $primaryTextColor;
+          box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
+          color: $greyColor9;
+          font-family: Poppins;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px; /* 100% */
+          letter-spacing: 0.4px;
+          padding-left: 32px;
+          &:focus {
+            outline: none;
+          }
+        }
+        .paddingTop {
+          padding-top: 32px;
+        }
+      }
+      .submitBtn {
+        margin-top: 32px;
+      }
+    }
+  }
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $greyColor9;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: $greyColor9;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: $greyColor9;
+}
+
+.personalInfoLabel {
+  font-size: 24px !important;
+}

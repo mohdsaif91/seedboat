@@ -1,0 +1,26 @@
+@import "../../variable.module.scss";
+
+.choosePlatformContainer {
+  color: $blackColor;
+  .platformHeading {
+    color: $blackColor;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 44px; /* 146.667% */
+    letter-spacing: 0.6px;
+    margin-top: 32px;
+  }
+  .platformSubHeading {
+    margin-top: 16px;
+    color: $lightGreyColor;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 23px; /* 164.286% */
+    letter-spacing: 0.28px;
+    width: 400px;
+  }
+}

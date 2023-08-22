@@ -1,0 +1,35 @@
+@import "../../variable.module.scss";
+
+.serviceCardContainer {
+  padding: 32px;
+  color: $blackColor;
+  border-radius: 20px;
+  border: 1px solid $blackColor;
+  width: 380px;
+  height: 352px;
+  margin-right: 32px;
+  &:last-child {
+    margin-right: 0;
+  }
+  .text {
+    max-width: 194px;
+    color: $blackColor;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px; /* 150% */
+    letter-spacing: 0.8px;
+    margin-top: 16px;
+  }
+  .subText {
+    margin-top: 16px;
+    color: #929292;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 175% */
+    letter-spacing: 0.64px;
+  }
+}

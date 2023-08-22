@@ -1,0 +1,132 @@
+@import "../../variable.module.scss";
+
+.strtupContainer {
+  padding: 88px;
+  .investorTypeContainer {
+    .investorType {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .investorPatrentCard {
+        display: flex;
+        align-items: center;
+        .investorCard {
+          cursor: pointer;
+          width: 333px;
+          height: 337px;
+          border-radius: 10px;
+          background: #eee;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-right: 32px;
+          &:last-child {
+            margin-right: 0;
+          }
+          .investorSubHeading {
+            margin-top: 16px;
+          }
+          &:hover {
+            border: 5px solid $primaryBackgroundColor;
+            background: rgba(31, 128, 163, 0.2);
+          }
+        }
+        .cardSelected {
+          border: 5px solid $primaryBackgroundColor;
+          background: rgba(31, 128, 163, 0.2);
+        }
+      }
+    }
+    .btnContainer {
+      margin-top: 64px;
+    }
+    .investorHeading {
+      margin-top: 40px;
+    }
+
+    .formContainer {
+      margin-top: 40px;
+      .firstNameInput {
+        margin-right: 24px;
+      }
+    }
+    .investmentDetials {
+      margin-top: 40px;
+      .investMentContainer {
+        width: 660px;
+        margin-bottom: 32px;
+        border-radius: 8px;
+        background: $inputBackground;
+        padding: 32px 24px;
+        .breakFlex {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 16px;
+        }
+        .investmentLabel {
+          font-size: 24px !important;
+          width: 100%;
+        }
+        .locationContainer {
+          .locationSubLabel {
+            display: block;
+            width: 100%;
+            margin-top: 24px !important;
+            font-size: 16px !important;
+          }
+        }
+
+        .rangeSliderContainer {
+          margin-top: 32px;
+          width: 560px;
+          .rangeInput {
+            width: 100%;
+            accent-color: $blackColor;
+          }
+          .rangeContainer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 12px;
+            .rangeLabel {
+            }
+          }
+        }
+        .investmentEperinceContainer {
+          margin-top: 24px;
+          display: flex;
+          .investmentTag {
+            font-size: 16px !important;
+            margin-right: 16px;
+            border-radius: 50px;
+            border: 2px solid $blackColor;
+            padding: 16px 24px;
+            cursor: pointer;
+          }
+          .selectTag {
+            background: $blackColor !important;
+            color: $primaryTextColor !important;
+          }
+        }
+      }
+      .notificationContainer {
+        .notificationContainerItem {
+          margin-top: 32px;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .notificationLabel {
+            width: 100%;
+            font-size: 16px !important;
+            font-weight: 400 !important;
+          }
+        }
+      }
+    }
+  }
+}
+.genderDropdown {
+  margin-right: 13%;
+}

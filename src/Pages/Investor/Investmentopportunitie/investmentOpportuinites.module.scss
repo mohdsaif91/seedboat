@@ -1,0 +1,151 @@
+@import "../../../variable.module.scss";
+
+.investmentOppContainer {
+  padding: 80px 80px 0 80px;
+  .investmentheader {
+    margin-top: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .inputContainer {
+      display: flex;
+      align-items: center;
+      .headerSearch {
+        border: none;
+        color: $searchInputColor;
+        font-family: Poppins;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px; /* 100% */
+        letter-spacing: 0.4px;
+        margin-left: 8px;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    .headerSecondaryContainer {
+      display: flex;
+      align-items: center;
+      .linkContainer {
+        padding-left: 0;
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .linkActive {
+          color: $blackColor !important;
+          font-weight: 600;
+        }
+      }
+      .verticalDevider {
+        margin-right: 32px;
+      }
+      .filterContainer {
+        .filterDropDown {
+          border: none;
+          margin-right: 0 !important;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+  .linkDropDownParentContainer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 108px;
+    background-color: $secondaryLinkContainerColor;
+    .linkDropDownContainer {
+      padding: 24px;
+      width: 50%;
+      flex-shrink: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      .secondaryLinkItem {
+        cursor: pointer;
+        margin-right: 64px;
+      }
+    }
+  }
+  .topPickContainer {
+    margin-top: 64px;
+    .topPickContainerHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .topPickCards {
+      margin-top: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  .becomeInvestorContainer {
+    margin-top: 64px;
+    margin-left: -80px;
+    margin-right: -80px;
+    padding: 64px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $primaryBackgroundColor;
+    .becomeHeadingContainer {
+      width: 35%;
+      .becomePageHeading {
+        color: $primaryTextColor !important;
+      }
+      .subHeadingBecome {
+        margin-top: 16px;
+        color: $subheadingColor2;
+      }
+    }
+  }
+}
+
+.breakFlex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.linkItem {
+  cursor: pointer;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 100% */
+  letter-spacing: 0.4px;
+  color: $searchInputColor;
+  .linkLabel {
+    margin-right: 8px;
+    cursor: pointer;
+  }
+}
+.linkMargin {
+  margin-right: 48px;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $searchInputColor;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: $searchInputColor;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: $searchInputColor;
+}

@@ -1,0 +1,36 @@
+@import "../../../variable.module.scss";
+
+.acknowledgementContainer {
+  margin-top: 144px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .pageHeading {
+    width: 834px;
+    color: $blackColor;
+    text-align: center;
+    font-family: Playfair Display;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 44px; /* 137.5% */
+    letter-spacing: 0.64px;
+  }
+  .pageSubHeading {
+    margin-top: 24px;
+    width: 1033px;
+    color: $greyColor6;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px; /* 162.5% */
+    letter-spacing: 0.64px;
+  }
+  .ackBtn {
+    display: block;
+    margin-top: 24px;
+  }
+}

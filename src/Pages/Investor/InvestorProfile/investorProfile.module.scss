@@ -1,0 +1,78 @@
+@import "../../../variable.module.scss";
+
+.profileContainer {
+  .profileDetialsContainer {
+    .backgroundImage {
+      width: 100%;
+    }
+    .backgroundImageSecondary {
+      width: 100%;
+      margin-top: -8px;
+      height: 275px;
+      background-color: $primaryBackgroundColor;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .profileImageAndNameContainer {
+        margin-left: 88px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        bottom: 72px;
+        .profileImageContainer {
+          .editProfileParent {
+            cursor: pointer;
+            border-radius: 50%;
+            position: relative;
+            bottom: 40px;
+            left: 160px;
+            height: 40px;
+            width: 48px;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $primaryTextColor;
+          }
+        }
+        .profileTextContainer {
+          margin-left: 40px;
+          .profileHeading {
+            font-size: 34px !important;
+            color: $primaryTextColor !important;
+          }
+          .profileSubHeading {
+            margin-top: 24px;
+            color: rgba(255, 255, 255, 0.6);
+            font-family: Poppins;
+            font-size: 22px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 22px; /* 100% */
+          }
+        }
+      }
+      .editProfileBtn {
+        margin: 40px;
+        margin-right: 88px;
+      }
+    }
+  }
+  .profilePageContainer {
+    padding: 64px 80px;
+    .btnContainer {
+      display: flex;
+      .tabButtons {
+        border: 1px solid $blackColor;
+      }
+      .tabActive {
+        border: none;
+        color: $primaryTextColor;
+        background: $primaryBackgroundColor !important;
+      }
+    }
+    .tabContainer {
+      margin-top: 80px;
+    }
+  }
+}

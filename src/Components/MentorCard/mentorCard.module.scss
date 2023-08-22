@@ -1,0 +1,108 @@
+@import "../../variable.module.scss";
+
+.cardContainer {
+  border-radius: 10px;
+  border: 1px solid $greyColor3;
+
+  .cardImageContainer {
+    padding: 8px;
+    .tag {
+      position: relative;
+      text-align: center;
+      left: 12px;
+      width: fit-content;
+      padding: 4px;
+      top: 240px;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #71d5bd;
+      font-family: Poppins;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 14px; /* 100% */
+      letter-spacing: 0.28px;
+      max-width: 105px;
+    }
+  }
+  .nameContainer {
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+    .name {
+      color: $secondaryTextColor;
+      font-family: Poppins;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 20px; /* 100% */
+      letter-spacing: 0.4px;
+    }
+  }
+  .workContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
+    padding: 0 16px;
+    .designation {
+      margin-left: 16px;
+      color: $secondaryTextColor;
+      font-family: Poppins;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 14px; /* 100% */
+      letter-spacing: 0.28px;
+    }
+  }
+  .reviewContainer {
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
+    .review {
+      margin-left: 16px;
+      color: $secondaryTextColor;
+      font-family: Poppins;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 14px; /* 100% */
+      letter-spacing: 0.28px;
+    }
+  }
+  .languageContainer {
+    padding: 0 16px 40px 16px;
+    display: flex;
+    align-items: flex-start;
+    margin-top: 24px;
+    flex-direction: column;
+    .languageLabelIconContainer {
+      display: flex;
+      align-items: center;
+      .languageIcon {
+        margin-right: 16px;
+      }
+      .languageLabel {
+        color: $tertiaryTextColor;
+        font-family: Poppins;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 14px; /* 87.5% */
+        letter-spacing: 0.32px;
+      }
+    }
+    .language {
+      color: $quaternaryTextColor;
+      font-family: Poppins;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 14px; /* 100% */
+      letter-spacing: 0.28px;
+    }
+  }
+}

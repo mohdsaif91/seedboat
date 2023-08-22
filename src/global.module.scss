@@ -1,0 +1,125 @@
+@import "./variable.module.scss";
+
+* {
+  margin: 0;
+}
+
+.primaryContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.pageHeading {
+  color: $blackColor;
+  font-family: Playfair Display;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 60px; /* 150% */
+  letter-spacing: 1.6px;
+}
+
+.headingPoppins {
+  color: $blackColor;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 100% */
+  letter-spacing: 0.8px;
+}
+
+.subHeadingPoppins {
+  color: $subHeadingTextColor;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 100% */
+  letter-spacing: 0.56px;
+}
+
+.btnContainerSpaceBtw {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.notAllowed {
+  cursor: not-allowed;
+}
+.ItemContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.break {
+  width: 100%;
+  flex-basis: 100%;
+  height: 0;
+}
+.fullWidth {
+  width: 100% !important;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $blackColor;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: $blackColor;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: $blackColor;
+}
+
+.disNone {
+  display: none !important;
+}
+
+.disBlock {
+  display: flex;
+}
+.horizontalDevider {
+  margin: 16px 0;
+  width: 400px;
+  height: 1px;
+  opacity: 0.2;
+  background: #000;
+}
+
+.investmentTag {
+  font-size: 16px !important;
+  margin-right: 16px;
+  border-radius: 50px;
+  border: 2px solid $blackColor;
+  padding: 16px 24px;
+  cursor: pointer;
+}
+.selectTag {
+  background: $blackColor !important;
+  color: $primaryTextColor !important;
+}
+.dFlexCol {
+  flex-direction: column;
+}
+
+.topPickContainer {
+  margin-top: 64px;
+  .topPickContainerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topPickCards {
+    margin-top: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

@@ -1,0 +1,15 @@
+@import "../../../variable.module.scss";
+
+.radioBtnContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: $inputBackground;
+  width: 184px;
+  height: 70px;
+  .radioLabel {
+    font-size: 22px;
+    margin-left: 16px;
+  }
+}

@@ -1,0 +1,32 @@
+@import "../../variable.module.scss";
+
+.stepContainer {
+  display: flex;
+  margin-top: 24px;
+  align-items: center;
+  .step {
+    .stepLabel {
+      color: $blackColor4;
+      font-family: Poppins;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 18px; /* 100% */
+      letter-spacing: 0.72px;
+    }
+    .stepItem {
+      width: 80px;
+      height: 4px;
+      margin-right: 8px;
+      background: $stepDashColor;
+      margin-top: 35px;
+    }
+    .active {
+      background-color: $primaryBackgroundColor !important;
+      margin-top: 16px !important;
+    }
+    .underLine {
+      background-color: $primaryBackgroundColor !important;
+    }
+  }
+}
