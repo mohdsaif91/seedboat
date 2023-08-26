@@ -1,0 +1,17 @@
+@import "../../../variable.module.scss";
+
+.radioBtnContainer {
+  display: flex;
+  margin-top: 16px;
+  //   flex-wrap: wrap;
+  //   gap: 16px;
+  .basicRadioBtn {
+    font-size: 16px !important;
+    width: 50%;
+    padding-left: 24px;
+    margin-right: 16px;
+    &:last-child {
+      width: 44%;
+    }
+  }
+}

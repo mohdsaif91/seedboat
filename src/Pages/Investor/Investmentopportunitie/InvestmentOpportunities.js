@@ -142,7 +142,7 @@ function InvestmentOpportunities() {
           >
             Top Picks for you
           </label>
-          <SlideBtn className={style.bottomBtnService} border={true} />
+          <SlideBtn className={style.bottomBtnService} />
         </div>
         <div className={style.topPickCards}>
           {exploreCard.topPick.map((m) => (
@@ -157,7 +157,7 @@ function InvestmentOpportunities() {
           >
             Trending Now
           </label>
-          <SlideBtn className={style.bottomBtnService} border={true} />
+          <SlideBtn className={style.bottomBtnService} />
         </div>
         <div className={style.topPickCards}>
           {exploreCard.treandingNow.map((m) => (
@@ -172,7 +172,7 @@ function InvestmentOpportunities() {
           >
             Top Picks for you
           </label>
-          <SlideBtn className={style.bottomBtnService} border={true} />
+          <SlideBtn className={style.bottomBtnService} />
         </div>
         <div className={style.topPickCards}>
           {exploreCard.recentlyFunded.map((m) => (

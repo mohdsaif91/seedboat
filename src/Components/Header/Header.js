@@ -8,7 +8,9 @@ function Header() {
   const navigate = useNavigate();
   return (
     <div className={style.headerContainer}>
-      <div className={style.logo}>Logo</div>
+      <div className={style.logo} onClick={() => navigate("/")}>
+        Logo
+      </div>
       <ul className={style.pageLinks}>
         <li className={style.pageLinkItem}>About</li>
         <li className={style.pageLinkItem}>invest with us</li>

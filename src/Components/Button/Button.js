@@ -3,9 +3,10 @@ import React from "react";
 import style from "./button.module.scss";
 import globalStyle from "../../global.module.scss";
 
-function Button({ className, text, onClick, type = "" }) {
+function Button({ className, disable, text, onClick, type = "" }) {
   return (
     <button
+      disabled={disable}
       className={`${style.btn} ${className} ${
         type === "secondary" && style.secondaryBtn
       }`}
@@ -75,6 +76,8 @@ export const BtnRect = ({
   text,
   border = false,
   borderColor = "#fff",
+  btnWithIcon = false,
+  btnIcon = "",
 }) => {
   return (
     <button
@@ -86,6 +89,7 @@ export const BtnRect = ({
       className={`${style.btnRect} ${globalStyle.headingPoppins} ${className}`}
       onClick={onClick}
     >
+      {btnWithIcon && <img src={btnIcon} className={style.btnIcon} alt="" />}
       {text}
     </button>
   );

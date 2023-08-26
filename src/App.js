@@ -21,6 +21,15 @@ const InvestmentExplore = React.lazy(() =>
 const InvestorProfile = React.lazy(() =>
   import("./Pages/Investor/InvestorProfile/InvestorProfile")
 );
+const StartUpOnboarding = React.lazy(() =>
+  import("./Pages/StartUp/StartUpOnboarding/StartUpOnboarding")
+);
+const StartUpDetialsPage = React.lazy(() =>
+  import("./Pages/StartUp/StartUpDetialsPage/StartUpDetialsPage")
+);
+const ProjectOverview = React.lazy(() =>
+  import("./Pages/StartUp/ProjectOverview/ProjectOverview")
+);
 
 function App() {
   return (
@@ -104,6 +113,30 @@ function App() {
           element={
             <Suspense>
               <InvestorProfile />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/startUpOnboarding"
+          element={
+            <Suspense>
+              <StartUpOnboarding />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/startUpDetialsPage"
+          element={
+            <Suspense>
+              <StartUpDetialsPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/projectOverview"
+          element={
+            <Suspense>
+              <ProjectOverview />
             </Suspense>
           }
         />

@@ -16,7 +16,6 @@ import treanding3 from "./Images/treanding3.png";
 import recently1 from "./Images/recently1.png";
 import recently2 from "./Images/recently2.png";
 import recently3 from "./Images/recently3.png";
-
 import img1 from "./Images/Rectangle193.png";
 import img2 from "./Images/Rectangle198.png";
 import img3 from "./Images/Rectangle199.png";
@@ -25,6 +24,12 @@ import brazil from "./Images/brazil.png";
 import england from "./Images/england.png";
 import usa from "./Images/usa.png";
 import india from "./Images/india.png";
+import Basic from "./Images/icon/basic.png";
+import Team from "./Images/icon/team.png";
+import Payment from "./Images/icon/payment.png";
+import Contact from "./Images/icon/contact.png";
+import Funduing from "./Images/icon/funding.png";
+import Plan from "./Images/icon/plan.png";
 
 export const mentorsData = [
   {
@@ -357,3 +362,32 @@ export const exploreCard = {
     },
   ],
 };
+
+export const onBoardingPageLinks = [
+  {
+    text: "Basics",
+    img: Basic,
+  },
+  {
+    text: "Team",
+    img: Team,
+  },
+  {
+    text: "Funding",
+    img: Funduing,
+  },
+  {
+    text: "Plan",
+    img: Plan,
+  },
+  {
+    text: "Contact",
+    img: Contact,
+  },
+  {
+    text: "Payment",
+    img: Payment,
+  },
+];
+
+export const projectType = ["Personal", "Professional", "Company", "Student"];

@@ -3,6 +3,7 @@ import React from "react";
 import founder from "../../Images/founder.png";
 import serviceProvider from "../../Images/serviceProvider.png";
 import startUp from "../../Images/startUp.png";
+import investor from "../../Images/investor.png";
 
 import style from "./userRole.module.scss";
 import { useNavigate } from "react-router-dom";
@@ -14,9 +15,9 @@ const roleData = [
     path: "/startUp",
   },
   {
-    img: startUp,
+    img: investor,
     label: "I am an Investor",
-    path: "/investor/0",
+    path: "/investor",
   },
 ];
 const roleData2 = [

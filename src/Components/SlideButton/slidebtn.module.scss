@@ -5,8 +5,8 @@
   align-items: center;
   justify-content: center;
   .arrowBtn {
-    padding: 8px;
     cursor: pointer;
+    border-radius: 50%;
     background-color: $primaryTextColor;
     display: flex;
     align-items: center;

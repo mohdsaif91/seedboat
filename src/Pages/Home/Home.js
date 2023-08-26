@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import Button from "../../Components/Button/Button";
 import rocket from "../../Images/icon/rocket.png";
@@ -24,6 +25,7 @@ import ChoosePlatformCard from "../../Components/ChoosePlatformCard/ChoosePlatfo
 import style from "./home.module.scss";
 
 function Home() {
+  const navigate = useNavigate();
   return (
     <div className={style.homeContainer}>
       <div className={style.heroParentContainer}>
@@ -71,11 +73,17 @@ function Home() {
           <div className={style.parentServiceCardContainer}>
             <div className={style.serviceCardContainer}>
               <div className={style.primaryServiceCards}>
-                <div className={style.serviceCard}>
+                <div
+                  className={style.serviceCard}
+                  onClick={() => navigate("/startUp")}
+                >
                   <img src={rocket} alt="" />
                   <div className={style.cardText}>Startup Funding</div>
                 </div>
-                <div className={style.serviceCard}>
+                <div
+                  className={style.serviceCard}
+                  onClick={() => navigate("/investor")}
+                >
                   <img src={investment} alt="" />
                   <div className={style.cardText}>Investment</div>
                 </div>

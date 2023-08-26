@@ -1,0 +1,114 @@
+@import "../../../variable.module.scss";
+
+.startupContainer {
+  .twoColumnContainer {
+    display: flex;
+    width: 100%;
+    .labelContainer {
+      width: 50%;
+      padding: 64px 96px 64px 80px;
+      .pageHeading {
+        font-family: Playfair Display;
+        font-size: 36px;
+        line-height: 50px; /* 138.889% */
+        letter-spacing: 0.72px;
+      }
+      .pageSubHeading {
+        max-width: 540px;
+        margin-top: 24px;
+        font-family: Playfair Display;
+        font-size: 24px;
+        line-height: 36px; /* 150% */
+        letter-spacing: 0.48px;
+      }
+      .stepContainer {
+        padding-left: 0;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        margin-top: 152px;
+        .stepItem {
+          font-size: 16px;
+          padding: 8px;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid $blackColor;
+        }
+        .listDash {
+          width: 96px;
+          height: 1px;
+          background-color: $blackColor;
+        }
+        .active {
+          background-color: $primaryBackgroundColor !important;
+          color: $primaryTextColor;
+        }
+        .complete {
+          background-color: $primaryBackgroundColor !important;
+          color: $primaryTextColor;
+        }
+      }
+    }
+    .formContainer {
+      padding: 64px 96px;
+      background-color: $primaryBackgroundColor;
+      width: 50%;
+      .step1 {
+        .dropdown {
+          width: 104%;
+        }
+      }
+      .step2 {
+        .stepTextArea {
+          width: 518px;
+          height: 250px;
+        }
+      }
+      .step3 {
+        .fundingContainer {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          margin-top: 16%;
+          .fundingHeading {
+            color: $primaryTextColor;
+            font-size: 24px;
+          }
+          .btnContainer {
+            margin-top: 32px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 40px;
+            .answerbtn {
+              width: 200px;
+              &:first-child {
+                margin-right: 16px;
+              }
+            }
+          }
+        }
+        .fundingAmountStep {
+        }
+      }
+      .nextBtn {
+        margin-top: 24px;
+        font-size: 16px;
+      }
+    }
+  }
+}
+.startUpInput {
+  border-radius: 50px;
+  width: 100% !important;
+  margin-bottom: 24px;
+  background-color: $primaryTextColor;
+}
+.addLeftMargin {
+  margin-left: 112px;
+}

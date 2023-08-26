@@ -1,7 +1,7 @@
 import React from "react";
 
-import leftArrow from "../../Images/icon/leftArrow.png";
-import rightIcon from "../../Images/icon/rightIcon.png";
+import leftArrow from "../../Images/icon/leftBtnIcon.png";
+import rightIcon from "../../Images/icon/rightBtnIcon.png";
 
 import style from "./slidebtn.module.scss";
 

@@ -240,7 +240,7 @@ function PersonalInformation() {
           >
             Top Picks for you
           </label>
-          <SlideBtn className={globalStyle.bottomBtnService} border={true} />
+          <SlideBtn className={globalStyle.bottomBtnService} />
         </div>
         <div className={globalStyle.topPickCards}>
           {exploreCard.recentlyFunded.map((m) => (
