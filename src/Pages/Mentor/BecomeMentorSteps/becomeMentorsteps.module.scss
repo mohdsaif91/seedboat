@@ -1,0 +1,134 @@
+@import "../../../variable.module.scss";
+
+.becomeMentorSteps {
+  display: flex;
+  justify-content: space-between;
+  .leftContainer {
+    width: 50%;
+    padding: 64px 80px;
+    .stepContainer {
+    }
+    .step {
+    }
+    .stepHeading {
+      font-size: 44px;
+      margin-top: 40px;
+      line-height: 54px; /* 122.727% */
+      letter-spacing: 1.76px;
+    }
+    .nextBtn {
+      cursor: pointer;
+      margin-top: 40px;
+      padding: 24px 40px;
+      border-radius: 600px;
+      border: 2px solid $blackColor;
+      background: $blackColor;
+      font-size: 16px;
+      color: $primaryTextColor;
+      .btnIcon {
+        margin-left: 24px;
+      }
+    }
+  }
+  .rightContainer {
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    .rightMainImage {
+      padding-bottom: 40px;
+      background-color: $primaryBackgroundColor;
+      margin-left: -2px;
+      display: flex;
+      align-items: flex-end;
+      padding-right: 48px;
+      .textContainer {
+        .mainText {
+          color: $primaryTextColor;
+          font-size: 24px;
+          line-height: 24px; /* 100% */
+          letter-spacing: 0.96px;
+        }
+        .subText {
+          width: 454px;
+          color: $primaryTextColor;
+          margin-top: 24px;
+          line-height: 24px;
+          letter-spacing: 0.64px;
+        }
+      }
+      .dashContainer {
+        display: flex;
+        align-items: center;
+        margin-top: 24px;
+        .dash {
+          width: 64px;
+          height: 2px;
+          background-color: $primaryTextColor;
+          filter: brightness(0.7);
+          margin-left: 16px;
+          margin-right: 16px;
+          &:first-child {
+            margin-left: 0;
+          }
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+        .active {
+          filter: brightness(1);
+        }
+      }
+    }
+  }
+}
+
+.formInputItem {
+  margin-top: 40px;
+}
+.formLabel {
+  font-size: 16px;
+}
+.stepInput {
+  margin-top: 16px;
+  color: $greyColor9;
+}
+
+.stepParentConatiner {
+  margin-top: 54px;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $greyColor9;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: $greyColor9;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: $greyColor9;
+}
+
+.positionContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  margin-top: 16px;
+  .positionTag {
+    cursor: pointer;
+    font-size: 16px;
+    padding: 16px 22px;
+    border-radius: 40px;
+    border: 1px solid $blackColor;
+  }
+  .tagActive {
+    color: $primaryTextColor;
+    background-color: $blackColor;
+    border: none;
+  }
+}

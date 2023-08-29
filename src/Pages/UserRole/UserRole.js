@@ -24,7 +24,7 @@ const roleData2 = [
   {
     img: founder,
     label: "I am an Co-founder, CTO, CFO, CMO, HR",
-    path: "/founder",
+    path: "/mentor",
   },
   {
     img: serviceProvider,

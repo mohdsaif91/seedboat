@@ -1,0 +1,23 @@
+@import "../../../variable.module.scss";
+
+.mentorContainer {
+  padding: 80px 80px 0 80px;
+  .tabContainer {
+    display: flex;
+    .tab {
+      cursor: pointer;
+      font-size: 34px;
+      line-height: 32px; /* 100% */
+      letter-spacing: 0.64px;
+      &:first-child {
+        margin-right: 48px;
+      }
+      .tabActive {
+        margin-top: 16px;
+        width: 60%;
+        height: 4px;
+        background-color: $primaryBackgroundColor;
+      }
+    }
+  }
+}

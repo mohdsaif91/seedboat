@@ -2,6 +2,7 @@ import React from "react";
 
 import leftArrow from "../../Images/icon/leftBtnIcon.png";
 import rightIcon from "../../Images/icon/rightBtnIcon.png";
+import whiteArrow from "../../Images/icon/whiteArrow.png";
 
 import style from "./slidebtn.module.scss";
 
@@ -34,7 +35,11 @@ function SlideBtn({
         onClick={rightClick}
         style={{ backgroundColor: btn2Color !== "" && btn2Color }}
       >
-        <img className={style.btnIcon} src={rightIcon} alt="" />
+        <img
+          className={style.btnIcon}
+          src={btn2Color === "" ? rightIcon : whiteArrow}
+          alt=""
+        />
       </button>
     </div>
   );

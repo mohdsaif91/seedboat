@@ -89,7 +89,10 @@ function Home() {
                 </div>
               </div>
               <div className={style.secondaryServiceCards}>
-                <div className={style.serviceCard}>
+                <div
+                  className={style.serviceCard}
+                  onClick={() => navigate("/mentor")}
+                >
                   <img src={mentorship} alt="" />
                   <div className={style.cardText}>Mentorship</div>
                 </div>

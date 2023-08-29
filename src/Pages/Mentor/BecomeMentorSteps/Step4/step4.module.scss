@@ -1,0 +1,16 @@
+@import "../../../../variable.module.scss";
+
+.storyInput {
+  font-size: 16px;
+}
+.languageInput {
+  font-size: 16px !important;
+}
+
+.radioContainer {
+  margin-top: 16px;
+  width: 100% !important;
+  background-color: $primaryTextColor;
+  justify-content: left !important;
+  padding-left: 24px;
+}

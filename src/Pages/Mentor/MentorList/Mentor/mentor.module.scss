@@ -1,0 +1,74 @@
+@import "../../../../variable.module.scss";
+
+.mentorListContainer {
+  margin-top: 64px;
+  .inputContainer {
+    flex: 1;
+    padding-bottom: 16px;
+    margin: 0 24px 0 16px;
+    border-bottom: 1px solid $inputBorderColor;
+    .searchInput {
+      width: 90%;
+    }
+  }
+  .mentorBtn {
+    padding: 16px 48px;
+    cursor: pointer;
+    display: flex;
+    color: $inputBorderColor;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid $inputBorderColor;
+    .searchFilterIcon {
+      margin-right: 8px;
+    }
+  }
+  .mentorsContainer {
+    margin-top: 64px;
+    .mentortpeFilterContainer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .mentorListItem {
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .active {
+        color: $blackColor;
+        line-height: 20px; /* 100% */
+        letter-spacing: 0.4px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid $blackColor;
+      }
+    }
+    .cardContainer {
+      margin-top: 40px;
+      width: 100% !important;
+      justify-content: space-between;
+      .mentorCardItem {
+        cursor: pointer;
+      }
+    }
+    .btnContainer {
+      margin-top: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .loadMorebtn {
+        cursor: pointer;
+        padding: 24px 40px;
+        border-radius: 10px;
+        background: $blackColor;
+        color: $primaryTextColor;
+        color: #fff;
+        font-family: Poppins;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 16px; /* 100% */
+        letter-spacing: 0.32px;
+      }
+    }
+  }
+}

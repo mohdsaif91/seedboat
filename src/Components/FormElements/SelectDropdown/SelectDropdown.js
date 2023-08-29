@@ -9,15 +9,19 @@ function SelectDropdown({
   optionData = [],
   onClick,
   className,
+  placeholder = "",
 }) {
   return (
     <select
+      placeholder={placeholder}
       className={`${style.selectDropdown} ${globalStyle.headingPoppins} ${className}`}
       defaultValue={value}
       name="cars"
       id="cars"
     >
-      <option value="">{firstValue}</option>
+      <option value="" defaultChecked>
+        {firstValue}
+      </option>
       {optionData.map((m) => (
         <>
           <option value={m} onClick={onClick}>

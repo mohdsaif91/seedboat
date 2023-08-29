@@ -72,22 +72,22 @@ function StartUp() {
   useEffect(() => {
     if (!stepperPage) {
       const sessionData = JSON.parse(sessionStorage.getItem("tabAndrole"));
-      setStepperPage(!sessionData ? { step: 0, role: null } : sessionData);
+      setStepperPage(!sessionData ? { step: 1, role: null } : sessionData);
     }
   }, [stepperPage]);
 
   const showTab = () => {
-    if (stepperPage.step === 0) {
-      setStepperPage({ ...stepperPage, step: 1, role: selected });
+    if (stepperPage.step === 1) {
+      setStepperPage({ ...stepperPage, step: 2, role: selected });
       sessionStorage.setItem(
         "tabAndrole",
         JSON.stringify({ step: 1, role: selected })
       );
-    } else if (stepperPage.step === 1) {
-      setStepperPage({ ...stepperPage, step: 2, role: selected });
+    } else if (stepperPage.step === 2) {
+      setStepperPage({ ...stepperPage, step: 3, role: selected });
       sessionStorage.setItem(
         "tabAndrole",
-        JSON.stringify({ step: 2, role: selected })
+        JSON.stringify({ step: 3, role: selected })
       );
     } else {
       sessionStorage.removeItem("tabAndrole");
@@ -107,10 +107,10 @@ function StartUp() {
         <VerticalDevider color="#d4d4d4" />
         <div className={globalStyle.secondaryContainer}>
           <div className={style.setpParentContainer}>
-            <Step page={stepperPage?.step} />
+            <Step page={stepperPage?.step} totalSteps={[1, 2, 3]} />
           </div>
           <div className={style.investorTypeContainer}>
-            {stepperPage?.step === 0 ? (
+            {stepperPage?.step === 1 ? (
               <React.Fragment>
                 <div
                   className={`${style.investorHeading} ${globalStyle.headingPoppins}`}
@@ -153,7 +153,7 @@ function StartUp() {
                   </div>
                 </div>
               </React.Fragment>
-            ) : stepperPage?.step === 1 ? (
+            ) : stepperPage?.step === 2 ? (
               <div className={style.formContainer}>
                 {/*  */}
                 {stepperPage?.role === 0 ? (

@@ -4,13 +4,14 @@ import { BtnRect } from "../../../Components/Button/Button";
 import profileBackground from "../../../Images/profileBackground.png";
 import profileImage from "../../../Images/profileImage.png";
 import editProfile from "../../../Images/editProfile.png";
-
-import style from "./investorProfile.module.scss";
-import globalStyle from "../../../global.module.scss";
 import PersonalInformation from "./PersonalInformation/PersonalInformation";
 import MyInvestment from "./MyInvestment/MyInvestment";
 import Saved from "./Saved/Saved";
 import Message from "./Message/Message";
+
+import style from "./investorProfile.module.scss";
+import globalStyle from "../../../global.module.scss";
+import commonStyle from "../../../common.module.scss";
 
 function InvestorProfile() {
   const [profileTab, setProfileTab] = useState("Personal Information");
@@ -62,14 +63,14 @@ function InvestorProfile() {
           />
         </div>
       </div>
-      <div className={style.profilePageContainer}>
-        <div className={style.btnContainer}>
+      <div className={commonStyle.profilePageContainer}>
+        <div className={commonStyle.btnContainer}>
           <div
             onClick={() => setProfileTab("Personal Information")}
             className={`${globalStyle.investmentTag} ${
               globalStyle.headingPoppins
-            } ${style.tabButtons} ${
-              profileTab === "Personal Information" && style.tabActive
+            } ${commonStyle.tabButtons} ${
+              profileTab === "Personal Information" && commonStyle.tabActive
             }`}
           >
             Personal Information
@@ -78,8 +79,8 @@ function InvestorProfile() {
             onClick={() => setProfileTab("My Investments")}
             className={`${globalStyle.investmentTag} ${
               globalStyle.headingPoppins
-            } ${style.tabButtons} ${
-              profileTab === "My Investments" && style.tabActive
+            } ${commonStyle.tabButtons} ${
+              profileTab === "My Investments" && commonStyle.tabActive
             }`}
           >
             My Investments
@@ -88,7 +89,9 @@ function InvestorProfile() {
             onClick={() => setProfileTab("Saved")}
             className={`${globalStyle.investmentTag} ${
               globalStyle.headingPoppins
-            } ${style.tabButtons} ${profileTab === "Saved" && style.tabActive}`}
+            } ${commonStyle.tabButtons} ${
+              profileTab === "Saved" && commonStyle.tabActive
+            }`}
           >
             Saved
           </div>
@@ -96,14 +99,14 @@ function InvestorProfile() {
             onClick={() => setProfileTab("Messages")}
             className={`${globalStyle.investmentTag} ${
               globalStyle.headingPoppins
-            } ${style.tabButtons} ${
-              profileTab === "Messages" && style.tabActive
+            } ${commonStyle.tabButtons} ${
+              profileTab === "Messages" && commonStyle.tabActive
             }`}
           >
             Messages
           </div>
         </div>
-        <div className={style.tabContainer}>{getTab()}</div>
+        <div className={commonStyle.tabContainer}>{getTab()}</div>
       </div>
     </div>
   );

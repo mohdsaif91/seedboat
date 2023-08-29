@@ -18,30 +18,47 @@ export const Input = ({
   symbol = "",
 }) => {
   return (
-    <div
-      className={`${style.inputContainer} ${fullWidth && style.fullWidth} ${
-        withSymbol && style.dFlexCenter
-      }`}
-    >
-      {withSymbol && (
+    <>
+      {withIcon || withSymbol ? (
         <div
-          className={`${style.symbolContainer} ${globalStyle.headingPoppins}`}
+          className={`${style.inputContainer} ${fullWidth && style.fullWidth} ${
+            withSymbol && style.dFlexCenter
+          }`}
         >
-          {symbol}
+          {withSymbol && (
+            <div
+              className={`${style.symbolContainer} ${globalStyle.headingPoppins}`}
+            >
+              {symbol}
+            </div>
+          )}
+          <input
+            type={type}
+            value={value}
+            placeholder={placeHolder}
+            name={name}
+            onChange={onChange}
+            className={`${style.input} ${className} ${
+              globalStyle.headingPoppins
+            } ${fullWidth && style.fullWidth} ${
+              withSymbol && style.leftPadding
+            }`}
+          />
+          {withIcon && <img className={style.inputImage} alt="" src={usa} />}
         </div>
+      ) : (
+        <input
+          type={type}
+          value={value}
+          placeholder={placeHolder}
+          name={name}
+          onChange={onChange}
+          className={`${style.input} ${className} ${
+            globalStyle.headingPoppins
+          } ${fullWidth && style.fullWidth} ${withSymbol && style.leftPadding}`}
+        />
       )}
-      <input
-        type={type}
-        value={value}
-        placeholder={placeHolder}
-        name={name}
-        onChange={onChange}
-        className={`${style.input} ${className} ${globalStyle.headingPoppins} ${
-          fullWidth && style.fullWidth
-        } ${withSymbol && style.leftPadding}`}
-      />
-      {withIcon && <img className={style.inputImage} alt="" src={usa} />}
-    </div>
+    </>
   );
 };
 

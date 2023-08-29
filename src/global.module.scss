@@ -62,22 +62,6 @@
   width: 100% !important;
 }
 
-::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: $blackColor;
-  opacity: 1; /* Firefox */
-}
-
-:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: $blackColor;
-}
-
-::-ms-input-placeholder {
-  /* Microsoft Edge */
-  color: $blackColor;
-}
-
 .disNone {
   display: none !important;
 }

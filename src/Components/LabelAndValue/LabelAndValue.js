@@ -3,14 +3,16 @@ import React from "react";
 import style from "./labelAndValue.module.scss";
 import globalStyle from "../../global.module.scss";
 
-function LabelAndValue({ change = false, label, value }) {
+function LabelAndValue({ change = false, label, value, valueClass = "" }) {
   return (
     <div className={style.container}>
       <div>
         <label className={`${style.label} ${globalStyle.subHeadingPoppins}`}>
           {label}
         </label>
-        <div className={`${style.value} ${globalStyle.headingPoppins}`}>
+        <div
+          className={`${style.value} ${globalStyle.headingPoppins} ${valueClass}`}
+        >
           {value}
         </div>
       </div>

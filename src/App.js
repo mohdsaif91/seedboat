@@ -6,7 +6,7 @@ import Footer from "./Components/Footer/Footer";
 const Home = React.lazy(() => import("./Pages/Home/Home"));
 const Login = React.lazy(() => import("./Pages/Login/Login"));
 const UserRole = React.lazy(() => import("./Pages/UserRole/UserRole"));
-const Founder = React.lazy(() => import("./Pages/Founder/Founder"));
+const Founder = React.lazy(() => import("./Pages/Mentor/Mentor"));
 const Investor = React.lazy(() => import("./Pages/Investor/Investor"));
 const ServiceProvider = React.lazy(() =>
   import("./Pages/ServiceProvider/ServiceProvider")
@@ -29,6 +29,21 @@ const StartUpDetialsPage = React.lazy(() =>
 );
 const ProjectOverview = React.lazy(() =>
   import("./Pages/StartUp/ProjectOverview/ProjectOverview")
+);
+const BecomeMentor = React.lazy(() =>
+  import("./Pages/Mentor/BecomeMentor/BecomeMentor")
+);
+const BecomeMentorSteps = React.lazy(() =>
+  import("./Pages/Mentor/BecomeMentorSteps/BecomeMentorSteps")
+);
+const MentorList = React.lazy(() =>
+  import("./Pages/Mentor/MentorList/MentorList")
+);
+const MentorDetails = React.lazy(() =>
+  import("./Pages/Mentor/MentorList/MentorDetails/MentorDetails")
+);
+const MentorProfile = React.lazy(() =>
+  import("./Pages/Mentor/MentorProfile/MentorProfile")
 );
 
 function App() {
@@ -77,7 +92,7 @@ function App() {
           }
         />
         <Route
-          path="/founder"
+          path="/mentor"
           element={
             <Suspense>
               <Founder />
@@ -137,6 +152,46 @@ function App() {
           element={
             <Suspense>
               <ProjectOverview />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/becomeMentor"
+          element={
+            <Suspense>
+              <BecomeMentor />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/becomeMentorSteps"
+          element={
+            <Suspense>
+              <BecomeMentorSteps />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/mentorList"
+          element={
+            <Suspense>
+              <MentorList />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/mentorDetails"
+          element={
+            <Suspense>
+              <MentorDetails />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/mentorProfile"
+          element={
+            <Suspense>
+              <MentorProfile />
             </Suspense>
           }
         />

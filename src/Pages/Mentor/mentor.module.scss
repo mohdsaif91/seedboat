@@ -1,0 +1,169 @@
+@import "../../variable.module.scss";
+
+.mentoContainer {
+  .mentorHeroContainer {
+    display: flex;
+    align-items: center;
+    .textContainer {
+      width: 50%;
+      padding: 0 80px;
+      .mainText {
+        width: 476px;
+        font-family: Playfair Display;
+        font-size: 30px;
+        line-height: 44px; /* 146.667% */
+      }
+      .subText {
+        margin-top: 16px;
+        width: 540px;
+        line-height: 26px;
+        letter-spacing: 0.32px;
+      }
+    }
+    .imageContainer {
+      width: 50%;
+      display: flex;
+      .primaryImageContainer {
+        z-index: -1;
+        margin-top: -10%;
+      }
+    }
+  }
+  .quoteContainer {
+    .firstImage {
+      width: 100%;
+    }
+    .qouteMainContainer {
+      margin-top: -6px;
+      padding-top: 24px;
+      background-color: $primaryBackgroundColor;
+      padding: 0 80px 128px 80px;
+      .mainText {
+        color: $primaryTextColor;
+        width: 480px;
+        font-family: Playfair Display;
+        font-size: 32px;
+        line-height: 44px;
+      }
+      .numberContainer {
+        margin-top: 104px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .numberImagehighLight {
+        }
+        .numberItemCard {
+          .numberItem {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 54px;
+            height: 54px;
+            background-color: $primaryTextColor;
+            color: $primaryBackgroundColor;
+            border-radius: 50%;
+            font-family: Poppins;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 32px;
+          }
+          .numberMainText {
+            margin-top: 40px;
+            color: $primaryTextColor;
+          }
+          .numberSubText {
+            margin-top: 16px;
+            color: rgba(255, 255, 255, 0.6);
+            font-family: Poppins;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 22px; /* 137.5% */
+            letter-spacing: 0.32px;
+            width: 328px;
+          }
+        }
+      }
+    }
+    .formContainer {
+      padding: 80px;
+      .mainText {
+        width: 613px;
+        font-family: Playfair Display;
+        font-size: 32px;
+        line-height: 44px;
+      }
+      .resourceCardContainer {
+        margin-top: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .resourceCard {
+          display: flex;
+          align-items: center;
+          padding: 24px 32px;
+          border-radius: 10px;
+          border: 2px solid $blackColor;
+          .cardLabel {
+            margin-left: 24px;
+            color: #000;
+            font-family: Inter;
+            font-size: 22px;
+            font-style: normal;
+            font-weight: 600;
+          }
+        }
+      }
+      .resourceForm {
+        margin-top: 40px;
+        .resourceInputContainer {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .resourSelect {
+            color: #878787;
+            width: 48% !important;
+          }
+        }
+      }
+      .submitBtn {
+        margin-top: 40px;
+        background-color: $blackColor;
+        font-size: 20px;
+        line-height: 20px; /* 100% */
+        letter-spacing: 0.8px;
+      }
+    }
+  }
+}
+.resourceInput {
+  margin-top: 24px;
+  width: 47% !important;
+}
+.resourceInputTextArea {
+  margin-top: 24px;
+  width: 97% !important;
+}
+
+.heroImage {
+  &:first-child {
+    margin-bottom: 16px;
+  }
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #878787;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #878787;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #878787;
+}

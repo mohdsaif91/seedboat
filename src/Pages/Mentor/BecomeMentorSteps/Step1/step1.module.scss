@@ -1,0 +1,33 @@
+@import "../../../../variable.module.scss";
+
+.profileUploadContainer {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  .profileInput {
+    display: none;
+  }
+  .mainTextConatiner {
+    margin-left: 24px;
+    .mainTextImage {
+      font-size: 16px;
+      line-height: 16px; /* 100% */
+      letter-spacing: 0.64px;
+    }
+    .subHeading {
+      margin-top: 8px;
+    }
+  }
+}
+
+.getLinkedUrlLink {
+  cursor: pointer;
+  margin-top: 16px;
+  color: $linkedInGrey;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 100% */
+  letter-spacing: 0.64px;
+}

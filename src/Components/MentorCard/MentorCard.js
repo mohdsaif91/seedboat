@@ -6,9 +6,9 @@ import language from "../../Images/language.png";
 
 import style from "./mentorCard.module.scss";
 
-function MentorCard({ data }) {
+function MentorCard({ data, onClick, className = "" }) {
   return (
-    <div className={style.cardContainer}>
+    <div className={`${style.cardContainer} ${className}`} onClick={onClick}>
       <div className={style.cardImageContainer}>
         <div className={style.tag}>{data.availability}</div>
         <img alt="" className={style.cardImg} src={data.img} />

@@ -13,6 +13,7 @@ import { WhiteRoundBtn } from "../../../Components/Button/Button";
 
 import style from "./investmentOpportuinites.module.scss";
 import globalStyle from "../../../global.module.scss";
+import commonStyle from "../../../common.module.scss";
 
 function InvestmentOpportunities() {
   const [selectedLink, setSelectedLink] = useState("");
@@ -27,28 +28,28 @@ function InvestmentOpportunities() {
   return (
     <div className={style.investmentOppContainer}>
       <div className={globalStyle.pageHeading}>Investment opportunities</div>
-      <div className={style.investmentheader}>
-        <div className={style.inputContainer}>
-          <img alte="" className={style.SearchIcon} src={SearchIcon} />
+      <div className={commonStyle.investmentheader}>
+        <div className={commonStyle.inputContainer}>
+          <img alte="" className={commonStyle.SearchIcon} src={SearchIcon} />
           <input
             placeholder="Start typing to search"
-            className={style.headerSearch}
+            className={commonStyle.headerSearch}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
-        <div className={style.headerSecondaryContainer}>
-          <ul className={style.linkContainer}>
+        <div className={commonStyle.headerSecondaryContainer}>
+          <ul className={commonStyle.linkContainer}>
             {investmentExploreNavData.map((m) => (
               <li
                 onClick={(e) =>
                   setSelectedLink(e.target.value === selectedLink ? "" : m.text)
                 }
-                className={`${style.linkItem} ${style.linkMargin} ${
-                  selectedLink === m.text && style.linkActive
+                className={`${commonStyle.linkItem} ${commonStyle.linkMargin} ${
+                  selectedLink === m.text && commonStyle.linkActive
                 }`}
               >
-                <label className={style.linkLabel}>{m.text}</label>
+                <label className={commonStyle.linkLabel}>{m.text}</label>
                 {m.text === selectedLink ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -93,11 +94,11 @@ function InvestmentOpportunities() {
               />
             </svg>
           </div>
-          <div className={style.filterContainer}>
-            <label className={`${style.linkItem}`}>
+          <div className={commonStyle.filterContainer}>
+            <label className={`${commonStyle.linkItem}`}>
               Sort by :
               <select
-                className={`${style.filterDropDown} ${style.linkItem}`}
+                className={`${commonStyle.filterDropDown} ${commonStyle.linkItem}`}
                 defaultValue={filter}
               >
                 {filterList.map((m, i) => (
@@ -115,18 +116,18 @@ function InvestmentOpportunities() {
         </div>
       </div>
       <div
-        className={`${style.linkDropDownParentContainer} ${
+        className={`${commonStyle.linkDropDownParentContainer} ${
           selectedLink === "" ? globalStyle.disNone : globalStyle.disblock
         }`}
       >
-        <div className={style.linkDropDownContainer}>
+        <div className={commonStyle.linkDropDownContainer}>
           {selectedLink !== "" &&
             getSecondaryLink().secondaryLink.map((m, i) => (
               <>
                 <a
                   key={i}
                   onClick={() => console.log(m)}
-                  className={`${style.secondaryLinkItem} ${globalStyle.subHeadingPoppins}`}
+                  className={`${commonStyle.secondaryLinkItem} ${globalStyle.subHeadingPoppins}`}
                 >
                   {m}
                 </a>

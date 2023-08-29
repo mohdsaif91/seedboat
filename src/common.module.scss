@@ -1,0 +1,148 @@
+@import "./variable.module.scss";
+
+.investmentheader {
+  margin-top: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.inputContainer {
+  display: flex;
+  align-items: center;
+  .headerSearch {
+    border: none;
+    color: $searchInputColor;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 100% */
+    letter-spacing: 0.4px;
+    margin-left: 8px;
+    &:focus {
+      outline: none;
+    }
+  }
+  .headerSecondaryContainer {
+    display: flex;
+    align-items: center;
+    .linkContainer {
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      .linkActive {
+        color: $blackColor !important;
+        font-weight: 600;
+      }
+    }
+    .verticalDevider {
+      margin-right: 32px;
+    }
+    .filterContainer {
+      margin-left: 32px;
+      .filterDropDown {
+        border: none;
+        margin-right: 0 !important;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}
+
+.linkItem {
+  cursor: pointer;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 100% */
+  letter-spacing: 0.4px;
+  color: $searchInputColor;
+  .linkLabel {
+    margin-right: 8px;
+    cursor: pointer;
+  }
+}
+.linkMargin {
+  margin-right: 48px;
+}
+
+.linkDropDownParentContainer {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 108px;
+  background-color: $secondaryLinkContainerColor;
+}
+.linkDropDownContainer {
+  padding: 24px;
+  width: 50%;
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  .secondaryLinkItem {
+    cursor: pointer;
+    margin-right: 64px;
+  }
+}
+
+.profilePageContainer {
+  padding: 64px 80px;
+  .btnContainer {
+    display: flex;
+    .tabButtons {
+      border: 1px solid $blackColor;
+    }
+    .tabActive {
+      border: none;
+      color: $primaryTextColor;
+      background: $primaryBackgroundColor !important;
+    }
+  }
+  .tabContainer {
+    margin-top: 80px;
+  }
+}
+
+.personalInfoCard {
+  padding: 40px;
+  border-radius: 20px;
+  border: 2px solid $borderColor2;
+  margin-bottom: 48px;
+  .personalInfoCardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .personalInfoLabelContainer {
+      .underLine {
+        margin-top: 16px;
+        background-color: $primaryBackgroundColor;
+        width: 75%;
+        height: 4px;
+      }
+    }
+  }
+  .infoContainer {
+    display: flex;
+    .investmentTypeContainer {
+      display: flex;
+      margin-top: 16px;
+    }
+
+    //   margin-top: 32px;
+    //
+  }
+}
+
+.itemContainer {
+  margin-top: 24px;
+  display: flex;
+}

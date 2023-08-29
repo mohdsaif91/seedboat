@@ -19,7 +19,8 @@ import recently3 from "./Images/recently3.png";
 import img1 from "./Images/Rectangle193.png";
 import img2 from "./Images/Rectangle198.png";
 import img3 from "./Images/Rectangle199.png";
-import img4 from "./Images/Rectangle200.png";
+import img4 from "./Images/Rectangle 200.png";
+import img45 from "./Images/image 45.png";
 import brazil from "./Images/brazil.png";
 import england from "./Images/england.png";
 import usa from "./Images/usa.png";
@@ -30,6 +31,13 @@ import Payment from "./Images/icon/payment.png";
 import Contact from "./Images/icon/contact.png";
 import Funduing from "./Images/icon/funding.png";
 import Plan from "./Images/icon/plan.png";
+import mentor1 from "./Images/Rectangle 177.png";
+import mentor2 from "./Images/Rectangle 178.png";
+import mentor3 from "./Images/Rectangle 179.png";
+import mentor4 from "./Images/mentor4.png";
+import mentor5 from "./Images/mentor5.png";
+import mentor6 from "./Images/mentor6.png";
+import mentor7 from "./Images/mentor7.png";
 
 export const mentorsData = [
   {
@@ -53,6 +61,117 @@ export const mentorsData = [
   {
     name: "Aaloak Mohanty",
     img: img3,
+    countryFlag: usa,
+    availability: "High rated",
+    designation: "CTO at JHY",
+    review: "4.8/5 (895 reviews)",
+    Languages: "English, Greek, Spanish, French",
+  },
+  {
+    name: "Pratik Bhalla",
+    img: img45,
+    countryFlag: india,
+    availability: "ASAP",
+    designation: "Devloper at ABC",
+    review: "4.2/5 (864 reviews)",
+    Languages: "English, Greek, Spanish, French",
+  },
+];
+
+export const mentorListData = [
+  {
+    name: "Aishwarya Sood",
+    img: img1,
+    countryFlag: brazil,
+    availability: "ASAP",
+    designation: "Marketing Analyst at ABC",
+    review: "4.5/5 (568 reviews)",
+    Languages: "English, Greek, Spanish, French",
+  },
+  {
+    name: "Devadas Dar",
+    img: img2,
+    countryFlag: england,
+    availability: "New Mentor",
+    designation: "Designer at XYZ",
+    review: "4.0/5 (895 reviews)",
+    Languages: "English, Greek, Spanish, French",
+  },
+  {
+    name: "Aaloak Mohanty",
+    img: img3,
+    countryFlag: usa,
+    availability: "High rated",
+    designation: "CTO at JHY",
+    review: "4.8/5 (895 reviews)",
+    Languages: "English, Greek, Spanish, French",
+  },
+  {
+    name: "Pratik Bhalla",
+    img: img4,
+    countryFlag: india,
+    availability: "ASAP",
+    designation: "Devloper at ABC",
+    review: "4.2/5 (864 reviews)",
+    Languages: "English, Greek, Spanish, French",
+  },
+  {
+    name: "Aishwarya Sood",
+    img: mentor1,
+    countryFlag: brazil,
+    availability: "ASAP",
+    designation: "Marketing Analyst at ABC",
+    review: "4.5/5 (568 reviews)",
+    Languages: "English, Greek, Spanish, French",
+  },
+  {
+    name: "Devadas Dar",
+    img: mentor2,
+    countryFlag: england,
+    availability: "New Mentor",
+    designation: "Designer at XYZ",
+    review: "4.0/5 (895 reviews)",
+    Languages: "English, Greek, Spanish, French",
+  },
+  {
+    name: "Aaloak Mohanty",
+    img: mentor3,
+    countryFlag: usa,
+    availability: "High rated",
+    designation: "CTO at JHY",
+    review: "4.8/5 (895 reviews)",
+    Languages: "English, Greek, Spanish, French",
+  },
+  {
+    name: "Pratik Bhalla",
+    img: mentor4,
+    countryFlag: india,
+    availability: "ASAP",
+    designation: "Devloper at ABC",
+    review: "4.2/5 (864 reviews)",
+    Languages: "English, Greek, Spanish, French",
+  },
+  {
+    name: "Aishwarya Sood",
+    img: mentor5,
+    countryFlag: brazil,
+    availability: "ASAP",
+    designation: "Marketing Analyst at ABC",
+    review: "4.5/5 (568 reviews)",
+    Languages: "English, Greek, Spanish, French",
+  },
+  {
+    name: "Devadas Dar",
+    img: mentor6,
+    countryFlag: england,
+    availability: "New Mentor",
+    designation: "Designer at XYZ",
+    review: "4.0/5 (895 reviews)",
+    Languages: "English, Greek, Spanish, French",
+  },
+  {
+    name: "Aaloak Mohanty",
+    img: mentor7,
     countryFlag: usa,
     availability: "High rated",
     designation: "CTO at JHY",
@@ -185,6 +304,23 @@ export const servicesData = [
   },
 ];
 
+export const countries = ["India", "Japan", "England", "Russia"];
+export const years = ["2000", "2001", "2002", "2003", "2004", "2006"];
+export const months = [
+  "January",
+  "Februry",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "Octuber",
+  "November",
+  "December",
+];
+
 export const choosePlatformCardData = [
   {
     text: "Highest Success Rates",
@@ -256,6 +392,44 @@ export const investmentExploreNavData = [
       "Health",
       "Games",
     ],
+  },
+];
+
+export const mentorFilterlist = [
+  "ALL",
+  "Available ASAP",
+  "Recommended",
+  "AI",
+  "Design",
+  "Machine Learning",
+  "Artificial Intelligence",
+  "Aerospace",
+];
+
+export const expertise = [
+  "Design",
+  "Machine Learning",
+  "Artificial Intelligence",
+  "Aerospace",
+];
+export const releventEpertise = ["Leadership", "Managment", "AI", "ML"];
+export const mentorExploreNavData = [
+  {
+    text: "Expertise",
+    secondaryLink: [
+      "Design",
+      "Machine Learning",
+      "Artificial Intelligence",
+      "Aerospace",
+    ],
+  },
+  {
+    text: "Experience",
+    secondaryLink: ["1 Year", "2 Years", "3 Years", "4 Years"],
+  },
+  {
+    text: "Location",
+    secondaryLink: ["Mumbai", "Tokyo", "Berlin", "London"],
   },
 ];
 
@@ -363,6 +537,9 @@ export const exploreCard = {
   ],
 };
 
+export const experienceCount = ["1", "2", "3", "4", "5"];
+export const timeDuration = ["1", "2", "3", "4", "5"];
+
 export const onBoardingPageLinks = [
   {
     text: "Basics",
@@ -391,3 +568,68 @@ export const onBoardingPageLinks = [
 ];
 
 export const projectType = ["Personal", "Professional", "Company", "Student"];
+
+export const becomeMentorCardData = [
+  {
+    name: "Handly",
+    weNeed: "Mentor, Co - Founder",
+    primaryExpertise: "Design",
+    experience: "0 - 3 years",
+    timeDuration: "Full Time",
+    compensation: "Salary",
+    location: "Delhi",
+  },
+  {
+    name: "StitchRite",
+    weNeed: "Co - Founder",
+    primaryExpertise: "Machine Learning",
+    experience: "05+ years",
+    timeDuration: "Part Time",
+    compensation: "Equity",
+    location: "Proto",
+  },
+  {
+    name: "FlyntWorks",
+    weNeed: "Mentor",
+    primaryExpertise: "AI",
+    experience: "0 - 2 years",
+    timeDuration: "Full Time",
+    compensation: "Salary",
+    location: "Mumbai",
+  },
+  {
+    name: "BakersLove",
+    weNeed: "Co - Founder",
+    primaryExpertise: "Design",
+    experience: "0 - 3 years",
+    timeDuration: "Full Time",
+    compensation: "Salary",
+    location: "Delhi",
+  },
+  {
+    name: "ArrowCross",
+    weNeed: "Co - Founder",
+    primaryExpertise: "Machine Learning",
+    experience: "05+ years",
+    timeDuration: "Part Time",
+    compensation: "Equity",
+    location: "Proto",
+  },
+  {
+    name: "Vascilayte",
+    weNeed: "Mentor",
+    primaryExpertise: "AI",
+    experience: "0 - 2 years",
+    timeDuration: "Full Time",
+    compensation: "Salary",
+    location: "Mumbai",
+  },
+];
+
+export const questionList = [
+  "Nam fringilla molestie molestie. Quisque id.",
+  "Interdum et malesuada fames ac ante ipsum .",
+  "Morbi et ligula nunc. Mauris a suscipit ante, sit amet.",
+  "Quisque a metus hendrerit, hendrerit purus ut, ornare tellus.",
+  "Sed pharetra bibendum libero, at volutpat lacus.",
+];

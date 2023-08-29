@@ -1,0 +1,89 @@
+@import "../../../../variable.module.scss";
+
+.mentorDetailsContainer {
+  padding-top: 40px;
+  .mentorHeader {
+    padding: 0 80px;
+    font-size: 20px;
+    .mainName {
+      color: $blackColor;
+      font-weight: 600;
+    }
+  }
+  .detailsContainer {
+    margin-top: 40px;
+    padding: 0 80px;
+    padding-bottom: 80px;
+    display: flex;
+    align-items: flex-end;
+    .leftContainer {
+      width: 30%;
+    }
+    .rightContainer {
+      width: 70%;
+      margin-left: 40px;
+      .nameContainer {
+        margin-top: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 24px;
+        border-bottom: 1px solid $greyColor3;
+        .nameItem {
+          .mainName {
+            font-size: 30px;
+          }
+          .designationContainer {
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            .designation {
+              margin-left: 16px;
+            }
+          }
+        }
+        .imageContainer {
+          .messageIcon {
+            cursor: pointer;
+            margin-right: 40px;
+          }
+        }
+      }
+      .subMainText {
+        margin-top: 24px;
+        font-size: 16px;
+        line-height: 28px; /* 155.556% */
+        letter-spacing: 0.36px;
+      }
+      .socialImageContainer {
+        margin-top: 32px;
+        .socialIcon {
+          cursor: pointer;
+          margin-right: 32px;
+        }
+      }
+    }
+  }
+  .primaryContainer {
+    background: $secondaryBackgroundColor;
+    padding: 64px 80px 0 64px;
+    padding-bottom: 54px;
+    .tabListContainer {
+      display: flex;
+      .tab {
+        cursor: pointer;
+        padding-right: 40px;
+        padding-bottom: 16px;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 24px; /* 100% */
+        letter-spacing: 0.48px;
+        border-bottom: 1px solid;
+      }
+      .active {
+        color: $blackColor;
+        border-bottom: 2px solid $primaryBackgroundColor;
+      }
+    }
+  }
+}
