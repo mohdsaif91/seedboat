@@ -45,6 +45,16 @@ const MentorDetails = React.lazy(() =>
 const MentorProfile = React.lazy(() =>
   import("./Pages/Mentor/MentorProfile/MentorProfile")
 );
+const ServiceList = React.lazy(() =>
+  import("./Pages/ServiceProvider/ServiceList/ServiceList")
+);
+const ServiceDetials = React.lazy(() =>
+  import("./Pages/ServiceProvider/ServiceDetails/ServiceDetails")
+);
+const ServiceProfile = React.lazy(() =>
+  import("./Pages/ServiceProvider/ServiceProfile/ServiceProfile")
+);
+const Message = React.lazy(() => import("./Pages/Message/Message"));
 
 function App() {
   return (
@@ -192,6 +202,38 @@ function App() {
           element={
             <Suspense>
               <MentorProfile />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/serviceList"
+          element={
+            <Suspense>
+              <ServiceList />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/serviceDetials"
+          element={
+            <Suspense>
+              <ServiceDetials />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/serviceProfile"
+          element={
+            <Suspense>
+              <ServiceProfile />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/message"
+          element={
+            <Suspense>
+              <Message />
             </Suspense>
           }
         />

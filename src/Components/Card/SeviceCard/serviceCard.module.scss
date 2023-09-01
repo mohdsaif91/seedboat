@@ -1,0 +1,66 @@
+@import "../../../variable.module.scss";
+
+.serviceCardContainer {
+  margin-right: 8%;
+  margin-bottom: 8%;
+  border-radius: 10px;
+  border: 1px solid $blackColor;
+  padding: 16px;
+  .cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .heartIcon {
+      cursor: pointer;
+    }
+  }
+  .cardHeading {
+    margin-top: 16px;
+  }
+  .companyWorksContainer {
+    margin-top: 24px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    .workTag {
+      padding: 12px 16px;
+      line-height: 16px; /* 114.286% */
+      letter-spacing: 0.28px;
+      border-radius: 60px;
+      border: 1px solid $greyColor8;
+      margin: 0 16px 24px 16px;
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  .subHeading {
+    font-size: 16px;
+    line-height: 24px; /* 150% */
+    letter-spacing: 0.64px;
+  }
+  .btnContainer {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .cardBtn1 {
+      padding: 24px 54px;
+      font-size: 14px;
+      border-radius: 10px;
+      border: 1px solid $blackColor;
+      background-color: $primaryTextColor;
+      margin-right: 24px;
+    }
+    .cardBtn2 {
+      padding: 24px 54px;
+      font-size: 14px;
+      border-radius: 10px;
+      border: 1px solid $blackColor;
+      border: none;
+    }
+  }
+}

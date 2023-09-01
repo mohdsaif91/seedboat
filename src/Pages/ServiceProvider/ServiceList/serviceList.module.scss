@@ -1,0 +1,21 @@
+@import "../../../variable.module.scss";
+
+.serviceProviderContainer {
+  padding: 96px 80px 0 96px;
+  .pageHeading {
+    line-height: 60px; /* 150% */
+    letter-spacing: 1.6px !important;
+    font-family: Playfair Display;
+    font-size: 40px;
+    width: 50%;
+  }
+  .serviceListContainer {
+    margin-top: 54px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.rmMargin {
+  margin-left: 0 !important;
+}

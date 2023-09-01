@@ -96,7 +96,10 @@ function Home() {
                   <img src={mentorship} alt="" />
                   <div className={style.cardText}>Mentorship</div>
                 </div>
-                <div className={style.serviceCard}>
+                <div
+                  className={style.serviceCard}
+                  onClick={() => navigate("/serviceProvider")}
+                >
                   <img src={services} alt="" />
                   <div className={style.cardText}>Services</div>
                 </div>

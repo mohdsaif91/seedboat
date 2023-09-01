@@ -1,0 +1,59 @@
+@import "../../variable.module.scss";
+
+.messageContainer {
+  .messageHeader {
+    padding: 0 80px;
+    .dFlex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .leftConatiner {
+        display: flex;
+        align-items: center;
+        .backLabel {
+          cursor: pointer;
+          line-height: 20px; /* 100% */
+          letter-spacing: 0.8px;
+          font-size: 20px;
+          margin-left: 16px;
+        }
+        .searchInput {
+          border: none;
+          color: $blackColor;
+          font-family: Poppins;
+          font-size: 20px;
+          line-height: 20px; /* 100% */
+          letter-spacing: 0.8px;
+          margin-left: 24px;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+  .messageContainer {
+    display: flex;
+    align-items: center;
+    .peopleChat {
+      width: 20%;
+      border-right: 1px solid $inputBorderColor;
+      display: flex;
+      align-items: center;
+      padding-left: 72px;
+      padding-top: 40px;
+      .arrowDownIcon {
+        height: 40px;
+      }
+      .messageLabel {
+      }
+    }
+    .chatContainer {
+      width: 80%;
+    }
+  }
+}
+
+.rmMargin {
+  margin-bottom: 0 !important;
+}

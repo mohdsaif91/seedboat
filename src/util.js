@@ -38,6 +38,9 @@ import mentor4 from "./Images/mentor4.png";
 import mentor5 from "./Images/mentor5.png";
 import mentor6 from "./Images/mentor6.png";
 import mentor7 from "./Images/mentor7.png";
+import nikee from "./Images/nicke.png";
+import slack from "./Images/slack.png";
+import alex from "./Images/alexzendar.png";
 
 export const mentorsData = [
   {
@@ -632,4 +635,70 @@ export const questionList = [
   "Morbi et ligula nunc. Mauris a suscipit ante, sit amet.",
   "Quisque a metus hendrerit, hendrerit purus ut, ornare tellus.",
   "Sed pharetra bibendum libero, at volutpat lacus.",
+];
+
+export const serviceListCard = [
+  {
+    companyName: "Company Name ",
+    workType: ["Digital Marketing", "SEO", "SMM", "GRAPHIC DESIGN"],
+    subHeading:
+      "Vivamus lacinia faucibus aliquam. Donec sodales rhoncus nisi, eget ullamcorper sem convallis id. Quisque eleifend augue non lectus malesuada posuere.",
+    companyLogo: nikee,
+  },
+  {
+    companyName: "Company Name ",
+    workType: ["Digital Marketing", "SEO", "SMM", "GRAPHIC DESIGN"],
+    subHeading:
+      "Vivamus lacinia faucibus aliquam. Donec sodales rhoncus nisi, eget ullamcorper sem convallis id. Quisque eleifend augue non lectus malesuada posuere.",
+    companyLogo: slack,
+  },
+  {
+    companyName: "Company Name ",
+    workType: ["Digital Marketing", "SEO", "SMM", "GRAPHIC DESIGN"],
+    subHeading:
+      "Vivamus lacinia faucibus aliquam. Donec sodales rhoncus nisi, eget ullamcorper sem convallis id. Quisque eleifend augue non lectus malesuada posuere.",
+    companyLogo: alex,
+  },
+  {
+    companyName: "Company Name ",
+    workType: ["Digital Marketing", "SEO", "SMM", "GRAPHIC DESIGN"],
+    subHeading:
+      "Vivamus lacinia faucibus aliquam. Donec sodales rhoncus nisi, eget ullamcorper sem convallis id. Quisque eleifend augue non lectus malesuada posuere.",
+    companyLogo: nikee,
+  },
+  {
+    companyName: "Company Name ",
+    workType: ["Digital Marketing", "SEO", "SMM", "GRAPHIC DESIGN"],
+    subHeading:
+      "Vivamus lacinia faucibus aliquam. Donec sodales rhoncus nisi, eget ullamcorper sem convallis id. Quisque eleifend augue non lectus malesuada posuere.",
+    companyLogo: slack,
+  },
+  {
+    companyName: "Company Name ",
+    workType: ["Digital Marketing", "SEO", "SMM", "GRAPHIC DESIGN"],
+    subHeading:
+      "Vivamus lacinia faucibus aliquam. Donec sodales rhoncus nisi, eget ullamcorper sem convallis id. Quisque eleifend augue non lectus malesuada posuere.",
+    companyLogo: alex,
+  },
+  {
+    companyName: "Company Name ",
+    workType: ["Digital Marketing", "SEO", "SMM", "GRAPHIC DESIGN"],
+    subHeading:
+      "Vivamus lacinia faucibus aliquam. Donec sodales rhoncus nisi, eget ullamcorper sem convallis id. Quisque eleifend augue non lectus malesuada posuere.",
+    companyLogo: nikee,
+  },
+  {
+    companyName: "Company Name ",
+    workType: ["Digital Marketing", "SEO", "SMM", "GRAPHIC DESIGN"],
+    subHeading:
+      "Vivamus lacinia faucibus aliquam. Donec sodales rhoncus nisi, eget ullamcorper sem convallis id. Quisque eleifend augue non lectus malesuada posuere.",
+    companyLogo: slack,
+  },
+  {
+    companyName: "Company Name ",
+    workType: ["Digital Marketing", "SEO", "SMM", "GRAPHIC DESIGN"],
+    subHeading:
+      "Vivamus lacinia faucibus aliquam. Donec sodales rhoncus nisi, eget ullamcorper sem convallis id. Quisque eleifend augue non lectus malesuada posuere.",
+    companyLogo: alex,
+  },
 ];

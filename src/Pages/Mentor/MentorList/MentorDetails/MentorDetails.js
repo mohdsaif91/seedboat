@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import profileImage from "../../../../Images/Rectangle 200.png";
 import India from "../../../../Images/india.png";
@@ -7,13 +8,12 @@ import message from "../../../../Images/icon/message.png";
 import heart from "../../../../Images/icon/image 53.png";
 import linkedIn from "../../../../Images/colorLinkedIn.png";
 import twitter from "../../../../Images/colotTwitter.png";
-
-import style from "./mentorDetails.module.scss";
-import globalStyle from "../../../../global.module.scss";
 import Review from "./Review/Review";
 import Overview from "./OverView/Overview";
 import Button from "../../../../Components/Button/Button";
-import { useNavigate } from "react-router-dom";
+
+import style from "./mentorDetails.module.scss";
+import globalStyle from "../../../../global.module.scss";
 
 function MentorDetails() {
   const [tab, setTab] = useState("Overview");

@@ -1,0 +1,54 @@
+@import "../../../variable.module.scss";
+
+.profileUploadContainer {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  .profileInput {
+    display: none;
+  }
+  .mainTextConatiner {
+    margin-left: 24px;
+    .mainTextImage {
+      font-size: 16px;
+      line-height: 16px; /* 100% */
+      letter-spacing: 0.64px;
+    }
+    .subHeading {
+      margin-top: 8px;
+    }
+  }
+}
+
+.dropDown {
+  margin-top: 16px;
+  color: $greyColor9;
+}
+
+.getLinkedUrlLink {
+  cursor: pointer;
+  margin-top: 16px;
+  color: $linkedInGrey;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 100% */
+  letter-spacing: 0.64px;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $greyColor9;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: $greyColor9;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: $greyColor9;
+}

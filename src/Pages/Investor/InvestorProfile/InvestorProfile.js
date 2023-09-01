@@ -7,7 +7,7 @@ import editProfile from "../../../Images/editProfile.png";
 import PersonalInformation from "./PersonalInformation/PersonalInformation";
 import MyInvestment from "./MyInvestment/MyInvestment";
 import Saved from "./Saved/Saved";
-import Message from "./Message/Message";
+import Message from "../../Message/Message";
 
 import style from "./investorProfile.module.scss";
 import globalStyle from "../../../global.module.scss";

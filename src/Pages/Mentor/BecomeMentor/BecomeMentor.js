@@ -322,15 +322,15 @@ function BecomeMentor() {
             Some questions asked by the members of our community
           </div>
         </div>
-        <ul className={style.rightContainer}>
+        <ul className={commonStyle.rightContainer}>
           {questionList.map((m) => (
-            <li className={style.questionItem}>
+            <li className={commonStyle.questionItem}>
               <div
-                className={`${style.questionText} ${globalStyle.headingPoppins}`}
+                className={`${commonStyle.questionText} ${globalStyle.headingPoppins}`}
               >
                 {m}
               </div>
-              <div className={style.iconContainer}>+</div>
+              <div className={commonStyle.iconContainer}>+</div>
             </li>
           ))}
         </ul>

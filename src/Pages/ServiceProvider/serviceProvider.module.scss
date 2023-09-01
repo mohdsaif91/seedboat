@@ -1,1 +1,70 @@
 @import "../../variable.module.scss";
+
+.serviceProviderContainer {
+  display: flex;
+  .leftContainer {
+    padding: 40px 80px;
+    width: 50%;
+  }
+  .rightContainer {
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    .rightMainImage {
+      padding-bottom: 40px;
+      background-color: $primaryBackgroundColor;
+      margin-left: -2px;
+      display: flex;
+      align-items: flex-end;
+      padding-right: 48px;
+      .textContainer {
+        .mainText {
+          color: $primaryTextColor;
+          font-size: 24px;
+          line-height: 24px; /* 100% */
+          letter-spacing: 0.96px;
+        }
+        .subText {
+          width: 454px;
+          color: $primaryTextColor;
+          margin-top: 24px;
+          line-height: 24px;
+          letter-spacing: 0.64px;
+        }
+      }
+      .dashContainer {
+        display: flex;
+        align-items: center;
+        margin-top: 24px;
+        .dash {
+          width: 64px;
+          height: 2px;
+          background-color: $primaryTextColor;
+          filter: brightness(0.7);
+          margin-left: 16px;
+          margin-right: 16px;
+          &:first-child {
+            margin-left: 0;
+          }
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+        .active {
+          filter: brightness(1);
+        }
+      }
+    }
+  }
+}
+
+.nextBtn {
+  cursor: pointer;
+  margin-top: 40px;
+  padding: 24px 40px;
+  border-radius: 600px;
+  border: 2px solid $blackColor;
+  background: $blackColor;
+  font-size: 16px;
+  color: $primaryTextColor;
+}

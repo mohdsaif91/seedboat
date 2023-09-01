@@ -8,6 +8,7 @@ function ContainerWithHeadingBtn({
   btnText,
   heading,
   subHeading,
+  className = "",
   rectBtn,
   onClick,
   headingClass = "",
