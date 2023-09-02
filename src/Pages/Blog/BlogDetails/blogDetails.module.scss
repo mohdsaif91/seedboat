@@ -1,0 +1,85 @@
+@import "../../../variable.module.scss";
+
+.BlogDetailsContainer {
+  .heroImage {
+    background-image: url(../../../Images/addblog1.png);
+    background-size: cover;
+    height: 80vh;
+  }
+  .primayContainer {
+    margin-top: 64px;
+    display: flex;
+    width: 100%;
+    .leftNavContainer {
+      width: 25%;
+      display: flex;
+      justify-content: center;
+      .navLinkContainer {
+        margin-top: 50%;
+        padding-left: 0;
+        list-style: none;
+        .navItem {
+          opacity: 0.4;
+          font-size: 16px;
+          margin-top: 16px;
+          cursor: pointer;
+        }
+        .navLinkActive {
+          opacity: 1;
+        }
+      }
+    }
+    .mainContainer {
+      width: 75%;
+      padding-right: 64px;
+      .pageHeading {
+        width: 90%;
+        font-size: 32px;
+        line-height: 46px; /* 143.75% */
+        text-transform: capitalize;
+      }
+      .nameTimeContainer {
+        margin-top: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 16px;
+        border-bottom: 1px solid $blackColor;
+        .nameContainer {
+          font-size: 16px;
+        }
+      }
+      .lableValueContainer {
+        .container {
+          margin-top: 40px;
+          .label {
+            font-size: 16px;
+            margin-top: 16px;
+            line-height: 26px; /* 162.5% */
+            letter-spacing: 0.32px;
+          }
+          .blogImg {
+            margin-top: 40px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.iconList {
+  margin-top: 16px;
+  .icon {
+    cursor: pointer;
+    margin-right: 32px;
+  }
+}
+
+.boldName {
+  font-size: 16px;
+  margin-right: 24px;
+}
+
+.addRMargin {
+  padding-right: 8px;
+}

@@ -1,0 +1,12 @@
+@import "../../../variable.module.scss";
+
+.blogCardContaimer {
+  margin-bottom: 16%;
+  .cardDate {
+    margin-top: 16px;
+  }
+  .cardTitle {
+    margin-top: 16px;
+    width: 80%;
+  }
+}

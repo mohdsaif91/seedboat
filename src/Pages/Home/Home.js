@@ -208,7 +208,12 @@ function Home() {
             Linkedin page can be optimized too for better engagement?
           </div>
           <div className={style.keepReadingContainer}>
-            <div className={style.keepReadingText}>KEEP READING</div>
+            <div
+              className={style.keepReadingText}
+              onClick={() => navigate("/blog")}
+            >
+              KEEP READING
+            </div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"

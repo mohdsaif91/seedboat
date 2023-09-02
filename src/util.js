@@ -41,6 +41,22 @@ import mentor7 from "./Images/mentor7.png";
 import nikee from "./Images/nicke.png";
 import slack from "./Images/slack.png";
 import alex from "./Images/alexzendar.png";
+import people1 from "./Images/people/people1.png";
+import people2 from "./Images/people/people2.png";
+import people228 from "./Images/people/Ellipse 228.png";
+import people229 from "./Images/people/Ellipse 229.png";
+import people230 from "./Images/people/Ellipse 230.png";
+import people232 from "./Images/people/Ellipse 232.png";
+import people233 from "./Images/people/Ellipse 233.png";
+import blog1 from "./Images/Rectangle 149.png";
+import blog2 from "./Images/Rectangle 150.png";
+import blog3 from "./Images/Rectangle 151.png";
+import blog4 from "./Images/Rectangle 152.png";
+import blog5 from "./Images/Rectangle 153.png";
+import blog6 from "./Images/Rectangle 154.png";
+import blog7 from "./Images/Rectangle 155.png";
+import blog8 from "./Images/Rectangle 156.png";
+import blog9 from "./Images/Rectangle 157.png";
 
 export const mentorsData = [
   {
@@ -700,5 +716,141 @@ export const serviceListCard = [
     subHeading:
       "Vivamus lacinia faucibus aliquam. Donec sodales rhoncus nisi, eget ullamcorper sem convallis id. Quisque eleifend augue non lectus malesuada posuere.",
     companyLogo: alex,
+  },
+];
+
+export const chatUserList = [
+  {
+    img: people1,
+    name: "Abhilash Sibal",
+    subHeading: "Aliquam eget rhoncus risus.",
+    chat: [
+      {
+        type: "recived",
+        img: people1,
+        message: [
+          "Donec velit leo, sodales non elit nec, laoreet elementum massa. Proin viverra maximus commodo. Sed fringilla, nisi vel mattis convallis, nunc purus eleifend leo.",
+        ],
+      },
+      {
+        type: "send",
+        img: people1,
+        message: [
+          "Curabitur congue id orci vitae accumsan.",
+          "Phasellus ac sapien tempor, posuere quam id, vulputate tellus. Nam suscipit suscipit fringilla. Fusce ac purus quis enim finibus auctor id ac ante. ",
+        ],
+      },
+
+      {
+        type: "recived",
+        img: people1,
+        message: [
+          "Donec velit leo, sodales non elit nec, laoreet elementum massa. Proin viverra maximus commodo. Sed fringilla, nisi vel mattis convallis, nunc purus eleifend leo.",
+        ],
+      },
+      {
+        img: people1,
+        type: "send",
+        message: ["Curabitur congue id orci vitae accumsan."],
+      },
+      {
+        img: people1,
+        type: "send",
+        message: ["Curabitur congue id orci vitae accumsan."],
+      },
+      {
+        img: people1,
+        type: "send",
+        message: ["Curabitur congue id orci vitae accumsan."],
+      },
+    ],
+  },
+  {
+    img: people2,
+    name: "Vasu Kadakia",
+    subHeading: "Aliquam eget rhoncus risus.",
+  },
+  {
+    img: people228,
+    name: "Indra Tak",
+    subHeading: "Aliquam eget rhoncus risus.",
+  },
+  {
+    img: people229,
+    name: "Murali Loke",
+    subHeading: "Aliquam eget rhoncus risus.",
+  },
+  {
+    img: people230,
+    name: "Amit Majumdar",
+    subHeading: "Aliquam eget rhoncus risus.",
+  },
+  {
+    img: people232,
+    name: "Advaith Rastogi",
+    subHeading: "Aliquam eget rhoncus risus.",
+  },
+  {
+    img: people233,
+    name: "Indra Tak",
+    subHeading: "Aliquam eget rhoncus risus.",
+  },
+  {
+    img: people233,
+    name: "Indra Tak",
+    subHeading: "Aliquam eget rhoncus risus.",
+  },
+  {
+    img: people233,
+    name: "Indra Tak",
+    subHeading: "Aliquam eget rhoncus risus.",
+  },
+];
+
+export const blogCardData = [
+  {
+    img: blog1,
+    date: "Jan 24, 2023",
+    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    img: blog2,
+    date: "Jan 24, 2023",
+    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    img: blog3,
+    date: "Jan 24, 2023",
+    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    img: blog4,
+    date: "Jan 24, 2023",
+    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    img: blog5,
+    date: "Jan 24, 2023",
+    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    img: blog6,
+    date: "Jan 24, 2023",
+    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    img: blog7,
+    date: "Jan 24, 2023",
+    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    img: blog8,
+    date: "Jan 24, 2023",
+    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    img: blog9,
+    date: "Jan 24, 2023",
+    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
   },
 ];

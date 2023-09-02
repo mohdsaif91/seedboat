@@ -55,6 +55,11 @@ const ServiceProfile = React.lazy(() =>
   import("./Pages/ServiceProvider/ServiceProfile/ServiceProfile")
 );
 const Message = React.lazy(() => import("./Pages/Message/Message"));
+const Blog = React.lazy(() => import("./Pages/Blog/Blog"));
+const BlogDetails = React.lazy(() =>
+  import("./Pages/Blog/BlogDetails/BlogDetails")
+);
+const AddBlog = React.lazy(() => import("./Pages/Blog/AddBlog/AddBlog"));
 
 function App() {
   return (
@@ -234,6 +239,30 @@ function App() {
           element={
             <Suspense>
               <Message />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/blog"
+          element={
+            <Suspense>
+              <Blog />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/blogDetails"
+          element={
+            <Suspense>
+              <BlogDetails />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/addBlog"
+          element={
+            <Suspense>
+              <AddBlog />
             </Suspense>
           }
         />

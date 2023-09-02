@@ -14,7 +14,7 @@ function ContainerWithHeadingBtn({
   headingClass = "",
 }) {
   return (
-    <div className={style.becomeInvestorContainer}>
+    <div className={`${style.becomeInvestorContainer} ${className}`}>
       <div className={style.becomeHeadingContainer}>
         <div
           className={`${globalStyle.pageHeading} ${style.becomePageHeading} ${headingClass}`}

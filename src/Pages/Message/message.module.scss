@@ -1,6 +1,7 @@
 @import "../../variable.module.scss";
 
-.messageContainer {
+.messageParentContainer {
+  margin-top: 24px;
   .messageHeader {
     padding: 0 80px;
     .dFlex {
@@ -36,24 +37,155 @@
     display: flex;
     align-items: center;
     .peopleChat {
-      width: 20%;
+      width: 24%;
       border-right: 1px solid $inputBorderColor;
-      display: flex;
-      align-items: center;
-      padding-left: 72px;
-      padding-top: 40px;
-      .arrowDownIcon {
-        height: 40px;
+      padding-top: 16px;
+      .labelContainer {
+        padding-left: 40px;
+        display: flex;
+        align-items: center;
+        .arrowDownIcon {
+          height: 40px;
+        }
+        .messageLabel {
+          font-size: 16px;
+        }
       }
-      .messageLabel {
+      .chatList {
+        margin-top: 16px;
+        list-style: none;
+        padding-left: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 572px;
+        padding: 8px 0;
+        .chatItem {
+          cursor: pointer;
+          margin-top: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          &:first-child {
+            margin-top: 0;
+          }
+          .HeadingContainer {
+            margin-left: 24px;
+            .subHeading {
+              margin-top: 8px;
+            }
+          }
+        }
       }
     }
-    .chatContainer {
+    .chatMessageContainer {
       width: 80%;
+
+      .chatContainer {
+        display: flex;
+        flex-direction: column;
+        padding: 8px 40px;
+        height: 572px;
+        overflow-y: auto;
+        .actualMessageContainer {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 32px;
+          .messageItem {
+            display: flex;
+            .messageImg {
+              height: 50px;
+              width: 50px;
+              margin-top: 4%;
+            }
+            .item {
+              border-radius: 52px;
+              max-width: 50%;
+              height: min-content;
+              padding: 20px;
+              font-size: 14px;
+              margin-bottom: 6px;
+            }
+          }
+          .receivedColor {
+            background-color: $reciverColor;
+            color: $blackColor;
+          }
+          .sentColor {
+            color: $primaryTextColor;
+            background-color: $sentColor;
+          }
+        }
+      }
+      .chatInputContainer {
+        margin: 0 40px 32px 40px;
+        border-radius: 10px;
+        border: 2px solid #b4b4b4;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 16px 8px 8px;
+        .iconContainer {
+          display: flex;
+          align-items: center;
+          .plusIcon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 24px;
+            width: 24px;
+            font-size: 24px;
+            padding: 4px;
+            border-radius: 50%;
+            border: 1px solid $blackColor;
+          }
+          .attachmentIcon {
+            margin-left: 16px;
+          }
+        }
+        .messageInput {
+          padding: 24px;
+          width: 100%;
+          margin-left: 16px;
+          // height: 70px;
+          border-radius: 10px;
+          background: $searchInputBackground;
+          border: none;
+          color: #636363;
+          font-family: Poppins;
+          font-size: 16px;
+          font-style: normal;
+          line-height: 16px; /* 100% */
+          letter-spacing: 0.64px;
+          &:focus {
+            outline: none;
+          }
+        }
+        .emojiIcon {
+          width: 50px;
+          position: relative;
+          right: 5%;
+        }
+      }
+    }
+  }
+}
+
+.alignLeft {
+  justify-content: start;
+}
+.alignRight {
+  justify-content: end;
+}
+.chatActive {
+  background-color: $primaryBackgroundColor;
+  .HeadingContainer {
+    .subHeading {
+      color: $primaryTextColor;
     }
   }
 }
 
 .rmMargin {
+  margin-top: 16px !important;
   margin-bottom: 0 !important;
 }

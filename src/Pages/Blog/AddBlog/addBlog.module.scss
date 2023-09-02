@@ -1,0 +1,104 @@
+@import "../../../variable.module.scss";
+
+.addBlogContainer {
+  padding: 80px;
+  .addBlogHeading {
+    font-family: Playfair Display;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 40px; /* 100% */
+    letter-spacing: 0.8px;
+  }
+  .headingContainer {
+    margin-top: 64px;
+    .inputContainer {
+      .inputItem {
+        margin-bottom: 24px;
+        width: 100%;
+        border-radius: 10px;
+        border: 2px solid $linkedInGrey;
+        background: $primaryTextColor;
+        color: $blogInputColor;
+        font-family: Poppins;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px; /* 100% */
+        letter-spacing: 0.4px;
+      }
+    }
+    .addMoreBtn {
+      cursor: pointer;
+      margin-top: 16px;
+      color: $blackColor;
+      font-family: Poppins;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 20px; /* 100% */
+      letter-spacing: 0.4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: $primaryTextColor;
+      width: 176px;
+      border-bottom: 1px Soild $blackColor;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      padding: 12px 0;
+    }
+  }
+  .uploadImage {
+    margin-top: 40px;
+    width: 100%;
+    border-radius: 10px;
+    background: $addImageColor;
+    padding: 32px 24px;
+    display: flex;
+    cursor: pointer;
+    .addImageIcon {
+      margin-top: 24px;
+    }
+    .selectedImageContainer {
+      display: flex;
+      .selectedImageIcon {
+        width: 280px;
+        height: 216px;
+        position: relative;
+        .selectedImage {
+          height: 100%;
+          width: 100%;
+        }
+        .removeIconContainer {
+          height: 30px;
+          width: 30px;
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: $primaryTextColor;
+        }
+      }
+    }
+  }
+  .imageInput {
+    display: none;
+  }
+  .submitBtn {
+    font-size: 20px;
+    margin-top: 40px;
+    border: 1px solid #000;
+    background: #000;
+  }
+}
+.inputfileContainer {
+  padding: 32px 24px;
+  width: 205px;
+  height: 156px;
+  background: rgba(0, 0, 0, 0.1);
+}

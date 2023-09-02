@@ -1,0 +1,52 @@
+@import "../../variable.module.scss";
+
+.blogContainer {
+  padding: 112px 96px 0 96px;
+  .blogHeader {
+    padding-bottom: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid $borderColor3;
+    .tabContainer {
+      display: flex;
+      .tab {
+        cursor: pointer;
+        color: $greyColor10;
+        font-family: Playfair Display;
+        font-size: 40px;
+        line-height: 40px; /* 100% */
+        letter-spacing: 0.8px;
+        margin-right: 40px;
+      }
+      .active {
+        color: $blackColor;
+        border-bottom: 1px solid $blackColor;
+      }
+    }
+  }
+
+  .blogCardContainer {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    place-items: center;
+  }
+  .btnContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+  }
+}
+
+.allCompaniesBtn {
+  border: 1px solid $blackColor;
+  background-color: $primaryTextColor;
+  color: $blackColor !important;
+}
+
+.rmMargin {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
