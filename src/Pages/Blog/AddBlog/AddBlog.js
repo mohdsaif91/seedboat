@@ -100,7 +100,7 @@ function AddBlog() {
                     console.log(addBlogData.blogMedia.splice(i, 1));
                     setAddBlogData({
                       ...addBlogData,
-                      blogMedia: [...addBlogData.blogMedia.splice(i, 1)],
+                      blogMedia: [...addBlogData.blogMedia.splice(1, i)],
                     });
                   }}
                 >
