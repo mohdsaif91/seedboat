@@ -52,7 +52,7 @@ function Step4() {
         >
           Preffered Compensation
         </div>
-        <div className={style.radioContainer}>
+        <div>
           <RadioButton
             radioContainerClass={style.radioContainer}
             name="Equity"

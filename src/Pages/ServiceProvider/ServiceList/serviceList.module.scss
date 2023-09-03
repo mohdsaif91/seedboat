@@ -2,6 +2,9 @@
 
 .serviceProviderContainer {
   padding: 96px 80px 0 96px;
+  @include smallLaptop {
+    padding: 96px 56px 0 56px;
+  }
   .pageHeading {
     line-height: 60px; /* 150% */
     letter-spacing: 1.6px !important;
@@ -18,4 +21,5 @@
 }
 .rmMargin {
   margin-left: 0 !important;
+  margin-right: 0 !important;
 }

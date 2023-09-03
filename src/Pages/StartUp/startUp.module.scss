@@ -188,6 +188,7 @@
 
 .rightSectionHeading {
   font-size: 16px !important;
+  margin-top: 32px;
 }
 
 .sectionSubheading {
@@ -217,4 +218,21 @@
   width: 100%;
   justify-content: flex-start;
   padding-left: 24px;
+}
+
+@media only screen and (max-width: 1380px) {
+  .startUpContainer {
+    .imageBlackWhiteContainer {
+      .blackContainer {
+        .imageCardContainer {
+          margin: 0 96px;
+          .parentImgecardContainer {
+            .infoCard {
+              margin-left: 24px;
+            }
+          }
+        }
+      }
+    }
+  }
 }

@@ -73,7 +73,7 @@ function Teams() {
               className={parentStyle.basicInput}
             />
             <div
-              className={`${parentStyle.sectionHeading} ${globalStyle.headingPoppins}`}
+              className={`${parentStyle.sectionHeading} ${parentStyle.rightSectionHeading} ${globalStyle.headingPoppins}`}
             >
               Profile
             </div>

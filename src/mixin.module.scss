@@ -1,0 +1,5 @@
+@mixin smallLaptop {
+  @media only screen and (max-width: 1380px) {
+    @content;
+  }
+}

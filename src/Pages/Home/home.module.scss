@@ -164,6 +164,7 @@
       display: flex;
       align-items: center;
       margin: 88px 48px;
+      justify-content: space-around;
       .startUpCards {
         display: flex;
         justify-content: space-between;
@@ -346,4 +347,14 @@
   height: 3px;
   background: $borderColor;
   margin-top: 16px;
+}
+
+@media only screen and (max-width: 1366px) {
+  .homeContainer {
+    .containerOne {
+      .servicesContainer {
+        margin-left: 8%;
+      }
+    }
+  }
 }

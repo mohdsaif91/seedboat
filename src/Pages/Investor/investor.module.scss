@@ -130,3 +130,18 @@
 .genderDropdown {
   margin-right: 13%;
 }
+
+@media only screen and (max-width: 1380px) {
+  .strtupContainer {
+    padding: 80px 40px;
+    .investorTypeContainer {
+      .investorType {
+        .investorPatrentCard {
+          .investorCard {
+            width: 296px;
+          }
+        }
+      }
+    }
+  }
+}

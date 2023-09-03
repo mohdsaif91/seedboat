@@ -5,11 +5,17 @@
   .leftContainer {
     padding: 40px 80px;
     width: 50%;
+    @include smallLaptop {
+      width: 46%;
+    }
   }
   .rightContainer {
     height: 100vh;
     width: 50%;
     display: flex;
+    @include smallLaptop {
+      width: 54%;
+    }
     .rightMainImage {
       padding-bottom: 40px;
       background-color: $primaryBackgroundColor;
@@ -17,6 +23,9 @@
       display: flex;
       align-items: flex-end;
       padding-right: 48px;
+      @include smallLaptop {
+        padding-right: 0;
+      }
       .textContainer {
         .mainText {
           color: $primaryTextColor;

@@ -14,6 +14,13 @@
   &:last-child {
     margin-right: 48px;
   }
+
+  @include smallLaptop {
+    padding: 24px 14px;
+    width: 232px;
+    margin-right: 16px;
+  }
+
   .nameContainer {
     display: flex;
     justify-content: space-between;

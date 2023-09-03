@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
 import { Input } from "../../../Components/FormElements/Input/Input";
+import SelectDropdown from "../../../Components/FormElements/SelectDropdown/SelectDropdown";
+import { experienceCount } from "../../../util";
+import TextArea from "../../../Components/FormElements/TextArea/TextArea";
 
 import style from "./serviceStep2.module.scss";
 import commonStyle from "../../../common.module.scss";
 import globalStyle from "../../../global.module.scss";
-import SelectDropdown from "../../../Components/FormElements/SelectDropdown/SelectDropdown";
-import { experienceCount } from "../../../util";
-import TextArea from "../../../Components/FormElements/TextArea/TextArea";
 
 const initialStepData = {
   yearsOfExperience: "",

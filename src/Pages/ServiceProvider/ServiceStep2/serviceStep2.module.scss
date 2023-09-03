@@ -8,4 +8,7 @@
 .stepTextArea {
   margin-top: 16px;
   color: $greyColor9;
+  @include smallLaptop {
+    width: 100%;
+  }
 }

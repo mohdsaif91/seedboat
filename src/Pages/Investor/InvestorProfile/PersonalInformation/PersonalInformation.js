@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import style from "./personalInformation.module.scss";
-import globalStyle from "../../../../global.module.scss";
 import Button, {
   BlackBtn,
   BtnRect,
@@ -12,7 +10,9 @@ import ToggleButton from "../../../../Components/ToggleButton/ToggleButton";
 import ContainerWithHeadingBtn from "../../../../Components/ContainerWithHeadingBtn/ContainerWithHeadingBtn";
 import InvestCard from "../../../../Components/Card/InvestMentCard/InvestCard";
 import SlideBtn from "../../../../Components/SlideButton/SlideBtn";
-import { Input } from "../../../../Components/FormElements/Input/Input";
+
+import style from "./personalInformation.module.scss";
+import globalStyle from "../../../../global.module.scss";
 
 const initialNotificationData = {
   desktop: false,
@@ -225,6 +225,7 @@ function PersonalInformation() {
       </div>
       <Button text="Save & Exit" className={style.saveAndExitbtn} />
       <ContainerWithHeadingBtn
+        className={style.bottomContainer}
         headingClass={style.bottomHeading}
         heading="Would you like to be a investor along with being a mentor"
         subHeading="Integer porttitor laoreet massa in facilisis. Sed viverra sem eget elementum aliquam. Suspendisse potenti. Pellentesque vitae volutpat velit."
