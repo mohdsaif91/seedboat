@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
+import Axios from "axios";
 
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
@@ -60,6 +61,12 @@ const BlogDetails = React.lazy(() =>
   import("./Pages/Blog/BlogDetails/BlogDetails")
 );
 const AddBlog = React.lazy(() => import("./Pages/Blog/AddBlog/AddBlog"));
+
+Axios.defaults.baseURL = "http://localhost:5000";
+Axios.defaults.withCredentials = true;
+Axios.headers = ({
+  'Content-Type': 'application/json'
+})
 
 function App() {
   return (

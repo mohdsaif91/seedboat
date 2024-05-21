@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import style from "./login.module.scss";
 import { useNavigate } from "react-router-dom";
@@ -20,6 +20,16 @@ function Login() {
 
   const navigate = useNavigate();
   let incremental = 120;
+
+  const handleLogin = () =>{
+    startTimer();
+
+    setSendOtp({ ...sendOtp, flag: true });
+  }
+  const handleOtp = () => {
+    navigate("/userRole");
+  }
+
 
   const startTimer = () => {
     if (counter >= 0) {
@@ -154,8 +164,7 @@ function Login() {
         <button
           className={style.otpBtn}
           onClick={() => {
-            startTimer();
-            setSendOtp({ ...sendOtp, flag: true });
+            handleLogin()
           }}
         >
           Send OTP
@@ -184,40 +193,40 @@ function Login() {
                 className={style.inputItem}
                 onChange={(e) => {
                   setSendOtp({
-                    sendOtp,
+                    ...sendOtp['data'],
                     first: e.target.value,
                   });
                 }}
               />
               <input
                 type="number"
-                value={sendOtp.data.first}
+                value={sendOtp.data.second}
                 className={style.inputItem}
                 onChange={(e) => {
                   setSendOtp({
-                    sendOtp,
+                    ...sendOtp['data'],
+                    second: e.target.value,
+                  });
+                }}
+              />
+              <input
+                type="number"
+                value={sendOtp.data.three}
+                className={style.inputItem}
+                onChange={(e) => {
+                  setSendOtp({
+                    ...sendOtp['data'],
                     first: e.target.value,
                   });
                 }}
               />
               <input
                 type="number"
-                value={sendOtp.data.first}
+                value={sendOtp.data.four}
                 className={style.inputItem}
                 onChange={(e) => {
                   setSendOtp({
-                    sendOtp,
-                    first: e.target.value,
-                  });
-                }}
-              />
-              <input
-                type="number"
-                value={sendOtp.data.first}
-                className={style.inputItem}
-                onChange={(e) => {
-                  setSendOtp({
-                    sendOtp,
+                    ...sendOtp['data'],
                     first: e.target.value,
                   });
                 }}
@@ -238,7 +247,7 @@ function Login() {
             </div>
             <button
               className={style.submitOtpBtn}
-              onClick={() => navigate("/userRole")}
+              onClick={() => handleOtp() }
             >
               Submit OTP
             </button>
