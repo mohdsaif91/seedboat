@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useImperativeHandle, forwardRef } from "react";
 
 import style from "./step4.module.scss";
 import commonStyle from "../becomeMentorsteps.module.scss";
@@ -8,13 +8,25 @@ import { Input } from "../../../../Components/FormElements/Input/Input";
 import RadioButton from "../../../../Components/FormElements/RadioButton/RadioButton";
 
 const initialStepData = {
-  story: "",
-  language: "",
-  prefferedCompensation: "",
+  user_message: "",
+  user_language: "",
+  required_compensation: "",
 };
 
-function Step4() {
+const Step4 = forwardRef((props, ref) => {
   const [stepData, setStepData] = useState({ ...initialStepData });
+  
+  const updateStepData = (pKey, pValue) => {
+    setStepData({...stepData, [pKey]: pValue})
+  }
+
+  useImperativeHandle(ref, (e)=>({
+    getStepData() {
+      sessionStorage.setItem("step4data", JSON.stringify(stepData));
+      return stepData;
+    }
+  }))
+  
   return (
     <div className={style.step4Container}>
       <div className={commonStyle.formInputItem}>
@@ -26,7 +38,10 @@ function Step4() {
         <TextArea
           className={`${commonStyle.stepInput} ${style.storyInput}`}
           value={stepData.story}
-          onChange={(e) => setStepData({ ...stepData, story: e.target.value })}
+          onChange={(e) => 
+            updateStepData('user_message', e.target.value)
+            // setStepData({ ...stepData, story: e.target.value })
+          }
           placeHolder="Tell us more about yourself, your goals and what you love!"
         />
       </div>
@@ -41,7 +56,8 @@ function Step4() {
           className={`${commonStyle.stepInput} ${style.languageInput}`}
           value={stepData.language}
           onChange={(e) =>
-            setStepData({ ...stepData, language: e.target.value })
+            updateStepData('user_language', e.target.value)
+            // setStepData({ ...stepData, language: e.target.value })
           }
           placeHolder="Eg: English, French"
         />
@@ -52,41 +68,45 @@ function Step4() {
         >
           Preffered Compensation
         </div>
+        {stepData.required_compensation}
         <div>
           <RadioButton
             radioContainerClass={style.radioContainer}
             name="Equity"
-            checked={stepData.prefferedCompensation === "Equity"}
+            checked={stepData.required_compensation === "Equity" ? true : false}
             value="Equity"
             onChange={(e) =>
-              setStepData({ ...stepData, prefferedCompensation: "Equity" })
+              updateStepData('required_compensation', 'Equity')
+              // setStepData({ ...stepData, prefferedCompensation: "Equity" })
             }
           />
           <RadioButton
             radioContainerClass={style.radioContainer}
             name="Salary"
-            checked={stepData.prefferedCompensation === "Salary"}
+            checked={stepData.required_compensation === "Salary" ? true : false}
             value="Salary"
             onChange={(e) =>
-              setStepData({ ...stepData, prefferedCompensation: "Salary" })
+              updateStepData('required_compensation', 'Salary')
+              // setStepData({ ...stepData, prefferedCompensation: "Salary" })
             }
           />
           <RadioButton
             radioContainerClass={style.radioContainer}
             name="Equity + Salary "
-            checked={stepData.prefferedCompensation === "Equity + Salary "}
+            checked={stepData.required_compensation === "Equity + Salary " ? true : false}
             value="Equity + Salary "
             onChange={(e) =>
-              setStepData({
-                ...stepData,
-                prefferedCompensation: "Equity + Salary ",
-              })
+              updateStepData('required_compensation', 'Equity + Salary')
+              // setStepData({
+              //   ...stepData,
+              //   prefferedCompensation: "Equity + Salary ",
+              // })
             }
           />
         </div>
       </div>
     </div>
   );
-}
+}, () => true)
 
 export default Step4;

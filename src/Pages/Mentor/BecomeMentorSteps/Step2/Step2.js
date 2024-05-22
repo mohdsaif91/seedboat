@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useImperativeHandle, forwardRef } from "react";
 
 import style from "./step2.module.scss";
 import commonStyle from "../becomeMentorsteps.module.scss";
@@ -9,18 +9,33 @@ import { countries, gender, months, years } from "../../../../util";
 
 const initialStepData = {
   email: "",
-  mobile: "",
+  phonenumber: "",
   gender: "",
   country: "",
   school: "",
   company: "",
-  yourTitle: "",
+  designation: "",
   yearsOfProfessionalExp: "",
   montsofProfessionalExp: "",
+  professional_experience: "",
 };
 
-function Step2() {
+const Step2 = forwardRef((props, ref) => {
   const [stepData, setStepData] = useState({ ...initialStepData });
+
+  const updateStepData = (pKey, pValue) => {
+    setStepData({...stepData, [pKey]: pValue})
+    
+  }
+  useImperativeHandle(ref, (e)=>({
+    getStepData() {
+      console.log('stepDAta', stepData);
+      sessionStorage.setItem("step2data", JSON.stringify(stepData));
+      return stepData;
+    }
+  }))
+
+
   return (
     <div>
       <div className={commonStyle.formInputItem}>
@@ -36,10 +51,11 @@ function Step2() {
           placeHolder="Enter email"
           value={stepData.email}
           onChange={(e) =>
-            setStepData({
-              ...stepData,
-              email: e.target.value,
-            })
+            updateStepData("email", e.target.value)
+            // setStepData({
+            //   ...stepData,
+            //   email: e.target.value,
+            // })
           }
         />
       </div>
@@ -55,12 +71,13 @@ function Step2() {
             className={commonStyle.stepInput}
             name="mobile"
             placeHolder="Enter Phone"
-            value={stepData.mobile}
+            value={stepData.phonenumber}
             onChange={(e) =>
-              setStepData({
-                ...stepData,
-                email: e.target.value,
-              })
+              updateStepData('phonenumber', e.target.value)
+              // setStepData({
+              //   ...stepData,
+              //   phonenumber: e.target.value,
+              // })
             }
           />
         </div>
@@ -75,8 +92,11 @@ function Step2() {
             value={stepData.gender}
             optionData={gender}
             firstValue="Select one"
-            onClick={(e) =>
-              setStepData({ ...stepData, gender: e.target.value })
+            onChange={(e) =>
+              {
+                console.log(e.target)
+              updateStepData('gender', e.target.value)}
+              // setStepData({ ...stepData, gender: e.target.value })
             }
           />
           {/* <Input
@@ -106,8 +126,9 @@ function Step2() {
             value={stepData.country}
             optionData={countries}
             firstValue="Eg.USA, India, etc"
-            onClick={(e) =>
-              setStepData({ ...stepData, country: e.target.value })
+            onChange={(e) =>
+              updateStepData('country', e.target.value)
+              // setStepData({ ...stepData, country: e.target.value })
             }
           />
         </div>
@@ -124,10 +145,11 @@ function Step2() {
             placeHolder="Eg.UCLA, SJSU"
             value={stepData.school}
             onChange={(e) =>
-              setStepData({
-                ...stepData,
-                school: e.target.value,
-              })
+              updateStepData('school', e.target.value)
+              // setStepData({
+              //   ...stepData,
+              //   school: e.target.value,
+              // })
             }
           />
         </div>
@@ -146,10 +168,11 @@ function Step2() {
             placeHolder="Eg. Apple, Microsoft"
             value={stepData.company}
             onChange={(e) =>
-              setStepData({
-                ...stepData,
-                company: e.target.value,
-              })
+              updateStepData('company', e.target.value)
+              // setStepData({
+              //   ...stepData,
+              //   company: e.target.value,
+              // })
             }
           />
         </div>
@@ -164,12 +187,13 @@ function Step2() {
             className={commonStyle.stepInput}
             name="title"
             placeHolder="Eg. Designer, Student"
-            value={stepData.yourTitle}
+            value={stepData.designation}
             onChange={(e) =>
-              setStepData({
-                ...stepData,
-                yourTitle: e.target.value,
-              })
+              updateStepData('designation', e.target.value)
+              // setStepData({
+              //   ...stepData,
+              //   designation: e.target.value,
+              // })
             }
           />
         </div>
@@ -187,10 +211,11 @@ function Step2() {
             optionData={years}
             firstValue="Years"
             onChange={(e) =>
-              setStepData({
-                ...stepData,
-                yearsOfProfessionalExp: e.target.value,
-              })
+              updateStepData('yearsOfProfessionalExp', e.target.valud)
+              // setStepData({
+              //   ...stepData,
+              //   yearsOfProfessionalExp: e.target.value,
+              // })
             }
           />
         </div>
@@ -201,16 +226,17 @@ function Step2() {
             optionData={months}
             firstValue="Month"
             onChange={(e) =>
-              setStepData({
-                ...stepData,
-                montsofProfessionalExp: e.target.value,
-              })
+              updateStepData('montsofProfessionalExp', e.target.value)
+              // setStepData({
+              //   ...stepData,
+              //   montsofProfessionalExp: e.target.value,
+              // })
             }
           />
         </div>
       </div>
     </div>
   );
-}
+}, ()=> true);
 
 export default Step2;

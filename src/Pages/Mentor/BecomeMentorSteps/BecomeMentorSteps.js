@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import Axios from 'axios';
+
 
 import Step from "../../../Components/Steps/Step";
 import Step1 from "./Step1/Step1";
@@ -15,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 
 function BecomeMentorSteps() {
   const [steps, setSteps] = useState(null);
+  const stepref = useRef(null);
 
   const navigate = useNavigate();
 
@@ -28,28 +31,46 @@ function BecomeMentorSteps() {
     return () => {
       console.log("called and removed");
     };
-  }, []);
+  }, [steps]);
 
   const getPageByStep = () => {
     switch (true) {
       case steps === 1:
-        return <Step1 />;
+        return <Step1 ref={stepref} />;
       case steps === 2:
-        return <Step2 />;
+        return <Step2 ref={stepref}/>;
       case steps === 3:
-        return <Step3 />;
+        return <Step3 ref={stepref}/>;
       case steps === 4:
-        return <Step4 />;
+        return <Step4 ref={stepref}/>;
       default:
-        return <Step5 />;
+        return <Step5 ref={stepref}/>;
     }
   };
 
   const changeTab = () => {
     if (steps === 5) {
+      const user1Data = JSON.parse(sessionStorage.getItem('step1data'));
+      const user2Data = JSON.parse(sessionStorage.getItem('step2data'))
+      const user3Data = JSON.parse(sessionStorage.getItem('step3data'))
+      const user4Data = JSON.parse(sessionStorage.getItem('step4data'))
+
+      const userFinalData = {...user1Data, ...user2Data, ...user3Data, ...user4Data};
+      console.log('userFinalData', userFinalData);
+      
       sessionStorage.removeItem("tabAndRoleMentor");
-      navigate("/mentorList");
+      Axios.post(`${Axios.defaults.baseURL}/mentor/mentorassign`,userFinalData)
+      .then(result => {
+        console.log('result ',result);
+        sessionStorage.removeItem("tabAndRoleMentor");
+        navigate("/mentorList");
+      })
+      .catch(error =>{
+        console.log('error ', error);
+      })
+      
     } else {
+      stepref.current.getStepData()
       sessionStorage.setItem("tabAndRoleMentor", steps + 1);
       setSteps((steps) => steps + 1);
     }

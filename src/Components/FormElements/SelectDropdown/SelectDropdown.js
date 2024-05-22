@@ -8,6 +8,7 @@ function SelectDropdown({
   value,
   optionData = [],
   onClick,
+  onChange,
   className,
   placeholder = "",
 }) {
@@ -18,6 +19,7 @@ function SelectDropdown({
       defaultValue={value}
       name="cars"
       id="cars"
+      onChange={onChange}
     >
       <option value="" defaultChecked>
         {firstValue}

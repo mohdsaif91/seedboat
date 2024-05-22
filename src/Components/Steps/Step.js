@@ -5,8 +5,8 @@ import style from "./step.module.scss";
 function Step({ page, totalSteps = [] }) {
   return (
     <div className={style.stepContainer}>
-      {totalSteps.map((m) => (
-        <div className={style.step}>
+      {totalSteps.map((m, index) => (
+        <div key={`step_${index}`} className={style.step}>
           {page === m && <label className={style.stepLabel}>Step {m}</label>}
           <div
             className={`${style.stepItem} ${page === m && style.active} ${
