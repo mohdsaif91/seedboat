@@ -1,20 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Axios from "axios";
 
 import Step from "../../Components/Steps/Step";
 import verticalImage from "../../Images/verticalImage.png";
+import ServiceStep1 from "./ServiceStep1/ServiceStep1";
+import Button from "../../Components/Button/Button";
+import ServiceStep2 from "./ServiceStep2/ServiceStep2";
 
 import style from "./serviceProvider.module.scss";
 import globalStyle from "../../global.module.scss";
 import commonStyle from "../../common.module.scss";
-import ServiceStep1 from "./ServiceStep1/ServiceStep1";
-import Button from "../../Components/Button/Button";
-import ServiceStep2 from "./ServiceStep2/ServiceStep2";
-import { useNavigate } from "react-router-dom";
 
 function ServiceProvider() {
   const [steps, setSteps] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+
+  const stepRef = useRef(null);
 
   useEffect(() => {
     if (!steps) {
@@ -26,12 +30,36 @@ function ServiceProvider() {
   }, []);
 
   const stepCheck = () => {
-    if (steps === 1) {
+    if (!stepRef.current.getServiceStepData()) {
+      return false;
+    } else if (steps === 1) {
       sessionStorage.setItem("tabAndRoleService", steps + 1);
       setSteps(2);
-    } else {
-      sessionStorage.removeItem("tabAndRoleService");
-      navigate("/serviceList");
+    } else if (steps === 2) {
+      setLoading(true);
+      const serviceStep1Data = JSON.parse(
+        sessionStorage.getItem("serviceStep1data")
+      );
+      const serviceStep2Data = JSON.parse(
+        sessionStorage.getItem("serviceStep2data")
+      );
+
+      const finalData = {
+        ...serviceStep1Data,
+        ...serviceStep2Data,
+      };
+      console.log(finalData, " <>?");
+
+      Axios.post(`${Axios.defaults.baseURL}/services/createservice`, finalData)
+        .then((data) => {
+          sessionStorage.removeItem("tabAndRoleService");
+          setLoading(false);
+          navigate("/serviceList");
+        })
+        .catch((err) => {
+          setLoading(false);
+          console.log("error in creating Service ", err);
+        });
     }
   };
 
@@ -58,7 +86,11 @@ function ServiceProvider() {
           )}
         </div>
         <div className={style.step}>
-          {steps === 1 ? <ServiceStep1 /> : <ServiceStep2 />}
+          {steps === 1 ? (
+            <ServiceStep1 ref={stepRef} />
+          ) : (
+            <ServiceStep2 ref={stepRef} />
+          )}
         </div>
 
         <Button

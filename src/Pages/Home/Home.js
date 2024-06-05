@@ -91,7 +91,7 @@ function Home() {
               <div className={style.secondaryServiceCards}>
                 <div
                   className={style.serviceCard}
-                  onClick={() => navigate("/mentor")}
+                  onClick={() => navigate("/mentorList")}
                 >
                   <img src={mentorship} alt="" />
                   <div className={style.cardText}>Mentorship</div>

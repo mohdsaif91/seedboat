@@ -12,10 +12,27 @@ function Header() {
         Logo
       </div>
       <ul className={style.pageLinks}>
-        <li className={style.pageLinkItem}>About</li>
-        <li className={style.pageLinkItem}>invest with us</li>
-        <li className={style.pageLinkItem}>Start a project</li>
-        <li className={style.pageLinkItem}>Mentorship</li>
+        <li className={style.pageLinkItem} onClick={() => navigate("/about")}>
+          About
+        </li>
+        <li
+          className={style.pageLinkItem}
+          onClick={() => navigate("/investor")}
+        >
+          invest with us
+        </li>
+        <li
+          className={style.pageLinkItem}
+          onClick={() => navigate("/mentorList")}
+        >
+          Start a project
+        </li>
+        <li
+          className={style.pageLinkItem}
+          onClick={() => navigate("/mentorList")}
+        >
+          Mentorship
+        </li>
       </ul>
       <div className={style.loginBtn}>
         <Button text="Log In/Sign up" onClick={() => navigate("/login")} />

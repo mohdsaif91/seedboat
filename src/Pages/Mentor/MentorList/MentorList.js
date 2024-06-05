@@ -6,18 +6,19 @@ import globalStyle from "../../../global.module.scss";
 import Mentor from "./Mentor/Mentor";
 import CoFounder from "./CoFounder/CoFounder";
 
-
 const MentorList = () => {
-
   const [tab, setTab] = useState("mentor");
+  const [mentorList, setMentorList] = useState([]);
 
-  useEffect(() =>{
+  useEffect(() => {
     Axios.get(`${Axios.defaults.baseURL}/mentor/mentorall`)
-    .then(result => console.log(result))
-    .catch(error=> {
-      console.log(error);
-    })
-  }, [])
+      .then((result) => {
+        setMentorList(result.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <div className={style.mentorContainer}>
@@ -37,9 +38,13 @@ const MentorList = () => {
           {tab === "coFounder" && <div className={style.tabActive} />}
         </div>
       </div>
-      {tab === "mentor" ? <Mentor /> : <CoFounder />}
+      {tab === "mentor" ? (
+        <Mentor mentorData={mentorList.data} />
+      ) : (
+        <CoFounder />
+      )}
     </div>
   );
-}
+};
 
 export default MentorList;

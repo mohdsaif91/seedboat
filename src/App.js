@@ -4,6 +4,7 @@ import Axios from "axios";
 
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
+import PageLoader from "./Components/PageLoader/PageLoader";
 const Home = React.lazy(() => import("./Pages/Home/Home"));
 const Login = React.lazy(() => import("./Pages/Login/Login"));
 const UserRole = React.lazy(() => import("./Pages/UserRole/UserRole"));
@@ -62,11 +63,14 @@ const BlogDetails = React.lazy(() =>
 );
 const AddBlog = React.lazy(() => import("./Pages/Blog/AddBlog/AddBlog"));
 
-Axios.defaults.baseURL = "http://localhost:5000";
-Axios.defaults.withCredentials = true;
-Axios.headers = ({
-  'Content-Type': 'application/json'
-})
+Axios.defaults.baseURL = "https://seedboat.qortechno.com";
+// Axios.defaults.withCredentials = true;
+Axios.defaults.headers = {
+  "Content-Type": "application/json",
+  "Access-Control-Allow-Origin": Axios.defaults.baseURL,
+  "Access-Control-Allow-Headers":
+    "Origin, X-Requested-With, Content-Type, Accept",
+};
 
 function App() {
   return (
@@ -76,7 +80,7 @@ function App() {
         <Route
           path="/"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <Home />
             </Suspense>
           }
@@ -84,7 +88,7 @@ function App() {
         <Route
           path="/login"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <Login />
             </Suspense>
           }
@@ -92,7 +96,7 @@ function App() {
         <Route
           path="/userRole"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <UserRole />
             </Suspense>
           }
@@ -100,7 +104,7 @@ function App() {
         <Route
           path="/investor"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <Investor />
             </Suspense>
           }
@@ -108,7 +112,7 @@ function App() {
         <Route
           path="/serviceProvider"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <ServiceProvider />
             </Suspense>
           }
@@ -116,7 +120,7 @@ function App() {
         <Route
           path="/mentor"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <Founder />
             </Suspense>
           }
@@ -124,7 +128,7 @@ function App() {
         <Route
           path="/startUp"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <StartUp />
             </Suspense>
           }
@@ -132,7 +136,7 @@ function App() {
         <Route
           path="/investorAcknowledgMent"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <InvestorAcknowledgMent />
             </Suspense>
           }
@@ -140,7 +144,7 @@ function App() {
         <Route
           path="/investmentExploer"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <InvestmentExplore />
             </Suspense>
           }
@@ -148,7 +152,7 @@ function App() {
         <Route
           path="/investorProfile"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <InvestorProfile />
             </Suspense>
           }
@@ -156,7 +160,7 @@ function App() {
         <Route
           path="/startUpOnboarding"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <StartUpOnboarding />
             </Suspense>
           }
@@ -164,7 +168,7 @@ function App() {
         <Route
           path="/startUpDetialsPage"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <StartUpDetialsPage />
             </Suspense>
           }
@@ -172,7 +176,7 @@ function App() {
         <Route
           path="/projectOverview"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <ProjectOverview />
             </Suspense>
           }
@@ -180,7 +184,7 @@ function App() {
         <Route
           path="/becomeMentor"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <BecomeMentor />
             </Suspense>
           }
@@ -188,7 +192,7 @@ function App() {
         <Route
           path="/becomeMentorSteps"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <BecomeMentorSteps />
             </Suspense>
           }
@@ -196,7 +200,7 @@ function App() {
         <Route
           path="/mentorList"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <MentorList />
             </Suspense>
           }
@@ -204,7 +208,7 @@ function App() {
         <Route
           path="/mentorDetails"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <MentorDetails />
             </Suspense>
           }
@@ -212,7 +216,7 @@ function App() {
         <Route
           path="/mentorProfile"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <MentorProfile />
             </Suspense>
           }
@@ -220,7 +224,7 @@ function App() {
         <Route
           path="/serviceList"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <ServiceList />
             </Suspense>
           }
@@ -228,7 +232,7 @@ function App() {
         <Route
           path="/serviceDetials"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <ServiceDetials />
             </Suspense>
           }
@@ -236,7 +240,7 @@ function App() {
         <Route
           path="/serviceProfile"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <ServiceProfile />
             </Suspense>
           }
@@ -244,7 +248,7 @@ function App() {
         <Route
           path="/message"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <Message />
             </Suspense>
           }
@@ -252,7 +256,7 @@ function App() {
         <Route
           path="/blog"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <Blog />
             </Suspense>
           }
@@ -260,7 +264,7 @@ function App() {
         <Route
           path="/blogDetails"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <BlogDetails />
             </Suspense>
           }
@@ -268,7 +272,7 @@ function App() {
         <Route
           path="/addBlog"
           element={
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <AddBlog />
             </Suspense>
           }
