@@ -882,3 +882,5 @@ export const toBase64 = (file) =>
     reader.onload = () => resolve(reader.result);
     reader.onerror = reject;
   });
+
+export const numberRegex = new RegExp("^[0-9]$");

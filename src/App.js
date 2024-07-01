@@ -62,6 +62,7 @@ const BlogDetails = React.lazy(() =>
   import("./Pages/Blog/BlogDetails/BlogDetails")
 );
 const AddBlog = React.lazy(() => import("./Pages/Blog/AddBlog/AddBlog"));
+const SignUp = React.lazy(() => import("./Pages/Signup/SignUp"));
 
 Axios.defaults.baseURL = "https://seedboat.qortechno.com";
 // Axios.defaults.withCredentials = true;
@@ -274,6 +275,14 @@ function App() {
           element={
             <Suspense fallback={<PageLoader />}>
               <AddBlog />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/signUp"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <SignUp />
             </Suspense>
           }
         />

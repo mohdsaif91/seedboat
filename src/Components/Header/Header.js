@@ -1,11 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import style from "./header.module.scss";
 import Button from "../Button/Button";
+
+import style from "./header.module.scss";
 
 function Header() {
   const navigate = useNavigate();
+
+  console.log(typeof JSON.parse(sessionStorage.getItem("loginData")), " <>?");
   return (
     <div className={style.headerContainer}>
       <div className={style.logo} onClick={() => navigate("/")}>
@@ -35,7 +38,10 @@ function Header() {
         </li>
       </ul>
       <div className={style.loginBtn}>
-        <Button text="Log In/Sign up" onClick={() => navigate("/login")} />
+        {(sessionStorage.getItem("loginData") === "" ||
+          !sessionStorage.getItem("loginData")) && (
+          <Button text="Log In/Sign up" onClick={() => navigate("/login")} />
+        )}
       </div>
     </div>
   );

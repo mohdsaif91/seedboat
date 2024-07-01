@@ -1,27 +1,28 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Axios from "axios";
 
 import { Input } from "../../../Components/FormElements/Input/Input";
 import SelectDropdown from "../../../Components/FormElements/SelectDropdown/SelectDropdown";
-
-import style from "./startUpOnboarding.module.scss";
-import globalStyle from "../../../global.module.scss";
 import { investmentType } from "../../../util";
 import Button, { BtnRect } from "../../../Components/Button/Button";
 import TextArea from "../../../Components/FormElements/TextArea/TextArea";
 import YesIcon from "../../../Images/icon/yes.png";
 import NoIcon from "../../../Images/icon/no.png";
-import { useNavigate } from "react-router-dom";
+
+import style from "./startUpOnboarding.module.scss";
+import globalStyle from "../../../global.module.scss";
 
 const initialOnBoarding = {
   projectName: "",
   projectOwner: "",
-  category: "",
-  description: "",
-  funding: null,
-  fundsAvailabeltillNow: "",
-  fundsrequired: "",
-  timeAvailable: "",
-  minimumFunding: "",
+  projectCategory: "",
+  projectDescription: "",
+  prjctFndReqdStatus: null,
+  prjctFndAvailableTime: "",
+  prjctFndReqrd: "",
+  prjctFundTime: "",
+  projectFndMinimum: "",
 };
 
 function StartUpOnboarding() {
@@ -43,6 +44,26 @@ function StartUpOnboarding() {
       sessionStorage.removeItem("startUpStep");
     };
   }, []);
+
+  const callApi = (data) => {
+    // https://seedboat.qortechno.com/startup/createstartupproject
+    Axios.post(`${Axios.defaults.baseURL}/startup/createstartupproject`, data)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const submitWithoutFunding = (flag) => {
+    setOnBoardingForm({
+      ...onBoardingForm,
+      prjctFndReqdStatus: false,
+    });
+    onBoardingForm.prjctFndReqdStatus = false;
+    callApi(onBoardingForm);
+  };
 
   console.log(onBoardingSteps);
 
@@ -123,13 +144,13 @@ function StartUpOnboarding() {
               />
               <SelectDropdown
                 className={`${style.startUpInput} ${style.dropdown}`}
-                onClick={(e) =>
+                onChange={(e) =>
                   setOnBoardingForm({
                     ...onBoardingForm,
-                    category: e.target.value,
+                    projectCategory: e.target.value,
                   })
                 }
-                value={onBoardingForm.category}
+                value={onBoardingForm.projectCategory}
                 firstValue="Category"
                 optionData={investmentType}
               />
@@ -138,11 +159,11 @@ function StartUpOnboarding() {
             <div className={style.step2}>
               <TextArea
                 className={style.stepTextArea}
-                value={onBoardingForm.description}
+                value={onBoardingForm.projectDescription}
                 onChange={(e) =>
                   setOnBoardingForm({
                     ...onBoardingForm,
-                    description: e.target.value,
+                    projectDescription: e.target.value,
                   })
                 }
                 placeHolder="Description"
@@ -150,7 +171,7 @@ function StartUpOnboarding() {
             </div>
           ) : (
             <div className={style.step3}>
-              {onBoardingForm.funding === null ? (
+              {onBoardingForm.prjctFndReqdStatus === null ? (
                 <div className={style.fundingContainer}>
                   <div
                     className={`${style.fundingHeading} ${globalStyle.headingPoppins}`}
@@ -162,81 +183,95 @@ function StartUpOnboarding() {
                       text="Yes"
                       className={style.answerbtn}
                       onClick={() =>
-                        setOnBoardingForm({ ...onBoardingForm, funding: true })
+                        setOnBoardingForm({
+                          ...onBoardingForm,
+                          prjctFndReqdStatus: true,
+                        })
                       }
-                      btnIcon={YesIcon}
+                      btnIcon={NoIcon}
                       btnWithIcon={true}
                     />
                     <BtnRect
                       text="No"
                       className={style.answerbtn}
-                      onClick={() =>
-                        setOnBoardingForm({ ...onBoardingForm, funding: true })
-                      }
-                      btnIcon={NoIcon}
+                      onClick={() => submitWithoutFunding(false)}
+                      btnIcon={YesIcon}
                       btnWithIcon={true}
                     />
                   </div>
                 </div>
-              ) : (
+              ) : onBoardingForm.prjctFndReqdStatus === true ? (
                 <div className={style.fundingAmountStep}>
                   <Input
-                    value={onBoardingForm.fundsAvailabeltillNow}
+                    type="number"
+                    value={onBoardingForm.prjctFndAvailableTime}
                     onChange={(e) =>
                       setOnBoardingForm({
                         ...onBoardingForm,
-                        fundsAvailabeltillNow: e.target.value,
+                        prjctFndAvailableTime: parseInt(e.target.value),
                       })
                     }
                     className={style.startUpInput}
                     placeHolder="Funds availabel till now:"
                   />
                   <Input
-                    value={onBoardingForm.fundsrequired}
+                    type="number"
+                    value={onBoardingForm.prjctFndReqrd}
                     className={style.startUpInput}
                     placeHolder="Funds required:"
                     onChange={(e) =>
                       setOnBoardingForm({
                         ...onBoardingForm,
-                        fundsrequired: e.target.value,
+                        prjctFndReqrd: parseInt(e.target.value),
                       })
                     }
                   />
                   <Input
-                    value={onBoardingForm.timeAvailable}
+                    value={onBoardingForm.prjctFundTime}
                     onChange={(e) =>
                       setOnBoardingForm({
                         ...onBoardingForm,
-                        timeAvailable: e.target.value,
+                        prjctFundTime: e.target.value,
                       })
                     }
                     className={style.startUpInput}
                     placeHolder="Time available:"
                   />
                   <Input
-                    value={onBoardingForm.minimumFunding}
+                    type="number"
+                    value={onBoardingForm.projectFndMinimum}
                     className={style.startUpInput}
                     placeHolder="Minimum Funding:"
                     onChange={(e) =>
                       setOnBoardingForm({
                         ...onBoardingForm,
-                        minimumFunding: e.target.value,
+                        projectFndMinimum: e.target.value,
                       })
                     }
                   />
                 </div>
+              ) : (
+                <></>
               )}
             </div>
           )}
           <Button
             disable={onBoardingSteps > 2 && onBoardingForm.funding === null}
-            text={onBoardingSteps > 2 ? "Submit" : "Next"}
+            text={
+              onBoardingSteps > 2 || onBoardingForm.prjctFndReqdStatus === false
+                ? "Submit"
+                : "Next"
+            }
             className={`${onBoardingSteps === 3 && style.addLeftMargin} ${
               style.nextBtn
             }`}
             onClick={() => {
-              if (onBoardingSteps === 3) {
-                navigate("/startUpDetialsPage");
+              if (
+                onBoardingSteps === 3 ||
+                onBoardingForm.prjctFndReqdStatus === false
+              ) {
+                console.log(onBoardingForm, " <>?");
+                callApi(onBoardingForm);
               } else {
                 sessionStorage.setItem(
                   "startUpStep",
