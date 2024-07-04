@@ -62,11 +62,15 @@ const BlogDetails = React.lazy(() =>
 );
 const AddBlog = React.lazy(() => import("./Pages/Blog/AddBlog/AddBlog"));
 
-Axios.defaults.baseURL = "http://localhost:5000";
-Axios.defaults.withCredentials = true;
-Axios.headers = ({
-  'Content-Type': 'application/json'
+// Axios.defaults.baseURL = "http://localhost:5000";
+Axios.defaults.baseURL = "https://seedboat.qortechno.com"
+// Axios.defaults.withCredentials = true;
+Axios.defaults.headers = ({
+  'Content-Type': 'application/json',
+  'Access-Control-Allow-Origin': Axios.defaults.baseURL,
+  'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept', 
 })
+
 
 function App() {
   return (

@@ -25,6 +25,7 @@ function Login() {
     startTimer();
 
     setSendOtp({ ...sendOtp, flag: true });
+    
   }
   const handleOtp = () => {
     navigate("/userRole");

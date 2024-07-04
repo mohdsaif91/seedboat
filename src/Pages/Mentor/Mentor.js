@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+
+import Axios from "axios";
+
 
 import p1 from "../../Images/p1.png";
 import p2 from "../../Images/p2.png";
@@ -33,6 +36,20 @@ function Mentor() {
   const [resource, setResource] = useState({ ...resourceFormData });
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+
+    console.log('came mentor')
+
+    Axios.get(`${Axios.defaults.baseURL}/mentor/mentorall`)
+    .then((result)=> {
+      console.log('result', result)
+    })
+    .catch((error)=> {
+      console.log('error', error)
+    })
+
+  }, [])
 
   return (
     <div className={style.mentoContainer}>

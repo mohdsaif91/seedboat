@@ -11,22 +11,42 @@ const initialStep1Data = {
   linkedin: "",
   username: "",
   proposed_position: "",
-  userimage: ""
+  mentorimage: ""
 };
 
 const Step1 = forwardRef((props, ref) => {
+  
   const [step1Data, setStep1Data] = useState({ ...initialStep1Data });
   const inputFileRef = useRef();
 
-  const updateStepData = (pKey, pValue) => {
-    setStep1Data({...step1Data, [pKey]: pValue})
+  const updateStepData = async(pKey, pValue) => {
+    if(pKey === 'mentorimage'){
+      const imageresult = await getBase64(pValue);
+      // console.log('imageresult', imageresult);
+      setStep1Data({...step1Data, [pKey]: imageresult})
+    } else {
+      setStep1Data({...step1Data, [pKey]: pValue})
+    }
+    // console.log(step1Data);
     // sessionStorage.setItem("step1data", JSON.stringify(step1Data));
   };
+
+  const getBase64 = (file) => {
+    return new Promise((resolve,reject) => {
+       const reader = new FileReader();
+       reader.onload = () => resolve(reader.result);
+       reader.onerror = error => reject(error);
+       reader.readAsDataURL(file);
+    });
+  }
+  
 
   useImperativeHandle(ref, (e)=>({
     getStepData() {
       console.log(step1Data);
       sessionStorage.setItem("step1data", JSON.stringify(step1Data));
+
+      console.log(sessionStorage.getItem("step1data"));
       return step1Data;
     }
   }))
@@ -41,13 +61,12 @@ const Step1 = forwardRef((props, ref) => {
           ref={inputFileRef}
           type="file"
           onChange={(e) => {
-            // console.log('files ', e.target.files)
-            updateStepData("imagedata", e.target.files[0])
+            updateStepData("mentorimage", e.target.files[0])
           }
           }
           className={style.profileInput}
         />
-        <img src={profileAvatar} alt="" className={style.profileAvatar} />
+        <img src={step1Data.mentorimage !== "" ? step1Data.mentorimage : profileAvatar} alt="" className={style.profileAvatar} />
         <div className={style.mainTextConatiner}>
           <div
             className={`${style.mainTextImage} ${globalStyle.headingPoppins}`}

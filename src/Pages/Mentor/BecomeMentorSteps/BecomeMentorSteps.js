@@ -57,8 +57,22 @@ function BecomeMentorSteps() {
 
       const userFinalData = {...user1Data, ...user2Data, ...user3Data, ...user4Data};
       console.log('userFinalData', userFinalData);
-      
+      // const newForm = new FormData();
+      // for (const key in userFinalData) {
+      //   console.log(userFinalData[key], key)
+      //   newForm.append(key, userFinalData[key]);
+      // }
+      // console.log(newForm);
+      // newForm.append('file', user1Data.userimage);
+      // newForm.append('file', user1Data.userimage);
+      // newForm.append('file', user1Data.userimage);
+      // newForm.append('file', user1Data.userimage);
+      // newForm.append('file', user1Data.userimage);
+      // newForm.append('file', user1Data.userimage);
+
+
       sessionStorage.removeItem("tabAndRoleMentor");
+      
       Axios.post(`${Axios.defaults.baseURL}/mentor/mentorassign`,userFinalData)
       .then(result => {
         console.log('result ',result);
