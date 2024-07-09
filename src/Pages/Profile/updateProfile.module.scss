@@ -1,0 +1,24 @@
+@import "../../variable.module.scss";
+
+.profileContainer {
+  .parentFormContainer {
+    margin: 32px;
+    padding: 24px;
+    .formContainer {
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      .inputPassowrd {
+        &:last-child {
+          margin-left: 40px;
+        }
+      }
+    }
+    .btnContainer {
+      padding: 24px 40px;
+    }
+  }
+}
+.gap {
+  width: 80px;
+}

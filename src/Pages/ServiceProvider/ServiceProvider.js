@@ -11,6 +11,7 @@ import ServiceStep2 from "./ServiceStep2/ServiceStep2";
 import style from "./serviceProvider.module.scss";
 import globalStyle from "../../global.module.scss";
 import commonStyle from "../../common.module.scss";
+import PageLoader from "../../Components/PageLoader/PageLoader";
 
 function ServiceProvider() {
   const [steps, setSteps] = useState(null);
@@ -43,13 +44,10 @@ function ServiceProvider() {
       const serviceStep2Data = JSON.parse(
         sessionStorage.getItem("serviceStep2data")
       );
-
       const finalData = {
         ...serviceStep1Data,
         ...serviceStep2Data,
       };
-      console.log(finalData, " <>?");
-
       Axios.post(`${Axios.defaults.baseURL}/services/createservice`, finalData)
         .then((data) => {
           sessionStorage.removeItem("tabAndRoleService");
@@ -65,62 +63,70 @@ function ServiceProvider() {
 
   return (
     <div className={style.serviceProviderContainer}>
-      <div className={style.leftContainer}>
-        <div className={style.stepContainer}>
-          <Step page={steps} totalSteps={[1, 2]} />
-        </div>
-        <div
-          className={`${commonStyle.stepHeading} ${globalStyle.headingPoppins}`}
-        >
-          {steps === 1 ? (
-            <>
-              Hello, <br />
-              Give your details .
-            </>
-          ) : (
-            <>
-              Hello, What’s your
-              <br />
-              origin story?
-            </>
-          )}
-        </div>
-        <div className={style.step}>
-          {steps === 1 ? (
-            <ServiceStep1 ref={stepRef} />
-          ) : (
-            <ServiceStep2 ref={stepRef} />
-          )}
-        </div>
-
-        <Button
-          onClick={() => stepCheck()}
-          className={style.nextBtn}
-          text={steps === 1 ? "Next" : "Submit"}
-        />
-      </div>
-      <div className={style.rightContainer}>
-        <img src={verticalImage} alt="" className={style.verticalImg} />
-        <div className={style.rightMainImage}>
-          <div className={style.textContainer}>
-            <div className={`${style.mainText} ${globalStyle.headingPoppins}`}>
-              12,797+ mentors
+      {loading ? (
+        <PageLoader />
+      ) : (
+        <>
+          <div className={style.leftContainer}>
+            <div className={style.stepContainer}>
+              <Step page={steps} totalSteps={[1, 2]} />
             </div>
             <div
-              className={`${style.subText} ${globalStyle.subHeadingPoppins}`}
+              className={`${commonStyle.stepHeading} ${globalStyle.headingPoppins}`}
             >
-              Vivamus lacinia faucibus aliquam. Donec sodales rhoncus nisi, eget
-              ullamcorper sem convallis id. Quisque eleifend augue non lectus
-              malesuada posuere.
+              {steps === 1 ? (
+                <>
+                  Hello, <br />
+                  Give your details .
+                </>
+              ) : (
+                <>
+                  Hello, What’s your
+                  <br />
+                  origin story?
+                </>
+              )}
             </div>
-            <div className={style.dashContainer}>
-              <div className={`${style.dash} ${style.active}`} />
-              <div className={style.dash} />
-              <div className={style.dash} />
+            <div className={style.step}>
+              {steps === 1 ? (
+                <ServiceStep1 ref={stepRef} />
+              ) : (
+                <ServiceStep2 ref={stepRef} />
+              )}
+            </div>
+
+            <Button
+              onClick={() => stepCheck()}
+              className={style.nextBtn}
+              text={steps === 1 ? "Next" : "Submit"}
+            />
+          </div>
+          <div className={style.rightContainer}>
+            <img src={verticalImage} alt="" className={style.verticalImg} />
+            <div className={style.rightMainImage}>
+              <div className={style.textContainer}>
+                <div
+                  className={`${style.mainText} ${globalStyle.headingPoppins}`}
+                >
+                  12,797+ mentors
+                </div>
+                <div
+                  className={`${style.subText} ${globalStyle.subHeadingPoppins}`}
+                >
+                  Vivamus lacinia faucibus aliquam. Donec sodales rhoncus nisi,
+                  eget ullamcorper sem convallis id. Quisque eleifend augue non
+                  lectus malesuada posuere.
+                </div>
+                <div className={style.dashContainer}>
+                  <div className={`${style.dash} ${style.active}`} />
+                  <div className={style.dash} />
+                  <div className={style.dash} />
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </>
+      )}
     </div>
   );
 }

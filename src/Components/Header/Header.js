@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import Button from "../Button/Button";
+import userAvatar from "../../Images/icon/user.png";
 
 import style from "./header.module.scss";
 
@@ -37,7 +38,14 @@ function Header() {
           Mentorship
         </li>
       </ul>
+
       <div className={style.loginBtn}>
+        <img
+          src={userAvatar}
+          alt="login"
+          className={style.avatarIcon}
+          onClick={() => navigate("/updateprofile")}
+        />
         {(sessionStorage.getItem("loginData") === "" ||
           !sessionStorage.getItem("loginData")) && (
           <Button text="Log In/Sign up" onClick={() => navigate("/login")} />

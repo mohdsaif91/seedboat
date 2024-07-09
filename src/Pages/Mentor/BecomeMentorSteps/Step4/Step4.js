@@ -92,7 +92,6 @@ const Step4 = forwardRef(
           >
             Preffered Compensation
           </div>
-          {stepData.required_compensation}
           <div>
             <RadioButton
               radioContainerClass={style.radioContainer}
@@ -122,7 +121,7 @@ const Step4 = forwardRef(
               radioContainerClass={style.radioContainer}
               name="Equity + Salary "
               checked={
-                stepData.required_compensation === "Equity + Salary "
+                stepData.required_compensation === "Equity + Salary"
                   ? true
                   : false
               }

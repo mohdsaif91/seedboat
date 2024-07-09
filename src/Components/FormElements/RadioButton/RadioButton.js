@@ -15,7 +15,7 @@ function RadioButton({
     <div className={`${style.radioBtnContainer} ${radioContainerClass}`}>
       <input
         className={`${style.inputRadio}  ${className}`}
-        checked={checked === value}
+        checked={checked}
         onChange={onChange}
         type="radio"
         id={name}

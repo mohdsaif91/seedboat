@@ -9,10 +9,10 @@ import Button, { BtnRect } from "../../../Components/Button/Button";
 import TextArea from "../../../Components/FormElements/TextArea/TextArea";
 import YesIcon from "../../../Images/icon/yes.png";
 import NoIcon from "../../../Images/icon/no.png";
+import PageLoader from "../../../Components/PageLoader/PageLoader";
 
 import style from "./startUpOnboarding.module.scss";
 import globalStyle from "../../../global.module.scss";
-import PageLoader from "../../../Components/PageLoader/PageLoader";
 
 const initialOnBoarding = {
   projectName: "",

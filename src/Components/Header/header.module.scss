@@ -41,5 +41,9 @@
   }
   .loginBtn {
     margin-right: 34px;
+    .avatarIcon {
+      height: 48px;
+      cursor: pointer;
+    }
   }
 }

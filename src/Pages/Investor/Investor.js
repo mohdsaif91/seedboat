@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import HeadingAndSubHEading from "../../Components/HeadingAndSubHeading/HeadingAndSubHeading";
 import VerticalDevider from "../../Components/VerticalDevider/VerticalDevider";
@@ -8,28 +8,43 @@ import { BlackBtn, WhiteBtn } from "../../Components/Button/Button";
 import Individual from "../../Images/individual.png";
 import Company from "../../Images/company.png";
 import { Input } from "../../Components/FormElements/Input/Input";
-
-import style from "./investor.module.scss";
-import globalStyle from "../../global.module.scss";
 import RadioButton from "../../Components/FormElements/RadioButton/RadioButton";
 import SelectDropdown from "../../Components/FormElements/SelectDropdown/SelectDropdown";
 import { actualJobType, gender } from "../../util";
 import TextArea from "../../Components/FormElements/TextArea/TextArea";
 import ToggleButton from "../../Components/ToggleButton/ToggleButton";
 
+import style from "./investor.module.scss";
+import globalStyle from "../../global.module.scss";
+
 const initailFormData = {
-  firstName: "",
-  lastName: "",
+  investor_type: "",
+  company_name: "",
+  fname: "",
+  lname: "",
+  email: "",
+  phonenumber: "",
+  user_city: "",
+  user_country: "",
+  user_profession: "",
+  user_service: "",
+  user_gender: "",
+  user_nationality: "",
+  dob: "",
+  user_message: "",
+  investor_experience: "",
+  investment_interest: "",
+  investment_size: "",
+  investment_stage: "",
+  investment_country: "",
+  investment_city: "",
+  investment_notification: "",
+
   jobType: "",
   actualJob: "",
   city: "",
   country: "",
-  phoneNumber: "",
-  nationality: "",
-  gender: "",
-  dob: "",
   tellUsAbout: "",
-  companyName: "",
   websiteLink: "",
   establishMentYear: "",
 };
@@ -120,9 +135,15 @@ function StartUp() {
                 <div className={style.investorType}>
                   <div className={style.investorPatrentCard}>
                     <div
-                      onClick={() => setSelected(0)}
+                      onClick={() =>
+                        setFormData({
+                          ...formData,
+                          investor_type: "individual",
+                        })
+                      }
                       className={`${style.investorCard} ${
-                        selected === 0 && style.cardSelected
+                        formData.investor_type === "individual" &&
+                        style.cardSelected
                       }`}
                     >
                       <img
@@ -135,9 +156,12 @@ function StartUp() {
                       </label>
                     </div>
                     <div
-                      onClick={() => setSelected(1)}
+                      onClick={() =>
+                        setFormData({ ...formData, investor_type: "company" })
+                      }
                       className={`${style.investorCard} ${
-                        selected === 1 && style.cardSelected
+                        formData.investor_type === "company" &&
+                        style.cardSelected
                       }`}
                     >
                       <img alt="" src={Company} className={style.investorImg} />
@@ -156,27 +180,27 @@ function StartUp() {
             ) : stepperPage?.step === 2 ? (
               <div className={style.formContainer}>
                 {/*  */}
-                {stepperPage?.role === 0 ? (
+                {formData.investor_type === "individual" ? (
                   <>
                     <div className={globalStyle.ItemContainer}>
                       <Input
                         className={style.firstNameInput}
                         name="firstName"
                         placeHolder="First Name"
-                        value={formData.firstName}
+                        value={formData.fname}
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            firstName: e.target.value,
+                            fname: e.target.value,
                           })
                         }
                       />
                       <Input
                         name="lastName"
                         placeHolder="Last Name"
-                        value={formData.lastName}
+                        value={formData.lname}
                         onChange={(e) =>
-                          setFormData({ ...formData, lastName: e.target.value })
+                          setFormData({ ...formData, lname: e.target.value })
                         }
                       />
                     </div>
@@ -228,11 +252,11 @@ function StartUp() {
                         className={style.companyName}
                         name="companyName"
                         placeHolder="Company Name"
-                        value={formData.companyName}
+                        value={formData.company_name}
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            companyName: e.target.value,
+                            company_name: e.target.value,
                           })
                         }
                       />
@@ -304,9 +328,12 @@ function StartUp() {
                   <Input
                     name="nationality"
                     placeHolder="Nationality"
-                    value={formData.nationality}
+                    value={formData.user_nationality}
                     onChange={(e) =>
-                      setFormData({ ...formData, nationality: e.target.value })
+                      setFormData({
+                        ...formData,
+                        user_nationality: e.target.value,
+                      })
                     }
                   />
                 </div>
@@ -314,10 +341,10 @@ function StartUp() {
                   <SelectDropdown
                     className={style.genderDropdown}
                     firstValue="Gender"
-                    value={formData.gender}
+                    value={formData.user_gender}
                     optionData={gender}
                     onClick={(e) =>
-                      setFormData({ ...formData, gender: e.target.value })
+                      setFormData({ ...formData, user_gender: e.target.value })
                     }
                   />
                   <Input
