@@ -40,15 +40,16 @@ function Header() {
       </ul>
 
       <div className={style.loginBtn}>
-        <img
-          src={userAvatar}
-          alt="login"
-          className={style.avatarIcon}
-          onClick={() => navigate("/updateprofile")}
-        />
-        {(sessionStorage.getItem("loginData") === "" ||
-          !sessionStorage.getItem("loginData")) && (
+        {sessionStorage.getItem("loginData") === "" ||
+        !sessionStorage.getItem("loginData") ? (
           <Button text="Log In/Sign up" onClick={() => navigate("/login")} />
+        ) : (
+          <img
+            src={userAvatar}
+            alt="login"
+            className={style.avatarIcon}
+            onClick={() => navigate("/updateprofile")}
+          />
         )}
       </div>
     </div>

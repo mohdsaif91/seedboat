@@ -2,21 +2,26 @@
 
 .mentorContainer {
   padding: 80px 80px 0 80px;
-  .tabContainer {
+  .tabParentcontainer {
     display: flex;
-    .tab {
-      cursor: pointer;
-      font-size: 34px;
-      line-height: 32px; /* 100% */
-      letter-spacing: 0.64px;
-      &:first-child {
-        margin-right: 48px;
-      }
-      .tabActive {
-        margin-top: 16px;
-        width: 60%;
-        height: 4px;
-        background-color: $primaryBackgroundColor;
+    align-items: center;
+    justify-content: space-between;
+    .tabContainer {
+      display: flex;
+      .tab {
+        cursor: pointer;
+        font-size: 34px;
+        line-height: 32px; /* 100% */
+        letter-spacing: 0.64px;
+        &:first-child {
+          margin-right: 48px;
+        }
+        .tabActive {
+          margin-top: 16px;
+          width: 60%;
+          height: 4px;
+          background-color: $primaryBackgroundColor;
+        }
       }
     }
   }
