@@ -7,8 +7,11 @@ import LabelAndValue from "../../../Components/LabelAndValue/LabelAndValue";
 import style from "./serviceProfile.module.scss";
 import globalStyle from "../../../global.module.scss";
 import commonStyle from "../../../common.module.scss";
+import { useLocation } from "react-router-dom";
 
 function ServiceProfile() {
+  const { state } = useLocation();
+  console.log(state.serviceData, " <>?");
   return (
     <div className={style.serviceProfileContainer}>
       <ProfileHeader
@@ -37,18 +40,30 @@ function ServiceProfile() {
             />
           </div>
           <div className={commonStyle.infoContainer}>
-            <LabelAndValue label="Name" value="ABC corporation" />
+            <LabelAndValue
+              label="Name"
+              value={state.serviceData.company_name}
+            />
           </div>
           <div className={commonStyle.infoContainer}>
             <LabelAndValue
               label="Email Address"
               value="MarshallOrtega26@gmail.com"
             />
-            <LabelAndValue label="Phone" value="+09 98765 43210 " />
+            <LabelAndValue
+              label="Phone"
+              value={state.serviceData.phone_number}
+            />
           </div>
           <div className={commonStyle.infoContainer}>
-            <LabelAndValue label="Location" value="San Francisco" />
-            <LabelAndValue label="Website Link" value="www.abcname.com" />
+            <LabelAndValue
+              label="Location"
+              value={state.serviceData.service_location}
+            />
+            <LabelAndValue
+              label="Website Link"
+              value={state.serviceData.website_link}
+            />
           </div>
         </div>
         <div className={commonStyle.personalInfoCard}>
@@ -72,12 +87,18 @@ function ServiceProfile() {
             <LabelAndValue
               valueClass={style.largeTextWidth}
               label="Description"
-              value="Vivamus vehicula a lectus id tincidunt. Maecenas vel malesuada dolor. Etiam a quam ut ante scelerisque lobortis id finibus nibh. Mauris condimentum, nunc ut molestie lobortis, urna massa fringilla lacus, eget molestie dui augue ac metus. Maecenas imperdiet faucibus libero. Integer ac laoreet mauris. "
+              value={state.serviceData.service_description}
             />
           </div>
           <div className={commonStyle.infoContainer}>
-            <LabelAndValue label="Clients Served" value="50+" />
-            <LabelAndValue label="Years of Experience" value="2+" />
+            <LabelAndValue
+              label="Clients Served"
+              value={state.serviceData.served_client}
+            />
+            <LabelAndValue
+              label="Years of Experience"
+              value={state.serviceData.service_experience}
+            />
           </div>
           <div className={commonStyle.infoContainer}>
             <div className={style.labelTagContainer}>

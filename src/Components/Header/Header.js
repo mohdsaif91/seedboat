@@ -27,7 +27,7 @@ function Header() {
         </li>
         <li
           className={style.pageLinkItem}
-          onClick={() => navigate("/mentorList")}
+          onClick={() => navigate("/startUpOnboarding")}
         >
           Start a project
         </li>

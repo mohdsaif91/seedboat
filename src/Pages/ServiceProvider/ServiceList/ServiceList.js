@@ -160,7 +160,13 @@ function ServiceList() {
           {Array.isArray(serviceListData) ? (
             serviceListData.map((m, i) => (
               <ServiceCard
-                SecondaryBtnCLick={() => navigate("/serviceDetials")}
+                SecondaryBtnCLick={() =>
+                  navigate("/serviceDetials", {
+                    state: {
+                      serviceId: m._id,
+                    },
+                  })
+                }
                 primaryBtnClick={() => console.log()}
                 cardHeading={m.company_name}
                 subHeading={m.service_description}

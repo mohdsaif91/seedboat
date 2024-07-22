@@ -88,7 +88,8 @@ function StartUp() {
       );
     } else {
       setLoading(true);
-      Axios.post(`${Axios.defaults.baseURL}/investor/createinvestor`, formData)
+      // https://seedboat.qortechno.com/investor/investorassign
+      Axios.post(`${Axios.defaults.baseURL}/investor/investorassign`, formData)
         .then((res) => {
           setLoading(false);
           sessionStorage.removeItem("tabAndrole");

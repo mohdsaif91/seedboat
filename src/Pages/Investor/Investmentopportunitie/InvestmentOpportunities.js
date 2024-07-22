@@ -198,7 +198,7 @@ function InvestmentOpportunities() {
         </div>
         <WhiteRoundBtn
           text="Become Investor"
-          onClick={() => navigate("/investorProfile")}
+          onClick={() => navigate("/investor")}
         />
       </div>
     </div>
