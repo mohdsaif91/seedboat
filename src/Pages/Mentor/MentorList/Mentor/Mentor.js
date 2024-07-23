@@ -1,25 +1,26 @@
-import React, { useEffect, useState } from "react";
-import Axios from "axios";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import SearchIcon from "../../../../Images/icon/search.png";
 import Filter from "../../../../Images/icon/filter.png";
-
-import style from "./mentor.module.scss";
-import globalStyle from "../../../../global.module.scss";
-import commonStyle from "../../../../common.module.scss";
 import Button from "../../../../Components/Button/Button";
 import { mentorFilterlist, mentorListData } from "../../../../util";
 import rightBtnArrow from "../../../../Images/icon/rightBtnArrow.png";
 import leftbtnArrow from "../../../../Images/icon/leftBrnArrow.png";
 import MentorCard from "../../../../Components/MentorCard/MentorCard";
 import ContainerWithHeadingBtn from "../../../../Components/ContainerWithHeadingBtn/ContainerWithHeadingBtn";
-import { useNavigate } from "react-router-dom";
 
-function Mentor() {
+import style from "./mentor.module.scss";
+import globalStyle from "../../../../global.module.scss";
+import commonStyle from "../../../../common.module.scss";
+
+function Mentor({ mentorData = [] }) {
   const [search, setSearch] = useState("");
   const [mentorTab, setMentorTab] = useState("");
 
   const navigate = useNavigate();
+
+  console.log(mentorData, " <>?");
 
   return (
     <div className={style.mentorListContainer}>
@@ -56,18 +57,16 @@ function Mentor() {
           <img src={rightBtnArrow} alt="" className={style.leftBtnIcon} />
         </div>
         <div
-          className={`${commonStyle.linkDropDownContainer} ${style.cardContainer}`}
+          className={`${commonStyle.linkDropDownContainer} ${style.cardContainer} JACKJILL`}
         >
-          {mentorListData.map((m, i) => (
+          {mentorData.map((m, i) => (
             <>
               <MentorCard
+                key={m._id}
                 className={style.mentorCardItem}
                 data={m}
                 onClick={() => navigate("/mentorDetails")}
               />
-              {(i + 1) % 4 === 0 && i !== 0 && (
-                <div className={globalStyle.break} />
-              )}
             </>
           ))}
         </div>

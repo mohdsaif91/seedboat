@@ -1,26 +1,57 @@
-import React, { useRef, useState } from "react";
+import React, {
+  useRef,
+  useState,
+  useImperativeHandle,
+  forwardRef,
+} from "react";
 
 import profileAvatar from "../../../Images/profileAvatar.png";
 import { Input } from "../../../Components/FormElements/Input/Input";
+import SelectDropdown from "../../../Components/FormElements/SelectDropdown/SelectDropdown";
+import { countries, toBase64, validatemobile } from "../../../util";
 
 import style from "./serviceStep1.module.scss";
 import globalStyle from "../../../global.module.scss";
 import commonStyle from "../../../common.module.scss";
-import SelectDropdown from "../../../Components/FormElements/SelectDropdown/SelectDropdown";
-import { countries } from "../../../util";
 
 const initailSetpData = {
-  logo: null,
-  companyName: "",
-  description: "",
-  mobile: "",
+  serviceImage: "",
+  company: "",
+  phonenumber: "",
   websiteLink: "",
-  selectCategory: "",
+  category: "",
 };
 
-function ServiceStep1() {
+const ServiceStep1 = forwardRef((props, ref) => {
   const [step1Data, setStep1Data] = useState({ ...initailSetpData });
+  const [formError, setFormError] = useState(false);
+
   const inputFileRef = useRef();
+
+  useImperativeHandle(ref, (e) => ({
+    getServiceStepData() {
+      if (
+        step1Data.serviceImage !== "" &&
+        step1Data.company !== "" &&
+        step1Data.phonenumber !== "" &&
+        step1Data.websiteLink !== "" &&
+        step1Data.category !== ""
+      ) {
+        setFormError(false);
+        sessionStorage.setItem("serviceStep1data", JSON.stringify(step1Data));
+        return step1Data;
+      } else {
+        console.log("JACK");
+        setFormError(true);
+        return false;
+      }
+    },
+  }));
+
+  const updateStepData = (pKey, pValue) => {
+    setStep1Data({ ...step1Data, [pKey]: pValue });
+    // sessionStorage.setItem("step1data", JSON.stringify(step1Data));
+  };
 
   return (
     <div className={commonStyle.stepParentConatiner}>
@@ -31,7 +62,11 @@ function ServiceStep1() {
         <input
           ref={inputFileRef}
           type="file"
-          onChange={(e) => console.log(e.target.files)}
+          onChange={(e) =>
+            toBase64(e.target.files[0])
+              .then((data) => updateStepData("serviceImage", data))
+              .catch((err) => console.log("file error "))
+          }
           className={style.profileInput}
         />
         <img src={profileAvatar} alt="" className={style.profileAvatar} />
@@ -48,6 +83,11 @@ function ServiceStep1() {
           </div>
         </div>
       </div>
+      {formError && step1Data.serviceImage === "" && (
+        <div className={globalStyle.validationErrorText}>
+          User image is required
+        </div>
+      )}
       <div className={commonStyle.formInputItem}>
         <div
           className={`${commonStyle.formLabel} ${globalStyle.headingPoppins}`}
@@ -59,15 +99,15 @@ function ServiceStep1() {
           className={commonStyle.stepInput}
           name="companyName"
           placeHolder="Enter your Compant name"
-          value={step1Data.companyName}
-          onChange={(e) =>
-            setStep1Data({
-              ...step1Data,
-              companyName: e.target.value,
-            })
-          }
+          value={step1Data.company}
+          onChange={(e) => updateStepData("company", e.target.value)}
         />
       </div>
+      {formError && step1Data.company === "" && (
+        <div className={globalStyle.validationErrorText}>
+          Company Name is required
+        </div>
+      )}
       <div className={commonStyle.formInputItem}>
         <div
           className={`${commonStyle.formLabel} ${globalStyle.headingPoppins}`}
@@ -75,19 +115,26 @@ function ServiceStep1() {
           Phone Number
         </div>
         <Input
+          type="number"
           fullWidth={true}
           className={commonStyle.stepInput}
           name="phoneNumber"
           placeHolder="Enter Phone Number"
-          value={step1Data.mobile}
-          onChange={(e) =>
-            setStep1Data({
-              ...step1Data,
-              mobile: e.target.value,
-            })
-          }
+          value={step1Data.phonenumber}
+          onChange={(e) => updateStepData("phonenumber", e.target.value)}
         />
       </div>
+      {step1Data.phonenumber !== "" &&
+        !validatemobile(step1Data.phonenumber) && (
+          <div className={globalStyle.validationErrorText}>
+            Phone Number is not valid
+          </div>
+        )}
+      {formError && step1Data.phonenumber === "" && (
+        <div className={globalStyle.validationErrorText}>
+          Phone Number is required
+        </div>
+      )}
       <div className={commonStyle.formInputItem}>
         <div
           className={`${commonStyle.formLabel} ${globalStyle.headingPoppins}`}
@@ -100,14 +147,14 @@ function ServiceStep1() {
           name="websiteLink"
           placeHolder="Add Webiste lim"
           value={step1Data.websiteLink}
-          onChange={(e) =>
-            setStep1Data({
-              ...step1Data,
-              websiteLink: e.target.value,
-            })
-          }
+          onChange={(e) => updateStepData("websiteLink", e.target.value)}
         />
       </div>
+      {formError && step1Data.websiteLink === "" && (
+        <div className={globalStyle.validationErrorText}>
+          Website link is required
+        </div>
+      )}
       <div className={commonStyle.formInputItem}>
         <div
           className={`${commonStyle.formLabel} ${globalStyle.headingPoppins}`}
@@ -117,15 +164,18 @@ function ServiceStep1() {
         <SelectDropdown
           className={style.dropDown}
           firstValue="Eg.USA, India, etc"
-          value={step1Data.selectCategory}
-          onClick={(e) =>
-            setStep1Data({ ...step1Data, selectCategory: e.target.value })
-          }
+          value={step1Data.category}
+          onChange={(e) => updateStepData("category", e.target.value)}
           optionData={countries}
         />
       </div>
+      {formError && step1Data.category === "" && (
+        <div className={globalStyle.validationErrorText}>
+          Category is required
+        </div>
+      )}
     </div>
   );
-}
+});
 
 export default ServiceStep1;

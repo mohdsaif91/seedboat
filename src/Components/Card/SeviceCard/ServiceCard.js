@@ -17,23 +17,21 @@ function ServiceCard({
   return (
     <div className={style.serviceCardContainer}>
       <div className={style.cardHeader}>
-        <img src={companyLogo} className={style.companyIcon} alt="" />{" "}
+        <img src={companyLogo} className={style.companyIcon} alt="" />
         <img src={heart} className={style.heartIcon} alt="" />
       </div>
       <div className={`${style.cardHeading} ${globalStyle.headingPoppins}`}>
         {cardHeading}
       </div>
       <div className={style.companyWorksContainer}>
-        {companyWork.map((m, i) => (
-          <>
-            <div
-              className={`${style.workTag} ${globalStyle.subHeadingPoppins}`}
-            >
-              {m}{" "}
-            </div>
-            {(i + 1) % 3 === 0 && <div className={globalStyle.break} />}
-          </>
-        ))}
+        {/* {companyWork.map((m, i) => ( */}
+        {/* <> */}
+        <div className={`${style.workTag} ${globalStyle.subHeadingPoppins}`}>
+          {companyWork}
+        </div>
+        {(3 + 1) % 3 === 0 && <div className={globalStyle.break} />}
+        {/* </>
+        ))} */}
       </div>
       <div className={`${style.subHeading} ${globalStyle.subHeadingPoppins}`}>
         {subHeading}

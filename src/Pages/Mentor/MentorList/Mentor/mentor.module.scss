@@ -46,6 +46,8 @@
       }
     }
     .cardContainer {
+      display: grid !important;
+      grid-template-columns: auto auto auto auto;
       margin-top: 40px;
       width: 100% !important;
       justify-content: space-between;

@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Axios from "axios";
 
 import SearchIcon from "../../../Images/icon/search.png";
-import { filterList, serviceListCard } from "../../../util";
+import { filterList } from "../../../util";
 import ServiceCard from "../../../Components/Card/SeviceCard/ServiceCard";
 import ContainerWithHeadingBtn from "../../../Components/ContainerWithHeadingBtn/ContainerWithHeadingBtn";
 
 import style from "./serviceList.module.scss";
 import globalStyle from "../../../global.module.scss";
 import commonStyle from "../../../common.module.scss";
+import PageLoader from "../../../Components/PageLoader/PageLoader";
 
 const data = [
   "country1",
@@ -23,7 +25,23 @@ function ServiceList() {
   const [search, setSearch] = useState("");
   const [selectedLink, setSelectedLink] = useState("");
   const [filter, setFIlter] = useState("");
+  const [serviceListData, setServiceListData] = useState(null);
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!serviceListData) {
+      Axios.get(`${Axios.defaults.baseURL}/services/getallservice`)
+        .then((res) => {
+          console.log(res.data.data, " <>?");
+          setServiceListData(res.data.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [serviceListData]);
+
   return (
     <>
       <div className={style.serviceProviderContainer}>
@@ -139,17 +157,21 @@ function ServiceList() {
           </div>
         </div>
         <div className={style.serviceListContainer}>
-          {serviceListCard.map((m, i) => (
-            <ServiceCard
-              SecondaryBtnCLick={() => navigate("/serviceDetials")}
-              primaryBtnClick={() => console.log()}
-              cardHeading={m.companyName}
-              subHeading={m.subHeading}
-              companyLogo={m.companyLogo}
-              companyWork={m.workType}
-              key={i}
-            />
-          ))}
+          {Array.isArray(serviceListData) ? (
+            serviceListData.map((m, i) => (
+              <ServiceCard
+                SecondaryBtnCLick={() => navigate("/serviceDetials")}
+                primaryBtnClick={() => console.log()}
+                cardHeading={m.company_name}
+                subHeading={m.service_description}
+                companyLogo={m.service_image}
+                companyWork={m.service_category}
+                key={i}
+              />
+            ))
+          ) : (
+            <PageLoader />
+          )}
         </div>
       </div>
       <ContainerWithHeadingBtn

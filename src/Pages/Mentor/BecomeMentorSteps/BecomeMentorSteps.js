@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
-import Axios from 'axios';
-
+import Axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import Step from "../../../Components/Steps/Step";
 import Step1 from "./Step1/Step1";
@@ -10,13 +10,16 @@ import Step4 from "./Step4/Step4";
 import Step5 from "./Step5/Step5";
 import WhiteArraow from "../../../Images/icon/whiteArrow.png";
 import verticalImage from "../../../Images/verticalImage.png";
+import { getFomrData } from "../../../util";
 
 import style from "./becomeMentorsteps.module.scss";
 import globalStyle from "../../../global.module.scss";
-import { useNavigate } from "react-router-dom";
+import PageLoader from "../../../Components/PageLoader/PageLoader";
 
 function BecomeMentorSteps() {
   const [steps, setSteps] = useState(null);
+  const [loading, setLoading] = useState(false);
+
   const stepref = useRef(null);
 
   const navigate = useNavigate();
@@ -38,127 +41,131 @@ function BecomeMentorSteps() {
       case steps === 1:
         return <Step1 ref={stepref} />;
       case steps === 2:
-        return <Step2 ref={stepref}/>;
+        return <Step2 ref={stepref} />;
       case steps === 3:
-        return <Step3 ref={stepref}/>;
+        return <Step3 ref={stepref} />;
       case steps === 4:
-        return <Step4 ref={stepref}/>;
+        return <Step4 ref={stepref} />;
       default:
-        return <Step5 ref={stepref}/>;
+        return <Step5 ref={stepref} />;
     }
   };
 
   const changeTab = () => {
     if (steps === 5) {
-      const user1Data = JSON.parse(sessionStorage.getItem('step1data'));
-      const user2Data = JSON.parse(sessionStorage.getItem('step2data'))
-      const user3Data = JSON.parse(sessionStorage.getItem('step3data'))
-      const user4Data = JSON.parse(sessionStorage.getItem('step4data'))
+      const user1Data = JSON.parse(sessionStorage.getItem("step1data"));
+      const user2Data = JSON.parse(sessionStorage.getItem("step2data"));
+      const user3Data = JSON.parse(sessionStorage.getItem("step3data"));
+      const user4Data = JSON.parse(sessionStorage.getItem("step4data"));
 
-      const userFinalData = {...user1Data, ...user2Data, ...user3Data, ...user4Data};
-      console.log('userFinalData', userFinalData);
-      // const newForm = new FormData();
-      // for (const key in userFinalData) {
-      //   console.log(userFinalData[key], key)
-      //   newForm.append(key, userFinalData[key]);
-      // }
-      // console.log(newForm);
-      // newForm.append('file', user1Data.userimage);
-      // newForm.append('file', user1Data.userimage);
-      // newForm.append('file', user1Data.userimage);
-      // newForm.append('file', user1Data.userimage);
-      // newForm.append('file', user1Data.userimage);
-      // newForm.append('file', user1Data.userimage);
-
-
-      sessionStorage.removeItem("tabAndRoleMentor");
-      
-      Axios.post(`${Axios.defaults.baseURL}/mentor/mentorassign`,userFinalData)
-      .then(result => {
-        console.log('result ',result);
-        sessionStorage.removeItem("tabAndRoleMentor");
-        navigate("/mentorList");
-      })
-      .catch(error =>{
-        console.log('error ', error);
-      })
-      
+      const userFinalData = {
+        ...user1Data,
+        ...user2Data,
+        ...user3Data,
+        ...user4Data,
+      };
+      setLoading(true);
+      Axios.post(`${Axios.defaults.baseURL}/mentor/mentorassign`, userFinalData)
+        .then((result) => {
+          setLoading(false);
+          console.log("result ", result);
+          sessionStorage.removeItem("tabAndRoleMentor");
+          navigate("/mentorList");
+        })
+        .catch((error) => {
+          setLoading(false);
+          console.log("error ", error);
+        });
     } else {
-      stepref.current.getStepData()
-      sessionStorage.setItem("tabAndRoleMentor", steps + 1);
-      setSteps((steps) => steps + 1);
+      if (!stepref.current.getStepData()) {
+        console.log(false);
+        return false;
+      } else {
+        sessionStorage.setItem("tabAndRoleMentor", steps + 1);
+        setSteps((steps) => steps + 1);
+      }
     }
   };
 
   return (
     <div className={style.becomeMentorSteps}>
-      <div className={style.leftContainer}>
-        <div className={style.stepContainer}>
-          <Step page={steps} totalSteps={[1, 2, 3, 4, 5]} />
-        </div>
-        <div className={`${style.stepHeading} ${globalStyle.headingPoppins}`}>
-          {steps === 1 ? (
-            <>
-              Hello,! What’s your
-              <br /> origin story?
-            </>
-          ) : steps === 2 ? (
-            <>
-              Hello,
-              <br />
-              What’s your origin story?
-            </>
-          ) : steps === 3 ? (
-            <>
-              Great! What’s your
-              <br />
-              super power?
-            </>
-          ) : steps === 4 ? (
-            <>Almost there! </>
-          ) : (
-            <>You are all complete!</>
-          )}
-        </div>
-        <div className={style.step}>{getPageByStep()}</div>
-        <button
-          className={`${style.nextBtn} ${globalStyle.headingPoppins}`}
-          onClick={() => changeTab()}
-        >
-          {steps === 1
-            ? "Create Profile"
-            : steps === 2 || steps === 3 || steps === 4
-            ? "Next"
-            : "Start Mentoring"}
-          {steps === 5 || steps === 1 ? (
-            <></>
-          ) : (
-            <img src={WhiteArraow} alt="" className={style.btnIcon} />
-          )}
-        </button>
-      </div>
-      <div className={style.rightContainer}>
-        <img src={verticalImage} alt="" className={style.verticalImg} />
-        <div className={style.rightMainImage}>
-          <div className={style.textContainer}>
-            <div className={`${style.mainText} ${globalStyle.headingPoppins}`}>
-              12,797+ mentors
+      {loading ? (
+        <PageLoader />
+      ) : (
+        <>
+          <div className={style.leftContainer}>
+            <div className={style.stepContainer}>
+              <Step page={steps} totalSteps={[1, 2, 3, 4, 5]} />
             </div>
             <div
-              className={`${style.subText} ${globalStyle.subHeadingPoppins}`}
+              className={`${style.stepHeading} ${globalStyle.headingPoppins}`}
             >
-              Vivamus lacinia faucibus aliquam. Donec sodales rhoncus nisi, eget
-              ullamcorper sem convallis id. Quisque eleifend augue non lectus
-              malesuada posuere.
+              {steps === 1 ? (
+                <>
+                  Hello,! What’s your
+                  <br /> origin story?
+                </>
+              ) : steps === 2 ? (
+                <>
+                  Hello,
+                  <br />
+                  What’s your origin story?
+                </>
+              ) : steps === 3 ? (
+                <>
+                  Great! What’s your
+                  <br />
+                  super power?
+                </>
+              ) : steps === 4 ? (
+                <>Almost there! </>
+              ) : (
+                <>You are all complete!</>
+              )}
             </div>
-            <div className={style.dashContainer}>
-              <div className={`${style.dash} ${style.active}`} />
-              <div className={style.dash} />
-              <div className={style.dash} />
+            <div className={style.step}>{getPageByStep()}</div>
+            <button
+              className={`${style.nextBtn} ${globalStyle.headingPoppins}`}
+              onClick={() => changeTab()}
+            >
+              {steps === 1
+                ? "Create Profile"
+                : steps === 2 || steps === 3 || steps === 4
+                ? "Next"
+                : "Start Mentoring"}
+              {steps === 5 || steps === 1 ? (
+                <></>
+              ) : (
+                <img src={WhiteArraow} alt="" className={style.btnIcon} />
+              )}
+            </button>
+          </div>
+          <div className={style.rightContainer}>
+            <img src={verticalImage} alt="" className={style.verticalImg} />
+            <div className={style.rightMainImage}>
+              <div className={style.textContainer}>
+                <div
+                  className={`${style.mainText} ${globalStyle.headingPoppins}`}
+                >
+                  12,797+ mentors
+                </div>
+                <div
+                  className={`${style.subText} ${globalStyle.subHeadingPoppins}`}
+                >
+                  Vivamus lacinia faucibus aliquam. Donec sodales rhoncus nisi,
+                  eget ullamcorper sem convallis id. Quisque eleifend augue non
+                  lectus malesuada posuere.
+                </div>
+                <div className={style.dashContainer}>
+                  <div className={`${style.dash} ${style.active}`} />
+                  <div className={style.dash} />
+                  <div className={style.dash} />
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </>
+      )}
     </div>
   );
 }

@@ -854,3 +854,33 @@ export const blogCardData = [
     title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
   },
 ];
+
+export const validateEmail = (email) => {
+  return String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+};
+
+export const validatemobile = (mobileNumber) => {
+  return mobileNumber.match(/^([0|\+[0-9]{1,5})?([7-9][0-9]{9})$/);
+};
+
+export const getFomrData = (obj) => {
+  const formData = new FormData();
+  Object.keys(obj).forEach((key) => {
+    formData.append(key, obj[key]);
+  });
+  return formData;
+};
+
+export const toBase64 = (file) =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+  });
+
+export const numberRegex = new RegExp("^[0-9]$");
