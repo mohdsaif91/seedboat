@@ -12,9 +12,9 @@
     }
     .topPickCards {
       margin-top: 48px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 4%;
     }
   }
   .becomeInvestorContainer {

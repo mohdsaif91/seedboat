@@ -3,11 +3,12 @@ import React from "react";
 import heart from "../../../Images/icon/heart.png";
 import share from "../../../Images/icon/share.png";
 import VerticalDevider from "../../VerticalDevider/VerticalDevider";
+import recently1 from "../../../Images/recently1.png";
 
 import style from "./investCard.module.scss";
 import globalStyle from "../../../global.module.scss";
 
-function InvestCard({ data, topPickCard = false }) {
+function InvestCard({ data, topPickCard = false, onCardClick }) {
   const {
     img,
     sector,
@@ -19,11 +20,11 @@ function InvestCard({ data, topPickCard = false }) {
     stage,
     subTitle,
   } = data;
-  console.log(sector, location, target, current, donor, title, stage, subTitle);
+  console.log(data, " <>?");
   return (
-    <div className={style.investCard}>
+    <div className={style.investCard} onClick={onCardClick}>
       <div
-        style={{ backgroundImage: `url(${img})` }}
+        style={{ backgroundImage: `url(${recently1})` }}
         className={style.cardImage}
       >
         <div className={style.verticalIconContainer}>
@@ -101,7 +102,7 @@ function InvestCard({ data, topPickCard = false }) {
               <div
                 className={`${style.cardValue} ${globalStyle.headingPoppins}`}
               >
-                {current}
+                {data.investment_size}
               </div>
             </div>
             <VerticalDevider color="#1F80A3" height="24px" />

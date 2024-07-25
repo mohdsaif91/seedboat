@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 
@@ -22,6 +22,8 @@ function Login() {
   const [counter, setCounter] = useState(120);
   const [progress, setProgress] = useState(0);
   const [loading, setLoading] = useState(false);
+
+  const itemRef = useRef([]);
 
   const navigate = useNavigate();
   let incremental = 120;
@@ -67,6 +69,12 @@ function Login() {
           console.log(err);
         });
     }
+  };
+
+  const codeChangeHandler = (event) => {
+    const element = event.target;
+    const nextSibling = element.nextElementSibling;
+    nextSibling ? nextSibling.focus() : element.blur();
   };
 
   const startTimer = () => {
@@ -258,6 +266,7 @@ function Login() {
                         e.target.value === ""
                       ) {
                         setOne(e.target.value);
+                        codeChangeHandler(e);
                       }
                     }}
                   />
@@ -273,7 +282,13 @@ function Login() {
                         numberRegex.test(e.target.value) ||
                         e.target.value === ""
                       ) {
-                        setTwo(e.target.value);
+                        const { key } = e; // const {key} = event; ES6+
+                        if (key === "Backspace" || key === "Delete") {
+                          setTwo(e.target.value);
+                        } else {
+                          codeChangeHandler(e);
+                          setTwo(e.target.value);
+                        }
                       }
                     }}
                   />
@@ -288,6 +303,7 @@ function Login() {
                         e.target.value === ""
                       ) {
                         setThree(e.target.value);
+                        codeChangeHandler(e);
                       }
                     }}
                   />
@@ -302,6 +318,7 @@ function Login() {
                         e.target.value === ""
                       ) {
                         setFour(e.target.value);
+                        codeChangeHandler(e);
                       }
                     }}
                   />
@@ -311,8 +328,12 @@ function Login() {
                     value={five}
                     className={style.inputItem}
                     onChange={(e) => {
-                      if (numberRegex.test(e.target.value)) {
+                      if (
+                        numberRegex.test(e.target.value) ||
+                        e.target.value === ""
+                      ) {
                         setFive(e.target.value);
+                        codeChangeHandler(e);
                       }
                     }}
                   />
@@ -322,8 +343,12 @@ function Login() {
                     value={six}
                     className={style.inputItem}
                     onChange={(e) => {
-                      if (numberRegex.test(e.target.value)) {
+                      if (
+                        numberRegex.test(e.target.value) ||
+                        e.target.value === ""
+                      ) {
                         setSix(e.target.value);
+                        codeChangeHandler(e);
                       }
                     }}
                   />

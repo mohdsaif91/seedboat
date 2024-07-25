@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { BlackBtn } from "../../../Components/Button/Button";
 
@@ -7,10 +7,12 @@ import style from "./InvestorAcknowledgMent.module.scss";
 
 function InvestorAcknowledgMent() {
   const navigate = useNavigate();
+  const { state } = useLocation();
+  console.log(state, " ");
   return (
     <div className={style.acknowledgementContainer}>
       <div className={style.pageHeading}>
-        Hello, Robert
+        Hello, {state?.investorData?.fname} {state?.investorData?.lname}
         <br /> You are all completed start browsing for best start-ups.
       </div>
       <div className={style.pageSubHeading}>

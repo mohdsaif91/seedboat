@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import Axios from "axios";
 
 import { BtnRect } from "../../../Components/Button/Button";
 import profileBackground from "../../../Images/profileBackground.png";
@@ -15,6 +17,30 @@ import commonStyle from "../../../common.module.scss";
 
 function InvestorProfile() {
   const [profileTab, setProfileTab] = useState("Personal Information");
+  const [loading, setLoading] = useState(false);
+  const [investorData, setInvestorData] = useState(null);
+
+  const { state } = useLocation();
+  console.log(Axios.defaults.baseURL, " <>?");
+  // https://seedboat.qortechno.com/investor/investor-individual/userid
+  // https://seedboat.qortechno.com
+  useEffect(() => {
+    if (state.investorId) {
+      setLoading(true);
+      Axios.get(
+        `${Axios.defaults.baseURL}/investor/investor-individual/${state.investorId}`
+      )
+        .then((res) => {
+          setLoading(false);
+          setInvestorData(res.data.data);
+          console.log(res.data, " <>? ");
+        })
+        .catch((err) => {
+          setLoading(false);
+          console.log(err);
+        });
+    }
+  }, []);
 
   const getTab = () => {
     switch (true) {
@@ -28,6 +54,8 @@ function InvestorProfile() {
         return <Message />;
     }
   };
+
+  console.log(investorData, " <>?");
 
   return (
     <div className={style.profileContainer}>

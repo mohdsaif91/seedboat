@@ -105,11 +105,21 @@
   }
 }
 .startUpInput {
-  border-radius: 50px;
+  border-radius: 50px !important;
   width: 100% !important;
-  margin-bottom: 24px;
+  margin-top: 24px;
   background-color: $primaryTextColor;
 }
 .addLeftMargin {
   margin-left: 112px;
+}
+
+.apiStatus {
+  margin-bottom: 24px;
+  margin-top: 8px;
+  padding: 8px;
+  font-size: 21px;
+  text-align: center;
+  font-weight: 700;
+  color: white;
 }
