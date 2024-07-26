@@ -294,7 +294,7 @@ function App() {
               <UpdateProfile />
             </Suspense>
           }
-        ></Route>
+        />
       </Routes>
       <Footer />
     </div>

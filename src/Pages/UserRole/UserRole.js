@@ -1,37 +1,9 @@
 import React from "react";
-
-import founder from "../../Images/founder.png";
-import serviceProvider from "../../Images/serviceProvider.png";
-import startUp from "../../Images/startUp.png";
-import investor from "../../Images/investor.png";
-
-import style from "./userRole.module.scss";
 import { useNavigate } from "react-router-dom";
 
-const roleData = [
-  {
-    img: startUp,
-    label: "I am an Startup",
-    path: "/startUp",
-  },
-  {
-    img: investor,
-    label: "I am an Investor",
-    path: "/investor",
-  },
-];
-const roleData2 = [
-  {
-    img: founder,
-    label: "I am an Co-founder, CTO, CFO, CMO, HR",
-    path: "/mentor",
-  },
-  {
-    img: serviceProvider,
-    label: "I am an Service Provider",
-    path: "/serviceProvider",
-  },
-];
+import { roleData, roleData2 } from "../../util";
+
+import style from "./userRole.module.scss";
 
 function UserRole() {
   const navigate = useNavigate();

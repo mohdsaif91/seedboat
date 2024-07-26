@@ -21,7 +21,7 @@ import commonStyle from "../../../common.module.scss";
 
 function ServiceDetails() {
   const [loading, setLoading] = useState(false);
-  const [companyData, setCompanyData] = useState();
+  const [companyData, setCompanyData] = useState(null);
   const navigate = useNavigate();
 
   const { state } = useLocation();
@@ -44,129 +44,122 @@ function ServiceDetails() {
 
   console.log(companyData, " <>?");
 
+  if (!companyData) {
+    return <PageLoader />;
+  }
+
   return (
     <div className={style.serviceDetailsContainer}>
-      {loading ? (
-        <PageLoader />
-      ) : (
-        <>
-          <div className={style.serviceDetailsHeader}>
-            <div className={style.headingContainer}>
-              <div
-                className={`${style.mainHeading} ${globalStyle.headingPoppins}`}
-              >
-                {companyData?.company_name || ""}
-              </div>
-              <div
-                className={`${style.subHeading} ${globalStyle.subHeadingPoppins}`}
-              >
-                City Name, Country
-              </div>
-              <div className={style.reviewContainer}>
-                <img src={star} alt="" />
-                <span
-                  className={`${style.subHeading} ${style.reviewSubHeading} ${globalStyle.subHeadingPoppins}`}
-                >
-                  5.0/4.5
-                </span>
-              </div>
-            </div>
-            <div className={style.iconContainer}>
-              <img src={linkedInBlue} alt="" className={globalStyle.cp} />
-              <img src={message} alt="" className={globalStyle.cp} />
-              <img src={heart} alt="" className={globalStyle.cp} />
-              <Button
-                text="View Profile"
-                onClick={() =>
-                  navigate("/serviceProfile", {
-                    state: {
-                      serviceData: companyData,
-                    },
-                  })
-                }
-              />
-            </div>
+      <div className={style.serviceDetailsHeader}>
+        <div className={style.headingContainer}>
+          <div className={`${style.mainHeading} ${globalStyle.headingPoppins}`}>
+            {companyData?.company_name || ""}
           </div>
-          <div
-            className={`${globalStyle.horizontalDevider} ${style.serviceDevider}`}
-          />
           <div
             className={`${style.subHeading} ${globalStyle.subHeadingPoppins}`}
           >
+            City Name, Country
+          </div>
+          <div className={style.reviewContainer}>
+            <img src={star} alt="" />
+            <span
+              className={`${style.subHeading} ${style.reviewSubHeading} ${globalStyle.subHeadingPoppins}`}
+            >
+              5.0/4.5
+            </span>
+          </div>
+        </div>
+        <div className={style.iconContainer}>
+          <img src={linkedInBlue} alt="" className={globalStyle.cp} />
+          <img src={message} alt="" className={globalStyle.cp} />
+          <img src={heart} alt="" className={globalStyle.cp} />
+          <Button
+            text="View Profile"
+            onClick={() =>
+              navigate("/serviceProfile", {
+                state: {
+                  serviceData: companyData,
+                },
+              })
+            }
+          />
+        </div>
+      </div>
+      <div
+        className={`${globalStyle.horizontalDevider} ${style.serviceDevider}`}
+      />
+      <div className={`${style.subHeading} ${globalStyle.subHeadingPoppins}`}>
+        Quisque consequat hendrerit accumsan. Vivamus diam lacus, vulputate ac
+        porta et, rutrum placerat mi. Fusce a erat sit amet enim consectetur
+        consectetur. Morbi laoreet scelerisque massa vitae cursus. Pellentesque
+        varius est vel blandit bibendum. Maecenas fringilla justo justo.
+        Praesent efficitur tristique nisl, vitae bibendum mi consectetur eu. Sed
+        non viverra ligula, convallis interdum dui.
+      </div>
+      <div className={style.serviceCardContainer}>
+        <div className={style.serviceCard}>
+          <img src={image55} alt="" />
+          <div className={style.cardName}>Service Name</div>
+          <div className={style.cardSubHeading}>
             Quisque consequat hendrerit accumsan. Vivamus diam lacus, vulputate
             ac porta et, rutrum placerat mi. Fusce a erat sit amet enim
             consectetur consectetur. Morbi laoreet scelerisque massa vitae
-            cursus. Pellentesque varius est vel blandit bibendum. Maecenas
-            fringilla justo justo. Praesent efficitur tristique nisl, vitae
-            bibendum mi consectetur eu. Sed non viverra ligula, convallis
-            interdum dui.
+            cursus. Pellentesque varius est vel blandit bibendum.
           </div>
-          <div className={style.serviceCardContainer}>
-            <div className={style.serviceCard}>
-              <img src={image55} alt="" />
-              <div className={style.cardName}>Service Name</div>
-              <div className={style.cardSubHeading}>
-                Quisque consequat hendrerit accumsan. Vivamus diam lacus,
-                vulputate ac porta et, rutrum placerat mi. Fusce a erat sit amet
-                enim consectetur consectetur. Morbi laoreet scelerisque massa
-                vitae cursus. Pellentesque varius est vel blandit bibendum.
-              </div>
-            </div>
-            <div className={style.serviceCard}>
-              <img src={image57} alt="" />
-              <div className={style.cardName}>Service Name</div>
-              <div className={style.cardSubHeading}>
-                Quisque consequat hendrerit accumsan. Vivamus diam lacus,
-                vulputate ac porta et, rutrum placerat mi. Fusce a erat sit amet
-                enim consectetur consectetur. Morbi laoreet scelerisque massa
-                vitae cursus. Pellentesque varius est vel blandit bibendum.
-              </div>
-            </div>
-            <div className={style.serviceCard}>
-              <img src={image58} alt="" />
-              <div className={style.cardName}>Service Name</div>
-              <div className={style.cardSubHeading}>
-                Quisque consequat hendrerit accumsan. Vivamus diam lacus,
-                vulputate ac porta et, rutrum placerat mi. Fusce a erat sit amet
-                enim consectetur consectetur. Morbi laoreet scelerisque massa
-                vitae cursus. Pellentesque varius est vel blandit bibendum.
-              </div>
-            </div>
-            <div className={style.serviceCard}>
-              <img src={image59} alt="" />
-              <div className={style.cardName}>Service Name</div>
-              <div className={style.cardSubHeading}>
-                Quisque consequat hendrerit accumsan. Vivamus diam lacus,
-                vulputate ac porta et, rutrum placerat mi. Fusce a erat sit amet
-                enim consectetur consectetur. Morbi laoreet scelerisque massa
-                vitae cursus. Pellentesque varius est vel blandit bibendum.
-              </div>
-            </div>
+        </div>
+        <div className={style.serviceCard}>
+          <img src={image57} alt="" />
+          <div className={style.cardName}>Service Name</div>
+          <div className={style.cardSubHeading}>
+            Quisque consequat hendrerit accumsan. Vivamus diam lacus, vulputate
+            ac porta et, rutrum placerat mi. Fusce a erat sit amet enim
+            consectetur consectetur. Morbi laoreet scelerisque massa vitae
+            cursus. Pellentesque varius est vel blandit bibendum.
           </div>
-          <ContainerWithHeadingBtn
-            btnText="Message us"
-            heading="Talk to us"
-            onClick={() => navigate("/message")}
-          />
-          <div
-            className={`${style.lastContainerHeading} ${globalStyle.headingPoppins}`}
-          >
-            In case you missed anything.
+        </div>
+        <div className={style.serviceCard}>
+          <img src={image58} alt="" />
+          <div className={style.cardName}>Service Name</div>
+          <div className={style.cardSubHeading}>
+            Quisque consequat hendrerit accumsan. Vivamus diam lacus, vulputate
+            ac porta et, rutrum placerat mi. Fusce a erat sit amet enim
+            consectetur consectetur. Morbi laoreet scelerisque massa vitae
+            cursus. Pellentesque varius est vel blandit bibendum.
           </div>
-          <ul className={style.quetsionContainer}>
-            {questionList.map((m) => (
-              <li className={commonStyle.questionItem}>
-                <div
-                  className={`${commonStyle.questionText} ${globalStyle.headingPoppins}`}
-                >
-                  {m}
-                </div>
-                <div className={commonStyle.iconContainer}>+</div>
-              </li>
-            ))}
-          </ul>
-        </>
-      )}
+        </div>
+        <div className={style.serviceCard}>
+          <img src={image59} alt="" />
+          <div className={style.cardName}>Service Name</div>
+          <div className={style.cardSubHeading}>
+            Quisque consequat hendrerit accumsan. Vivamus diam lacus, vulputate
+            ac porta et, rutrum placerat mi. Fusce a erat sit amet enim
+            consectetur consectetur. Morbi laoreet scelerisque massa vitae
+            cursus. Pellentesque varius est vel blandit bibendum.
+          </div>
+        </div>
+      </div>
+      <ContainerWithHeadingBtn
+        btnText="Message us"
+        heading="Talk to us"
+        onClick={() => navigate("/message")}
+      />
+      <div
+        className={`${style.lastContainerHeading} ${globalStyle.headingPoppins}`}
+      >
+        In case you missed anything.
+      </div>
+      <ul className={style.quetsionContainer}>
+        {questionList.map((m) => (
+          <li className={commonStyle.questionItem}>
+            <div
+              className={`${commonStyle.questionText} ${globalStyle.headingPoppins}`}
+            >
+              {m}
+            </div>
+            <div className={commonStyle.iconContainer}>+</div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

@@ -13,6 +13,7 @@ import SlideBtn from "../../../../Components/SlideButton/SlideBtn";
 
 import style from "./personalInformation.module.scss";
 import globalStyle from "../../../../global.module.scss";
+import { useNavigate } from "react-router-dom";
 
 const initialNotificationData = {
   desktop: false,
@@ -28,12 +29,15 @@ const initialContactForm = {
   message: "",
 };
 
-function PersonalInformation() {
-  const [investmentTab, setinvestmentTab] = useState("");
+function PersonalInformation({ data }) {
   const [notification, setNotification] = useState({
     ...initialNotificationData,
   });
   const [contactForm, setContactForm] = useState({ ...initialContactForm });
+
+  const navigate = useNavigate();
+
+  console.log(data.investment_notification);
 
   return (
     <div className={style.personalInformationContainer}>
@@ -55,8 +59,8 @@ function PersonalInformation() {
           />
         </div>
         <div className={style.infoContainer}>
-          <LabelAndValue label="First Name" value="Marshall" />
-          <LabelAndValue label="Last Name" value="Ortega" />
+          <LabelAndValue label="First Name" value={data.fname} />
+          <LabelAndValue label="Last Name" value={data.lname} />
         </div>
         <div className={style.infoContainer}>
           <LabelAndValue
@@ -66,8 +70,8 @@ function PersonalInformation() {
           <LabelAndValue label="Phone" value="+09 98765 43210 " />
         </div>
         <div className={style.infoContainer}>
-          <LabelAndValue label="City" value="Mumbai" />
-          <LabelAndValue label="Country" value="India" />
+          <LabelAndValue label="City" value={data.investment_city} />
+          <LabelAndValue label="Country" value={data.investment_country} />
         </div>
         <div className={style.infoContainer}>
           <LabelAndValue label="Gender" value="Male" />
@@ -97,7 +101,14 @@ function PersonalInformation() {
         <div className={`${style.infoContainer} ${globalStyle.dFlexCol}`}>
           <LabelAndValue label="Investment interest." value="" />
           <div className={style.investmentTypeContainer}>
-            {investmentType.map((m) => (
+            <div
+              // onClick={() => setinvestmentTab(m)}
+              className={`${globalStyle.investmentTag} ${globalStyle.headingPoppins} ${style.tabButtons}`}
+              //  ${investmentTab === m && style.tabActive}`}
+            >
+              {data.investment_interest}
+            </div>
+            {/* {investmentType.map((m) => (
               <div
                 onClick={() => setinvestmentTab(m)}
                 className={`${globalStyle.investmentTag} ${
@@ -108,7 +119,7 @@ function PersonalInformation() {
               >
                 {m}
               </div>
-            ))}
+            ))} */}
             <div
               onClick={() => console.log()}
               className={`${globalStyle.investmentTag} ${globalStyle.headingPoppins} ${style.tabButtons}`}
@@ -120,7 +131,18 @@ function PersonalInformation() {
         <div className={`${style.infoContainer} ${globalStyle.dFlexCol}`}>
           <LabelAndValue label="Stage Prefrence" value="" />
           <div className={style.investmentTypeContainer}>
-            {stageType.map((m) => (
+            <div
+              // onClick={() => setinvestmentTab(m)}
+              className={`${globalStyle.investmentTag} ${globalStyle.headingPoppins} ${style.tabButtons}`}
+              //  ${investmentTab === m && style.tabActive}`}
+            >
+              {data.investment_stage === "level1"
+                ? "stage 1"
+                : data.investment_stage === "level2"
+                ? "stage 2"
+                : "stage 3"}
+            </div>
+            {/* {stageType.map((m) => (
               <div
                 onClick={() => setinvestmentTab(m)}
                 className={`${globalStyle.investmentTag} ${
@@ -131,7 +153,7 @@ function PersonalInformation() {
               >
                 {m}
               </div>
-            ))}
+            ))} */}
           </div>
         </div>
         <div className={style.infoContainer}>
@@ -140,7 +162,7 @@ function PersonalInformation() {
         <div className={style.infoContainer}>
           <LabelAndValue
             label="Investment Size"
-            value="$0 - $10,000"
+            value={`$0 - $${data.investment_size}`}
             change={true}
           />
         </div>
@@ -164,7 +186,9 @@ function PersonalInformation() {
               Enable Desktop Notification
             </label>
             <ToggleButton
-              toggle={notification.desktop}
+              toggle={
+                data.investment_notification.desktop_notification === "true"
+              }
               onChange={(e) => {
                 setNotification({
                   ...notification,
@@ -180,7 +204,7 @@ function PersonalInformation() {
               Enable Unread Notification
             </label>
             <ToggleButton
-              toggle={notification.unreadNotification}
+              toggle={data.investment_notification.read_notification === "true"}
               onChange={(e) => {
                 setNotification({
                   ...notification,
@@ -196,7 +220,9 @@ function PersonalInformation() {
               Email Notification
             </label>
             <ToggleButton
-              toggle={notification.emailNotification}
+              toggle={
+                data.investment_notification.email_notification === "true"
+              }
               onChange={(e) => {
                 setNotification({
                   ...notification,
@@ -212,7 +238,9 @@ function PersonalInformation() {
               Announcements and updates
             </label>
             <ToggleButton
-              toggle={notification.announcementAndUpdate}
+              toggle={
+                data.investment_notification.updates_notification === "true"
+              }
               onChange={(e) => {
                 setNotification({
                   ...notification,
@@ -223,7 +251,11 @@ function PersonalInformation() {
           </div>
         </div>
       </div>
-      <Button text="Save & Exit" className={style.saveAndExitbtn} />
+      <Button
+        text="Save & Exit"
+        onClick={() => navigate("/investmentExploer")}
+        className={style.saveAndExitbtn}
+      />
       <ContainerWithHeadingBtn
         className={style.bottomContainer}
         headingClass={style.bottomHeading}

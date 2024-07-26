@@ -11,7 +11,7 @@ function ToggleButton({ toggle, onChange }) {
         defaultChecked={toggle}
         onClick={onChange}
       />
-      <span />
+      {/* <span /> */}
     </label>
   );
 }

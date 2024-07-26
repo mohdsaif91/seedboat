@@ -1,176 +1,158 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Axios from "axios";
 
-import {
-  exploreCard,
-  filterList,
-  investmentExploreNavData,
-} from "../../../util";
+import { filterList, investmentExploreNavData } from "../../../util";
 import SearchIcon from "../../../Images/icon/search.png";
 import SlideBtn from "../../../Components/SlideButton/SlideBtn";
 import InvestCard from "../../../Components/Card/InvestMentCard/InvestCard";
 import { WhiteRoundBtn } from "../../../Components/Button/Button";
+import PageLoader from "../../../Components/PageLoader/PageLoader";
+import { useGetInvestorListQuery } from "../../../Redux/Service/Investor";
+import Errorpage from "../../../Components/ErrorPage/Errorpage";
 
 import style from "./investmentOpportuinites.module.scss";
 import globalStyle from "../../../global.module.scss";
 import commonStyle from "../../../common.module.scss";
-import PageLoader from "../../../Components/PageLoader/PageLoader";
 
 function InvestmentOpportunities() {
   const [selectedLink, setSelectedLink] = useState("");
   const [search, setSearch] = useState("");
   const [filter, setFIlter] = useState("Most Funded");
-  const [investorData, setInvestorData] = useState(null);
-  const [loading, setLoading] = useState(false);
   const [counter, setCounter] = useState(0);
+
+  const { isLoading, data, isError, error, refetch } =
+    useGetInvestorListQuery();
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // https://seedboat.qortechno.com/investor/investorall
-    if (!investorData) {
-      setLoading(true);
-      Axios.get(`${Axios.defaults.baseURL}/investor/investorall`)
-        .then((res) => {
-          setLoading(false);
-          setInvestorData(res.data.data);
-          console.log(res.data, " <>? ");
-        })
-        .catch((err) => {
-          setLoading(false);
-          console.log(err);
-        });
-    }
-  }, []);
+  if (isError) {
+    <Errorpage errorMessage={error} tryAgain={refetch()} />;
+    navigate("/errorPage", {
+      state: {
+        apiError: error,
+      },
+    });
+  }
+
+  if (isLoading) {
+    return <PageLoader />;
+  }
 
   const getSecondaryLink = () =>
     investmentExploreNavData.find((f) => f.text === selectedLink);
-  console.log(selectedLink);
+
   return (
     <div className={style.investmentOppContainer}>
-      {loading ? (
-        <PageLoader />
-      ) : (
-        <>
-          <div className={globalStyle.pageHeading}>
-            Investment opportunities
-          </div>
-          <div className={commonStyle.investmentheader}>
-            <div className={commonStyle.inputContainer}>
-              <img
-                alte=""
-                className={commonStyle.SearchIcon}
-                src={SearchIcon}
-              />
-              <input
-                placeholder="Start typing to search"
-                className={commonStyle.headerSearch}
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
-            </div>
-            <div className={commonStyle.headerSecondaryContainer}>
-              <ul className={commonStyle.linkContainer}>
-                {investmentExploreNavData.map((m) => (
-                  <li
-                    onClick={(e) =>
-                      setSelectedLink(
-                        e.target.value === selectedLink ? "" : m.text
-                      )
-                    }
-                    className={`${commonStyle.linkItem} ${
-                      commonStyle.linkMargin
-                    } ${selectedLink === m.text && commonStyle.linkActive}`}
+      <div className={globalStyle.pageHeading}>Investment opportunities</div>
+      <div className={commonStyle.investmentheader}>
+        <div className={commonStyle.inputContainer}>
+          <img alte="" className={commonStyle.SearchIcon} src={SearchIcon} />
+          <input
+            placeholder="Start typing to search"
+            className={commonStyle.headerSearch}
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
+        <div className={commonStyle.headerSecondaryContainer}>
+          <ul className={commonStyle.linkContainer}>
+            {investmentExploreNavData.map((m) => (
+              <li
+                onClick={(e) =>
+                  setSelectedLink(e.target.value === selectedLink ? "" : m.text)
+                }
+                className={`${commonStyle.linkItem} ${commonStyle.linkMargin} ${
+                  selectedLink === m.text && commonStyle.linkActive
+                }`}
+              >
+                <label className={commonStyle.linkLabel}>{m.text}</label>
+                {m.text === selectedLink ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="11"
+                    height="10"
+                    viewBox="0 0 11 10"
+                    fill="none"
                   >
-                    <label className={commonStyle.linkLabel}>{m.text}</label>
-                    {m.text === selectedLink ? (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="11"
-                        height="10"
-                        viewBox="0 0 11 10"
-                        fill="none"
-                      >
-                        <path
-                          d="M5.93301 0.749999C5.74056 0.416666 5.25944 0.416667 5.06699 0.75L0.303846 9C0.111397 9.33333 0.351959 9.75 0.736859 9.75H10.2631C10.648 9.75 10.8886 9.33333 10.6962 9L5.93301 0.749999Z"
-                          fill="black"
-                        />
-                      </svg>
-                    ) : (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="11"
-                        height="10"
-                        viewBox="0 0 11 10"
-                        fill="none"
-                      >
-                        <path
-                          d="M5.93301 9.25C5.74056 9.58333 5.25944 9.58333 5.06699 9.25L0.303846 0.999999C0.111397 0.666666 0.351959 0.25 0.736859 0.25H10.2631C10.648 0.25 10.8886 0.666667 10.6962 1L5.93301 9.25Z"
-                          fill="#AEAEAE"
-                        />
-                      </svg>
-                    )}
-                  </li>
+                    <path
+                      d="M5.93301 0.749999C5.74056 0.416666 5.25944 0.416667 5.06699 0.75L0.303846 9C0.111397 9.33333 0.351959 9.75 0.736859 9.75H10.2631C10.648 9.75 10.8886 9.33333 10.6962 9L5.93301 0.749999Z"
+                      fill="black"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="11"
+                    height="10"
+                    viewBox="0 0 11 10"
+                    fill="none"
+                  >
+                    <path
+                      d="M5.93301 9.25C5.74056 9.58333 5.25944 9.58333 5.06699 9.25L0.303846 0.999999C0.111397 0.666666 0.351959 0.25 0.736859 0.25H10.2631C10.648 0.25 10.8886 0.666667 10.6962 1L5.93301 9.25Z"
+                      fill="#AEAEAE"
+                    />
+                  </svg>
+                )}
+              </li>
+            ))}
+          </ul>
+          <div className={style.verticalDevider}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="2"
+              height="33"
+              viewBox="0 0 2 33"
+              fill="none"
+            >
+              <path
+                d="M2 1C2 0.447716 1.55228 -2.41411e-08 0.999999 0C0.447714 2.41411e-08 -1.4229e-06 0.447716 -1.39876e-06 1L2 1ZM2 33L2 1L-1.39876e-06 1L0 33L2 33Z"
+                fill="#AEAEAE"
+              />
+            </svg>
+          </div>
+          <div className={commonStyle.filterContainer}>
+            <label className={`${commonStyle.linkItem}`}>
+              Sort by :
+              <select
+                className={`${commonStyle.filterDropDown} ${commonStyle.linkItem}`}
+                defaultValue={filter}
+              >
+                {filterList.map((m, i) => (
+                  <option
+                    key={i}
+                    onClick={(e) => setFIlter(e.tarteg.value)}
+                    value={m}
+                  >
+                    {m}
+                  </option>
                 ))}
-              </ul>
-              <div className={style.verticalDevider}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="2"
-                  height="33"
-                  viewBox="0 0 2 33"
-                  fill="none"
+              </select>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        className={`${commonStyle.linkDropDownParentContainer} ${
+          selectedLink === "" ? globalStyle.disNone : globalStyle.disblock
+        }`}
+      >
+        <div className={commonStyle.linkDropDownContainer}>
+          {selectedLink !== "" &&
+            getSecondaryLink().secondaryLink.map((m, i) => (
+              <>
+                <a
+                  key={i}
+                  onClick={() => console.log(m)}
+                  className={`${commonStyle.secondaryLinkItem} ${globalStyle.subHeadingPoppins}`}
                 >
-                  <path
-                    d="M2 1C2 0.447716 1.55228 -2.41411e-08 0.999999 0C0.447714 2.41411e-08 -1.4229e-06 0.447716 -1.39876e-06 1L2 1ZM2 33L2 1L-1.39876e-06 1L0 33L2 33Z"
-                    fill="#AEAEAE"
-                  />
-                </svg>
-              </div>
-              <div className={commonStyle.filterContainer}>
-                <label className={`${commonStyle.linkItem}`}>
-                  Sort by :
-                  <select
-                    className={`${commonStyle.filterDropDown} ${commonStyle.linkItem}`}
-                    defaultValue={filter}
-                  >
-                    {filterList.map((m, i) => (
-                      <option
-                        key={i}
-                        onClick={(e) => setFIlter(e.tarteg.value)}
-                        value={m}
-                      >
-                        {m}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div
-            className={`${commonStyle.linkDropDownParentContainer} ${
-              selectedLink === "" ? globalStyle.disNone : globalStyle.disblock
-            }`}
-          >
-            <div className={commonStyle.linkDropDownContainer}>
-              {selectedLink !== "" &&
-                getSecondaryLink().secondaryLink.map((m, i) => (
-                  <>
-                    <a
-                      key={i}
-                      onClick={() => console.log(m)}
-                      className={`${commonStyle.secondaryLinkItem} ${globalStyle.subHeadingPoppins}`}
-                    >
-                      {m}
-                    </a>
-                    {i === 3 && <div className={globalStyle.break} />}
-                  </>
-                ))}
-            </div>
-          </div>
-          {/* <div className={style.topPickContainer}>
+                  {m}
+                </a>
+                {i === 3 && <div className={globalStyle.break} />}
+              </>
+            ))}
+        </div>
+      </div>
+      {/* <div className={style.topPickContainer}>
        <div className={style.topPickContainerHeader}>
           <label
             className={`${globalStyle.pageHeading} ${style.topPickHeading}`}
@@ -200,66 +182,64 @@ function InvestmentOpportunities() {
           ))}
         </div>
       </div> */}
-          <div className={style.topPickContainer}>
-            <div className={style.topPickContainerHeader}>
-              <label
-                className={`${globalStyle.pageHeading} ${style.topPickHeading}`}
-              >
-                Recently Added
-              </label>
-              <SlideBtn
-                className={style.bottomBtnService}
-                leftClick={() => {
-                  if (counter > 1) {
-                    setCounter((state) => state - 1);
-                  }
-                }}
-                rightClick={() => {
-                  if (counter + 3 !== investorData.length) {
-                    setCounter((state) => state + 1);
-                  }
-                }}
+      <div className={style.topPickContainer}>
+        <div className={style.topPickContainerHeader}>
+          <label
+            className={`${globalStyle.pageHeading} ${style.topPickHeading}`}
+          >
+            Recently Added
+          </label>
+          <SlideBtn
+            className={style.bottomBtnService}
+            leftClick={() => {
+              if (counter > 1) {
+                setCounter((state) => state - 1);
+              }
+            }}
+            rightClick={() => {
+              if (counter + 3 !== data.data.length) {
+                setCounter((state) => state + 1);
+              }
+            }}
+          />
+        </div>
+        <div className={style.topPickCards}>
+          {Array.isArray(data.data) &&
+            data.data.slice(counter, counter + 3).map((m) => (
+              <InvestCard
+                onCardClick={() =>
+                  navigate("/investorProfile", {
+                    state: {
+                      investorId: m._id,
+                    },
+                  })
+                }
+                data={m}
+                key={m._id}
               />
-            </div>
-            <div className={style.topPickCards}>
-              {Array.isArray(investorData) &&
-                investorData.slice(counter, counter + 3).map((m) => (
-                  <InvestCard
-                    onCardClick={() =>
-                      navigate("/investorProfile", {
-                        state: {
-                          investorId: m._id,
-                        },
-                      })
-                    }
-                    data={m}
-                    key={m._id}
-                  />
-                ))}
-            </div>
+            ))}
+        </div>
+      </div>
+      <div className={style.becomeInvestorContainer}>
+        <div className={style.becomeHeadingContainer}>
+          <div
+            className={`${globalStyle.pageHeading} ${style.becomePageHeading}`}
+          >
+            Become an investor today
           </div>
-          <div className={style.becomeInvestorContainer}>
-            <div className={style.becomeHeadingContainer}>
-              <div
-                className={`${globalStyle.pageHeading} ${style.becomePageHeading}`}
-              >
-                Become an investor today
-              </div>
-              <div
-                className={`${style.subHeadingBecome} ${globalStyle.subHeadingPoppins}`}
-              >
-                Lorem Ipsum velit auctor aliquet. Aenean sollic tudin, orem is
-                simply free text quis bibendum. Lorem Ipsum velit auctor
-                aliquet. Cras dictum. Lorem Ipsum velit auctor aliquet.
-              </div>
-            </div>
-            <WhiteRoundBtn
-              text="Become Investor"
-              onClick={() => navigate("/investor")}
-            />
+          <div
+            className={`${style.subHeadingBecome} ${globalStyle.subHeadingPoppins}`}
+          >
+            Lorem Ipsum velit auctor aliquet. Aenean sollic tudin, orem is
+            simply free text quis bibendum. Lorem Ipsum velit auctor aliquet.
+            Cras dictum. Lorem Ipsum velit auctor aliquet.
           </div>
-        </>
-      )}
+        </div>
+        <WhiteRoundBtn
+          text="Become Investor"
+          onClick={() => navigate("/investor")}
+        />
+      </div>
     </div>
   );
 }

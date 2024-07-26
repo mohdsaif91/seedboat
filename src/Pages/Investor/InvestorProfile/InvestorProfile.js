@@ -14,6 +14,7 @@ import Message from "../../Message/Message";
 import style from "./investorProfile.module.scss";
 import globalStyle from "../../../global.module.scss";
 import commonStyle from "../../../common.module.scss";
+import PageLoader from "../../../Components/PageLoader/PageLoader";
 
 function InvestorProfile() {
   const [profileTab, setProfileTab] = useState("Personal Information");
@@ -21,18 +22,15 @@ function InvestorProfile() {
   const [investorData, setInvestorData] = useState(null);
 
   const { state } = useLocation();
-  console.log(Axios.defaults.baseURL, " <>?");
-  // https://seedboat.qortechno.com/investor/investor-individual/userid
-  // https://seedboat.qortechno.com
   useEffect(() => {
     if (state.investorId) {
       setLoading(true);
-      Axios.get(
-        `${Axios.defaults.baseURL}/investor/investor-individual/${state.investorId}`
-      )
+      Axios.post(`${Axios.defaults.baseURL}/investor/investor-individual`, {
+        userid: state.investorId,
+      })
         .then((res) => {
           setLoading(false);
-          setInvestorData(res.data.data);
+          setInvestorData(res.data.data[0]);
           console.log(res.data, " <>? ");
         })
         .catch((err) => {
@@ -45,7 +43,7 @@ function InvestorProfile() {
   const getTab = () => {
     switch (true) {
       case profileTab === "Personal Information":
-        return <PersonalInformation />;
+        return <PersonalInformation data={investorData} />;
       case profileTab === "My Investment":
         return <MyInvestment />;
       case profileTab === "Saved":
@@ -55,7 +53,9 @@ function InvestorProfile() {
     }
   };
 
-  console.log(investorData, " <>?");
+  if (!investorData) {
+    return <PageLoader />;
+  }
 
   return (
     <div className={style.profileContainer}>
@@ -76,7 +76,7 @@ function InvestorProfile() {
               <div
                 className={`${style.profileHeading} ${globalStyle.headingPoppins}`}
               >
-                Marshall Ortega
+                {investorData?.fname} {investorData?.lname}
               </div>
               <div className={style.profileSubHeading}>UI Designer at ABC</div>
             </div>

@@ -58,6 +58,11 @@ import blog7 from "./Images/Rectangle 155.png";
 import blog8 from "./Images/Rectangle 156.png";
 import blog9 from "./Images/Rectangle 157.png";
 
+import founder from "./Images/founder.png";
+import serviceProvider from "./Images/serviceProvider.png";
+import startUp from "./Images/startUp.png";
+import investor from "./Images/investor.png";
+
 export const mentorsData = [
   {
     name: "Aishwarya Sood",
@@ -884,3 +889,28 @@ export const toBase64 = (file) =>
   });
 
 export const numberRegex = new RegExp("^[0-9]$");
+
+export const roleData = [
+  {
+    img: startUp,
+    label: "I am an Startup",
+    path: "/startUp",
+  },
+  {
+    img: investor,
+    label: "I am an Investor",
+    path: "/investor",
+  },
+];
+export const roleData2 = [
+  {
+    img: founder,
+    label: "I am an Co-founder, CTO, CFO, CMO, HR",
+    path: "/mentor",
+  },
+  {
+    img: serviceProvider,
+    label: "I am an Service Provider",
+    path: "/serviceProvider",
+  },
+];
