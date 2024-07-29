@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import Axios from "axios";
 
 import profileImage from "../../../../Images/Rectangle 200.png";
 import India from "../../../../Images/india.png";
@@ -11,15 +12,39 @@ import twitter from "../../../../Images/colotTwitter.png";
 import Review from "./Review/Review";
 import Overview from "./OverView/Overview";
 import Button from "../../../../Components/Button/Button";
+import { useGetSingleMentorQuery } from "../../../../Redux/Service/Mentor";
+import PageLoader from "../../../../Components/PageLoader/PageLoader";
 
 import style from "./mentorDetails.module.scss";
 import globalStyle from "../../../../global.module.scss";
 
 function MentorDetails() {
   const [tab, setTab] = useState("Overview");
+  const [mentorData, setMentorData] = useState();
 
+  const { state } = useLocation();
   const navigate = useNavigate();
 
+  // const [getSingleMentor] = useGetSingleMentorQuery();
+
+  useEffect(() => {
+    Axios.post(`${Axios.defaults.baseURL}mentor/mentor-individual`, {
+      email: state.mentorId,
+    })
+      .then((res) => {
+        setMentorData(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  // if (isLoading) {
+  //   return <PageLoader />;
+  // }
+
+  console.log(mentorData, " <>?");
+  //
   return (
     <div className={style.mentorDetailsContainer}>
       <div className={`${style.mentorHeader} ${globalStyle.subHeadingPoppins}`}>
@@ -27,7 +52,11 @@ function MentorDetails() {
       </div>
       <div className={style.detailsContainer}>
         <div className={style.leftContainer}>
-          <img src={profileImage} alt="" className={style.profileImage} />
+          <img
+            src={mentorData?.mentor_image}
+            alt=""
+            className={style.profileImage}
+          />
         </div>
         <div className={style.rightContainer}>
           <img src={India} alt="" className={style.countryFlag} />
@@ -59,13 +88,7 @@ function MentorDetails() {
           <div
             className={`${style.subMainText} ${globalStyle.subHeadingPoppins}`}
           >
-            Quisque consequat hendrerit accumsan. Vivamus diam lacus, vulputate
-            ac porta et, rutrum placerat mi. Fusce a erat sit amet enim
-            consectetur consectetur. Morbi laoreet scelerisque massa vitae
-            cursus. Pellentesque varius est vel blandit bibendum. Maecenas
-            fringilla justo justo. Praesent efficitur tristique nisl, vitae
-            bibendum mi consectetur eu. Sed non viverra ligula, convallis
-            interdum dui.
+            {mentorData?.user_message}
           </div>
           <div className={style.socialImageContainer}>
             <img src={linkedIn} alt="" className={style.socialIcon} />

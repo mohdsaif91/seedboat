@@ -44,8 +44,9 @@ function Mentor({ mentorData = [] }) {
       <div className={style.mentorsContainer}>
         <div className={style.mentortpeFilterContainer}>
           <img src={leftbtnArrow} alt="" className={style.leftBtnIcon} />
-          {mentorFilterlist.map((m) => (
+          {mentorFilterlist.map((m, i) => (
             <div
+              key={i}
               onClick={() => setMentorTab(m)}
               className={`${style.mentorListItem} ${
                 mentorTab === m && style.active
@@ -59,15 +60,15 @@ function Mentor({ mentorData = [] }) {
         <div
           className={`${commonStyle.linkDropDownContainer} ${style.cardContainer} JACKJILL`}
         >
-          {mentorData.map((m, i) => (
-            <>
-              <MentorCard
-                key={m._id}
-                className={style.mentorCardItem}
-                data={m}
-                onClick={() => navigate("/mentorDetails")}
-              />
-            </>
+          {mentorData.map((m) => (
+            <MentorCard
+              key={m._id}
+              className={style.mentorCardItem}
+              data={m}
+              onClick={() =>
+                navigate("/mentorDetails", { state: { mentorId: m.email } })
+              }
+            />
           ))}
         </div>
         <div className={style.btnContainer}>

@@ -65,7 +65,7 @@ const AddBlog = React.lazy(() => import("./Pages/Blog/AddBlog/AddBlog"));
 const SignUp = React.lazy(() => import("./Pages/Signup/SignUp"));
 const UpdateProfile = React.lazy(() => import("./Pages/Profile/UpdateProfile"));
 
-Axios.defaults.baseURL = "https://seedboat.qortechno.com";
+Axios.defaults.baseURL = "https://seedboat.casinotopaz.com/";
 // Axios.defaults.withCredentials = true;
 Axios.defaults.headers = {
   "Content-Type": "application/json",
