@@ -25,8 +25,6 @@ function MentorDetails() {
   const { state } = useLocation();
   const navigate = useNavigate();
 
-  // const [getSingleMentor] = useGetSingleMentorQuery();
-
   useEffect(() => {
     Axios.post(`${Axios.defaults.baseURL}mentor/mentor-individual`, {
       email: state.mentorId,
@@ -38,10 +36,6 @@ function MentorDetails() {
         console.log(err);
       });
   }, []);
-
-  // if (isLoading) {
-  //   return <PageLoader />;
-  // }
 
   console.log(mentorData, " <>?");
   //
@@ -79,10 +73,6 @@ function MentorDetails() {
             <div className={style.imageContainer}>
               <img src={message} alt="" className={style.messageIcon} />
               <img src={heart} alt="" className={style.messageIcon} />
-              <Button
-                text="View Profile"
-                onClick={() => navigate("/mentorProfile")}
-              />
             </div>
           </div>
           <div
@@ -116,7 +106,7 @@ function MentorDetails() {
           </div>
         </div>
         <div className={style.tabContainer}>
-          {tab === "Reviews" ? <Review /> : <Overview />}
+          {tab === "Reviews" ? <Review /> : <Overview data={mentorData} />}
         </div>
       </div>
     </div>

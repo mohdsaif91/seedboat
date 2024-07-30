@@ -3,14 +3,14 @@ import React from "react";
 import mentor from "../../../../../Images/icon/image 50.png";
 import cto from "../../../../../Images/icon/image 51.png";
 import projectManager from "../../../../../Images/icon/image 52.png";
-
-import style from "./overview.module.scss";
-import globalStyle from "../../../../../global.module.scss";
 import Button from "../../../../../Components/Button/Button";
 import { mentorsData } from "../../../../../util";
 import MentorCard from "../../../../../Components/MentorCard/MentorCard";
 
-function Overview() {
+import style from "./overview.module.scss";
+import globalStyle from "../../../../../global.module.scss";
+
+function Overview({ data }) {
   return (
     <div className={style.overviewContainer}>
       <div className={style.overViewItem}>
@@ -73,9 +73,9 @@ function Overview() {
         </div>
         <div className={style.itemContainer}>
           <div className={style.item}>
-            <label>E-commerce</label>
+            <label>{data.expertise_skills}</label>
           </div>
-          <div className={style.item}>
+          {/* <div className={style.item}>
             <label>Marketing</label>
           </div>
           <div className={style.item}>
@@ -86,7 +86,7 @@ function Overview() {
           </div>
           <div className={style.item}>
             <label>Branding</label>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className={style.overViewItem}>
@@ -130,9 +130,9 @@ function Overview() {
         </div>
         <div className={style.itemContainer}>
           <div className={style.item}>
-            <label>Managment</label>
+            <label>{data.discipline}</label>
           </div>
-          <div className={style.item}>
+          {/* <div className={style.item}>
             <label>Leadership</label>
           </div>
           <div className={style.item}>
@@ -140,7 +140,7 @@ function Overview() {
           </div>
           <div className={style.item}>
             <label>Leadership</label>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className={`${style.overViewItem} ${style.extraContainer}`}>

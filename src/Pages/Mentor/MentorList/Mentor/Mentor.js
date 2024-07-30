@@ -14,7 +14,7 @@ import style from "./mentor.module.scss";
 import globalStyle from "../../../../global.module.scss";
 import commonStyle from "../../../../common.module.scss";
 
-function Mentor({ mentorData = [] }) {
+function Mentor({ mentorData = [], nextPage, prevPage }) {
   const [search, setSearch] = useState("");
   const [mentorTab, setMentorTab] = useState("");
 
@@ -56,6 +56,20 @@ function Mentor({ mentorData = [] }) {
             </div>
           ))}
           <img src={rightBtnArrow} alt="" className={style.leftBtnIcon} />
+        </div>
+        <div className={style.navigationButtonsContainer}>
+          <img
+            src={leftbtnArrow}
+            alt=""
+            className={`${style.leftBtnIcon} ${style.paginationBtn}`}
+            onClick={prevPage}
+          />
+          <img
+            src={rightBtnArrow}
+            alt=""
+            className={`${style.leftBtnIcon} ${style.paginationBtn}`}
+            onClick={nextPage}
+          />
         </div>
         <div
           className={`${commonStyle.linkDropDownContainer} ${style.cardContainer} JACKJILL`}

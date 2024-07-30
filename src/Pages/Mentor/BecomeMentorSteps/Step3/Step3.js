@@ -141,11 +141,6 @@ const Step3 = forwardRef(
           )}
         </div>
         <div className={commonStyle.formInputItem}>
-          <div
-            className={`${commonStyle.formLabel} ${globalStyle.headingPoppins}`}
-          >
-            What postions would you like to work as ?
-          </div>
           <div className={commonStyle.formInputItem}>
             <div
               className={`${commonStyle.formLabel} ${globalStyle.headingPoppins}`}

@@ -2,13 +2,10 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 import { API_BASE_URL } from "../baseUrl";
 
-// https://seedboat.qortechno.com/mentor/mentor-individual
-//
-
 export const mentorApi = createApi({
   reducerPath: "mentorApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: `${API_BASE_URL}/mentor/mentor-individual`,
+    baseUrl: `${API_BASE_URL}/mentor`,
   }),
   endpoints: (builder) => ({
     getSingleMentor: builder.mutation({
@@ -18,7 +15,10 @@ export const mentorApi = createApi({
         body: data,
       }),
     }),
+    getAllMentor: builder.query({
+      query: (pageNumber) => `/mentorall/10/${pageNumber}`,
+    }),
   }),
 });
 
-export const { useGetSingleMentorQuery } = mentorApi;
+export const { useGetSingleMentorQuery, useGetAllMentorQuery } = mentorApi;

@@ -25,6 +25,18 @@
   }
   .mentorsContainer {
     margin-top: 64px;
+    .navigationButtonsContainer {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      .paginationBtn {
+        cursor: pointer;
+        &:first-child {
+          margin-right: 16px;
+        }
+      }
+    }
     .mentortpeFilterContainer {
       display: flex;
       align-items: center;
