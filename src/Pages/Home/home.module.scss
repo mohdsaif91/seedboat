@@ -164,11 +164,29 @@
       display: flex;
       align-items: center;
       margin: 88px 48px;
-      justify-content: space-around;
+      .iconContainer {
+        width: 5%;
+        .actionArrows {
+          cursor: pointer;
+        }
+      }
       .startUpCards {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        width: 90%;
+        .sliderContainer {
+          div[class="slick-list"] {
+            height: 240px;
+            div[class="slick-track"] {
+              div[class="slick-slide"] {
+                div {
+                  cursor: pointer;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -179,6 +197,7 @@
       justify-content: space-between;
       align-items: end;
       .serviceOfferCard {
+        width: 90%;
         margin-top: 64px;
         display: flex;
         justify-content: space-between;
@@ -189,7 +208,7 @@
         flex-direction: column;
       }
       .bottomBtnService {
-        margin-left: 48px;
+        // margin-left: 48px;
       }
     }
   }

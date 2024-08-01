@@ -37,12 +37,15 @@ function MentorDetails() {
       });
   }, []);
 
-  console.log(mentorData, " <>?");
-  //
+  if (!mentorData) {
+    return <PageLoader />;
+  }
+
   return (
     <div className={style.mentorDetailsContainer}>
       <div className={`${style.mentorHeader} ${globalStyle.subHeadingPoppins}`}>
-        <span className={style.mainName}>Mentors /</span> Pratik Bhalla
+        <span className={style.mainName}>Mentors /</span>{" "}
+        {mentorData.mentorname}
       </div>
       <div className={style.detailsContainer}>
         <div className={style.leftContainer}>
@@ -59,14 +62,14 @@ function MentorDetails() {
               <div
                 className={`${style.mainName} ${globalStyle.headingPoppins}`}
               >
-                Pratik Bhalla
+                {mentorData.mentorname}
               </div>
               <div className={style.designationContainer}>
                 <img src={work} alt="" />
                 <label
                   className={`${globalStyle.subHeadingPoppins} ${style.designation}`}
                 >
-                  Devloper at ABC
+                  {mentorData.designation} at {mentorData.company_employed}
                 </label>
               </div>
             </div>

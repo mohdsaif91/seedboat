@@ -23,9 +23,9 @@ function Overview({ data }) {
             style={{ backgroundColor: "#F8EBC5" }}
           >
             <img src={mentor} alt="" className={style.itemIcon} />
-            <label className={style.colorLabel}>Mentor</label>
+            <label className={style.colorLabel}>{data.discipline}</label>
           </div>
-          <div
+          {/* <div
             className={`${style.item} ${style.colorItem}`}
             style={{ backgroundColor: "#C5E6F8" }}
           >
@@ -38,7 +38,7 @@ function Overview({ data }) {
           >
             <img src={projectManager} alt="" className={style.itemIcon} />
             <label className={style.colorLabel}>Project Manager</label>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className={`${style.overViewItem} ${style.additionalContainer}`}>
@@ -114,13 +114,7 @@ function Overview({ data }) {
         </div>
         <div className={style.itemContainer}>
           <div className={style.item}>
-            <label>English</label>
-          </div>
-          <div className={style.item}>
-            <label>Hindi</label>
-          </div>
-          <div className={style.item}>
-            <label>Spanish</label>
+            <label>{data.user_speaking_lang}</label>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import p1 from "../../Images/p1.png";
 import p2 from "../../Images/p2.png";
@@ -12,14 +13,13 @@ import consulte from "../../Images/icon/consulte.png";
 import mentor from "../../Images/icon/mentor.png";
 import other from "../../Images/icon/other.png";
 import SelectDropdown from "../../Components/FormElements/SelectDropdown/SelectDropdown";
-
-import style from "./mentor.module.scss";
-import globalStyle from "../../global.module.scss";
 import { experienceCount, timeDuration } from "../../util";
 import { Input } from "../../Components/FormElements/Input/Input";
 import TextArea from "../../Components/FormElements/TextArea/TextArea";
 import Button from "../../Components/Button/Button";
-import { useNavigate } from "react-router-dom";
+
+import style from "./mentor.module.scss";
+import globalStyle from "../../global.module.scss";
 
 const resourceFormData = {
   experience: "",

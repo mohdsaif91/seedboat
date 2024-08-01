@@ -8,6 +8,7 @@ import React, {
 import profileAvatar from "../../../../Images/profileAvatar.png";
 import { Input } from "../../../../Components/FormElements/Input/Input";
 import { toBase64 } from "../../../../util";
+import DummyMentorImage from "../../../../Images/people/mentorDummyImage.jpeg";
 
 import style from "./step1.module.scss";
 import commonStyle from "../becomeMentorsteps.module.scss";
@@ -59,6 +60,7 @@ const Step1 = forwardRef(
           <input
             ref={inputFileRef}
             type="file"
+            accept="image/jpeg,image/png"
             onChange={(e) => {
               toBase64(e.target.files[0])
                 .then((data) => {

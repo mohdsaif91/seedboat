@@ -2,6 +2,7 @@
 
 .startUpContainer {
   color: $blackColor;
+  cursor: pointer;
   border-radius: 10px;
   border: 1px solid $greyColor3;
   padding: 24px 16px;
@@ -22,6 +23,7 @@
   }
 
   .nameContainer {
+    cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;

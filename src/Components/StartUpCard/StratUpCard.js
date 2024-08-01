@@ -6,12 +6,12 @@ function StratUpCard({ data }) {
   return (
     <div className={style.startUpContainer}>
       <div className={style.nameContainer}>
-        <div className={style.name}>{data.name}</div>
+        <div className={style.name}>{data.project_owner}</div>
         <img className={style.countryFlag} alt="" src={data.countryFlag} />
       </div>
       <div className={style.investmentContainer}>
         <label className={style.startUpLabel}>Investment Size</label>
-        <div className={style.startUpValue}>{data.investmentSize}</div>
+        <div className={style.startUpValue}>${data.project_fund_required}</div>
       </div>
       <div className={style.investmentContainer}>
         <label className={style.startUpLabel}>Investment Experience</label>

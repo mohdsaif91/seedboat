@@ -6,14 +6,6 @@ import HeadingAndSubHEading from "../../Components/HeadingAndSubHeading/HeadingA
 import VerticalDevider from "../../Components/VerticalDevider/VerticalDevider";
 import Step from "../../Components/Steps/Step";
 import { BlackBtn, WhiteBtn } from "../../Components/Button/Button";
-import Individual from "../../Images/individual.png";
-import Company from "../../Images/company.png";
-import { Input } from "../../Components/FormElements/Input/Input";
-import RadioButton from "../../Components/FormElements/RadioButton/RadioButton";
-import SelectDropdown from "../../Components/FormElements/SelectDropdown/SelectDropdown";
-import { actualJobType, gender } from "../../util";
-import TextArea from "../../Components/FormElements/TextArea/TextArea";
-import ToggleButton from "../../Components/ToggleButton/ToggleButton";
 import PageLoader from "../../Components/PageLoader/PageLoader";
 import Step1 from "./InvestorSteps/Step1";
 import Step2 from "./InvestorSteps/Step2";
@@ -37,7 +29,7 @@ const initailFormData = {
   user_service: "",
   user_gender: "",
   user_nationality: "",
-  dob: "",
+  dob: new Date(),
   user_message: "",
   investor_experience: "",
   investment_interest: "",

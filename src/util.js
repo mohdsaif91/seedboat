@@ -914,3 +914,12 @@ export const roleData2 = [
     path: "/serviceProvider",
   },
 ];
+
+export const generateRandomNumber = (arrLength) => {
+  let randomNumber = Math.random() * arrLength;
+  randomNumber = Math.floor(randomNumber);
+  if (randomNumber + 4 > arrLength) {
+    randomNumber = randomNumber - 4;
+  }
+  return randomNumber;
+};

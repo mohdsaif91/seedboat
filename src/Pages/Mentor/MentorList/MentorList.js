@@ -19,7 +19,11 @@ const MentorList = () => {
 
   const navigate = useNavigate();
 
-  const { isLoading, data: MentorData } = useGetAllMentorQuery(navigation);
+  const {
+    isLoading,
+    data: MentorData,
+    isFetching,
+  } = useGetAllMentorQuery(navigation);
 
   // useEffect(() => {
   //   setLoading(true);
@@ -34,7 +38,7 @@ const MentorList = () => {
   //     });
   // }, [navigation]);
 
-  if (isLoading) {
+  if (isLoading || isFetching) {
     return <PageLoader />;
   }
 
@@ -66,7 +70,7 @@ const MentorList = () => {
         <Mentor
           nextPage={() => setNavigation((state) => state + 1)}
           prevPage={() => navigation > 1 && setNavigation((state) => state - 1)}
-          mentorData={MentorData}
+          mentorData={MentorData.data}
         />
       ) : (
         <CoFounder />

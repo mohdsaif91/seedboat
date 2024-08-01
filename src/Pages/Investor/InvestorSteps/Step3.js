@@ -197,6 +197,11 @@ function Step3({ formData, setFormData, error }) {
             <div
               className={`${style.rangeLabel} ${globalStyle.headingPoppins}`}
             >
+              ${formData.investment_size}
+            </div>
+            <div
+              className={`${style.rangeLabel} ${globalStyle.headingPoppins}`}
+            >
               $10000+
             </div>
           </div>

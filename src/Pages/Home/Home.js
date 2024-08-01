@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import Slider from "react-slick";
 
 import Button from "../../Components/Button/Button";
 import rocket from "../../Images/icon/rocket.png";
@@ -11,9 +12,8 @@ import SlideBtn from "../../Components/SlideButton/SlideBtn";
 import {
   choosePlatformCardData,
   donateCardData,
-  mentorsData,
+  generateRandomNumber,
   servicesData,
-  startUpData,
 } from "../../util";
 import MentorCard from "../../Components/MentorCard/MentorCard";
 import leftArraow from "../../Images/icon/leftArrow.png";
@@ -21,11 +21,43 @@ import rightArraow from "../../Images/icon/rightIcon.png";
 import StratUpCard from "../../Components/StartUpCard/StratUpCard";
 import ServiceCard from "../../Components/ServiceCard/ServiceCard";
 import ChoosePlatformCard from "../../Components/ChoosePlatformCard/ChoosePlatformCard";
+import { useGetAllMentorQuery } from "../../Redux/Service/Mentor";
+import PageLoader from "../../Components/PageLoader/PageLoader";
+import { useGetInvestorListQuery } from "../../Redux/Service/Investor";
+import { useGetAllStartUpQuery } from "../../Redux/Service/StartUp";
 
 import style from "./home.module.scss";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+var settings = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  arrows: false,
+};
 
 function Home() {
   const navigate = useNavigate();
+
+  const slider = useRef(null);
+
+  const { isLoading: mentorLoading, data: MentorData } =
+    useGetAllMentorQuery(1);
+  // const { isLoading: investorLoading, data: investorData } =
+  //   useGetInvestorListQuery();
+
+  const { isLoading: startUpLoading, data: startUpData } =
+    useGetAllStartUpQuery();
+
+  if (mentorLoading || startUpLoading) {
+    return <PageLoader />;
+  }
+
+  const startNumber = generateRandomNumber(MentorData.data.length) - 1;
+
   return (
     <div className={style.homeContainer}>
       <div className={style.heroParentContainer}>
@@ -129,13 +161,20 @@ function Home() {
               imperdiet faucibus libero. Integer ac laoreet mauris.
             </div>
             <div>
-              <Button type="secondary" text="Become Mentor" />
-              <Button text="Explore Mentors" />
+              <Button
+                type="secondary"
+                onClick={() => navigate("/becomeMentor")}
+                text="Become Mentor"
+              />
+              <Button
+                text="Explore Mentor"
+                onClick={() => navigate("/mentorList")}
+              />
             </div>
           </div>
         </div>
         <div className={style.mentorCards}>
-          {mentorsData.map((m) => (
+          {MentorData.data.slice(startNumber, startNumber + 4).map((m) => (
             <MentorCard data={m} />
           ))}
         </div>
@@ -144,18 +183,45 @@ function Home() {
         <div className={style.headingContainer}>
           <div className={style.heading}>Explore Start-ups</div>
           <div>
-            <Button type="secondary" text="Become Investor" />
-            <Button text="Explore Investor" />
+            <Button
+              type="secondary"
+              onClick={() => navigate("/investor")}
+              text="Become Investor"
+            />
+            <Button
+              text="Explore Investor"
+              onClick={() => navigate("/investmentExploer")}
+            />
           </div>
         </div>
         <div className={style.startUpCardContainer}>
-          <img className={style.actionArrows} src={leftArraow} alt="" />
-          <div className={style.startUpCards}>
-            {startUpData.map((m) => (
-              <StratUpCard data={m} />
-            ))}
+          <div className={style.iconContainer}>
+            <img
+              className={style.actionArrows}
+              onClick={() => slider?.current?.slickPrev()}
+              src={leftArraow}
+              alt=""
+            />
           </div>
-          <img className={style.actionArrows} src={rightArraow} alt="" />
+          <div className={style.startUpCards}>
+            <Slider
+              ref={slider}
+              className={style.sliderContainer}
+              {...settings}
+            >
+              {startUpData.data.map((m) => (
+                <StratUpCard data={m} />
+              ))}
+            </Slider>
+          </div>
+          <div className={style.iconContainer}>
+            <img
+              className={style.actionArrows}
+              onClick={() => slider?.current?.slickNext()}
+              src={rightArraow}
+              alt=""
+            />
+          </div>
         </div>
       </div>
       <div className={style.containerFive}>
@@ -164,8 +230,8 @@ function Home() {
             Empower your business with our services
           </div>
           <div>
-            <Button type="secondary" text="Be Service Provider" />
-            <Button text="Explore Services" />
+            <Button type="secondary" text="Become Investor" />
+            <Button text="Explore investor" />
           </div>
         </div>
         <div className={style.serviceCardConatiner}>
@@ -177,7 +243,7 @@ function Home() {
           <SlideBtn
             className={style.bottomBtnService}
             type="vertical"
-            border={true}
+            border={false}
             btn2Color="#71d5bd"
           />
         </div>

@@ -68,9 +68,9 @@ const Step3 = forwardRef(
               Primary skill is required
             </div>
           )}
-          <button className={style.addExpertisebtn}>
+          {/* <button className={style.addExpertisebtn}>
             <span className={style.add}>+</span>Add secondary expertise
-          </button>
+          </button> */}
         </div>
         <div className={commonStyle.formInputItem}>
           <div

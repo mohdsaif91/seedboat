@@ -23,7 +23,7 @@ const initialStepData = {
   school: "",
   company: "",
   designation: "",
-  yearsOfProfessionalExp: "",
+  yearsOfProfessionalExp: "0",
   montsofProfessionalExp: "",
   professional_experience: "",
 };
@@ -49,6 +49,7 @@ const Step2 = forwardRef(
           stepData.company !== "" &&
           stepData.designation !== "" &&
           stepData.yearsOfProfessionalExp !== "" &&
+          stepData.yearsOfProfessionalExp !== 0 &&
           stepData.montsofProfessionalExp !== ""
         ) {
           setFormError(false);
@@ -279,17 +280,12 @@ const Step2 = forwardRef(
             >
               Years of professional experience
             </div>
-            <SelectDropdown
+            <Input
+              type="number"
               className={commonStyle.stepInput}
               value={stepData.yearsOfProfessionalExp}
-              optionData={years}
-              firstValue="Years"
-              onChange={
-                (e) => updateStepData("yearsOfProfessionalExp", e.target.valud)
-                // setStepData({
-                //   ...stepData,
-                //   yearsOfProfessionalExp: e.target.value,
-                // })
+              onChange={(e) =>
+                updateStepData("yearsOfProfessionalExp", e.target.value)
               }
             />
             {formError && stepData.yearsOfProfessionalExp === "" && (

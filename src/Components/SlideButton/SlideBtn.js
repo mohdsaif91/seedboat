@@ -3,6 +3,7 @@ import React from "react";
 import leftArrow from "../../Images/icon/leftBtnIcon.png";
 import rightIcon from "../../Images/icon/rightBtnIcon.png";
 import whiteArrow from "../../Images/icon/whiteArrow.png";
+import HomeRightArrow from "../../Images/icon/homeRightArrow.png";
 
 import style from "./slidebtn.module.scss";
 
@@ -33,13 +34,8 @@ function SlideBtn({
           border ? style.withBorder : style.noBorder
         } ${type === "vertical" && style.verticalMargin}`}
         onClick={rightClick}
-        style={{ backgroundColor: btn2Color !== "" && btn2Color }}
       >
-        <img
-          className={style.btnIcon}
-          src={btn2Color === "" ? rightIcon : whiteArrow}
-          alt=""
-        />
+        <img className={style.btnIcon} src={HomeRightArrow} alt="" />
       </button>
     </div>
   );

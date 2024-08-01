@@ -1,11 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-import { API_BASE_URL } from "../baseUrl";
+import { API_LIST } from "../baseUrl";
 
 export const mentorApi = createApi({
   reducerPath: "mentorApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: `${API_BASE_URL}/mentor`,
+    baseUrl: API_LIST.mentor,
   }),
   endpoints: (builder) => ({
     getSingleMentor: builder.mutation({
