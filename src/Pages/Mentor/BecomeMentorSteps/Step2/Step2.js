@@ -14,6 +14,8 @@ import {
 import style from "./step2.module.scss";
 import commonStyle from "../becomeMentorsteps.module.scss";
 import globalStyle from "../../../../global.module.scss";
+import SearchableDropdown from "../../../../Components/FormElements/SearchableDropdown/SearchableDropdown";
+import { countryOptions } from "../../../../util/formUtils";
 
 const initialStepData = {
   email: "",
@@ -176,15 +178,11 @@ const Step2 = forwardRef(
             >
               Country
             </div>
-            <SelectDropdown
-              className={commonStyle.stepInput}
+            <SearchableDropdown
+              onChange={(e) => updateStepData("country", e)}
               value={stepData.country}
-              optionData={countries}
-              firstValue="Eg.USA, India, etc"
-              onChange={
-                (e) => updateStepData("country", e.target.value)
-                // setStepData({ ...stepData, country: e.target.value })
-              }
+              placeHolder="Eg.USA, India, etc"
+              options={countryOptions}
             />
             {formError && stepData.country === "" && (
               <div className={globalStyle.validationErrorText}>

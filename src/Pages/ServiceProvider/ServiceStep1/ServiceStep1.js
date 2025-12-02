@@ -163,7 +163,7 @@ const ServiceStep1 = forwardRef((props, ref) => {
         </div>
         <SelectDropdown
           className={style.dropDown}
-          firstValue="Eg.USA, India, etc"
+          firstValue="Select Categories"
           value={step1Data.category}
           onChange={(e) => updateStepData("category", e.target.value)}
           optionData={countries}

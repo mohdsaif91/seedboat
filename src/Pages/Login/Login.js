@@ -62,7 +62,7 @@ function Login() {
           setLoading(false);
           console.log(res);
           sessionStorage.setItem("loginData", JSON.stringify(res.data));
-          navigate("/userRole");
+          navigate("/updateprofile");
         })
         .catch((err) => {
           setLoading(false);

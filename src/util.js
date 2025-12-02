@@ -244,36 +244,6 @@ export const donateCardData = [
     donor: "160",
     percentage: 85,
   },
-  //   {
-  //     img: donateCard1,
-  //     text: "Cras dictum libero",
-  //     subText:
-  //       "Vivamus eu ipsum feugiat, pharetra magna ac, aliquam ante. Nullam ornare vel purus nec viverra. Vivamus ut sem lacus.",
-  //     current: "90000",
-  //     target: "90000",
-  //     donor: "196",
-  //     percentage: 85,
-  //   },
-  //   {
-  //     img: donateCard2,
-  //     text: "Cras dictum libero",
-  //     subText:
-  //       "Vivamus eu ipsum feugiat, pharetra magna ac, aliquam ante. Nullam ornare vel purus nec viverra. Vivamus ut sem lacus.",
-  //     current: "60000",
-  //     target: "80000",
-  //     donor: "106",
-  //     percentage: 85,
-  //   },
-  //   {
-  //     img: donateCard3,
-  //     text: "Cras dictum libero",
-  //     subText:
-  //       "Vivamus eu ipsum feugiat, pharetra magna ac, aliquam ante. Nullam ornare vel purus nec viverra. Vivamus ut sem lacus.",
-  //     current: "60000",
-  //     target: "80000",
-  //     donor: "106",
-  //     percentage: 85,
-  //   },
 ];
 
 export const startUpData = [
